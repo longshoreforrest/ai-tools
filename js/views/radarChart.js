@@ -9,6 +9,7 @@ import { esc } from '../utils/render.js';
 const TOOL_COLORS = {
   'claude-code': '#5b6abf',
   'codex':       '#9b59b6',
+  'copilot':     '#1f6feb',
   'ide':         '#6a8a5a',
   'cowork':      '#2b7f6e',
   'custom':      '#c47d20',

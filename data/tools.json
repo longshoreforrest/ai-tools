@@ -14,6 +14,13 @@
     "category": "agentic"
   },
   {
+    "id": "copilot",
+    "name": "GitHub Copilot Pro",
+    "subtitle": "IDE + coding agent \u00b7 GitHub-native",
+    "isBuild": false,
+    "category": "agentic"
+  },
+  {
     "id": "ide",
     "name": "VS Code \u00b7 Cursor \u00b7 Windsurf",
     "subtitle": "AI-assisted IDE \u00b7 dev-in-loop",

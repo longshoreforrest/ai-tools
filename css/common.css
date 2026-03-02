@@ -314,33 +314,6 @@ body {
   border: 1.5px solid rgba(42,74,106,0.45);
 }
 
-/* ── View Mode Toggle Chips ── */
-.view-mode-chip {
-  font-family: 'Sora', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.35);
-  background: transparent;
-  border: 1.5px dashed rgba(255,255,255,0.12);
-  border-radius: 5px;
-  padding: 4px 12px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-  user-select: none;
-}
-.view-mode-chip:hover {
-  color: rgba(255,255,255,0.6);
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.2);
-  border-style: solid;
-}
-.view-mode-chip.active {
-  color: var(--teallt);
-  background: rgba(43,127,110,0.18);
-  border: 1.5px solid rgba(43,127,110,0.4);
-}
-
 /* ── Radar Chart ── */
 .radar-body {
   position: relative;
@@ -504,6 +477,49 @@ body {
 .export-pptx-btn.exporting {
   pointer-events: none;
   opacity: 0.5;
+}
+
+/* ── View Toggle Bar (Table / Chart) ── */
+.view-toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px 0;
+  background: var(--sand);
+}
+
+.view-toggle-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-right: 4px;
+}
+
+.view-toggle-btn {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text2);
+  background: var(--white);
+  border: 1.5px solid rgba(28,43,58,0.12);
+  border-radius: 5px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.view-toggle-btn:hover {
+  border-color: rgba(43,127,110,0.35);
+  background: rgba(43,127,110,0.04);
+}
+.view-toggle-btn.active {
+  color: var(--teal);
+  background: rgba(43,127,110,0.1);
+  border-color: rgba(43,127,110,0.35);
 }
 
 /* ── App Container ── */

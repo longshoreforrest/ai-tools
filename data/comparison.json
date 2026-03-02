@@ -56,6 +56,18 @@
         "type": "value",
         "text": "Highest tailoring value"
       }
+    },
+    "copilot": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "No documentation management or governance workflows",
+        "IDE-scoped \u2014 inaccessible to doc owners"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "IDE \u2014 not designed for documentation roles"
+      }
     }
   },
   "demand-assistant": {
@@ -114,6 +126,18 @@
       "chip": {
         "type": "value",
         "text": "Consistent, auditable demand outputs"
+      }
+    },
+    "copilot": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "No demand analysis or estimation workflows",
+        "IDE-scoped \u2014 not for PM or BA roles"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "IDE \u2014 no business-layer capabilities"
       }
     }
   },
@@ -174,6 +198,18 @@
         "type": "value",
         "text": "Enterprise templates and approval flows by design"
       }
+    },
+    "copilot": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "No document synthesis or spec drafting from business input",
+        "Developer-focused tool \u2014 not accessible to business roles"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "IDE-only \u2014 no access for business roles"
+      }
     }
   },
   "tech-spec": {
@@ -221,6 +257,15 @@
         "type": "value",
         "text": "Enterprise context embedded by design"
       }
+    },
+    "copilot": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Agent mode analyses code and suggests architecture patterns",
+        "Built-in security scanning, dependency checks and code review",
+        "Plan mode for reviewing approach before implementation"
+      ]
     }
   },
   "builder": {
@@ -268,6 +313,15 @@
         "type": "monitor",
         "text": "Monitoring layer \u2014 not an execution tool"
       }
+    },
+    "copilot": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Coding agent assigned to GitHub Issues \u2192 autonomous PR creation",
+        "Agent mode: multi-file edits, test execution, iterative fixes",
+        "Native GitHub integration \u2014 CI/CD, code review, security scanning"
+      ]
     }
   },
   "quality": {
@@ -314,6 +368,15 @@
         "type": "monitor",
         "text": "Monitoring layer \u2014 complements execution tools"
       }
+    },
+    "copilot": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Generate test cases and suggest edge cases in-editor",
+        "Automated code review with security and vulnerability scanning",
+        "Agent self-reviews PRs before opening \u2014 CodeQL integration"
+      ]
     }
   }
 }

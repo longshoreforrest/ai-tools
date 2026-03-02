@@ -111,15 +111,6 @@ function renderToolFilter(tools, capabilities) {
       return `<button class="role-chip${isActive ? ' active' : ''} ${r.id}" data-role-id="${r.id}" title="${r.desc}">${label}</button>`;
     }).join('');
 
-  const viewToggleHtml =
-    `<div class="filter-divider"></div>` +
-    `<span class="filter-section-label">View</span>` +
-    ['table', 'chart'].map(mode => {
-      const isActive = activeViewMode === mode;
-      const label = mode.charAt(0).toUpperCase() + mode.slice(1);
-      return `<button class="view-mode-chip${isActive ? ' active' : ''}" data-view-mode="${mode}">${isActive ? check : ''}${label}</button>`;
-    }).join('');
-
   // Row 2: Capabilities
   const capChipsHtml =
     `<span class="filter-section-label">Capabilities</span>` +
@@ -131,7 +122,7 @@ function renderToolFilter(tools, capabilities) {
     }).join('');
 
   filterEl.innerHTML =
-    `<div class="filter-row">${toolChipsHtml}${roleChipsHtml}${viewToggleHtml}</div>` +
+    `<div class="filter-row">${toolChipsHtml}${roleChipsHtml}</div>` +
     `<div class="filter-row">${capChipsHtml}</div>`;
 
   // Wire tool chip click handlers
@@ -176,10 +167,27 @@ function renderToolFilter(tools, capabilities) {
     });
   });
 
-  // Wire view mode toggle handlers
-  filterEl.querySelectorAll('.view-mode-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      activeViewMode = chip.dataset.viewMode;
+}
+
+/**
+ * Render the Table/Chart view toggle into the #view-toggle bar.
+ */
+function renderViewToggle(tools, capabilities) {
+  const toggleEl = document.getElementById('view-toggle');
+  const check = '\u2713 ';
+
+  const buttonsHtml = ['table', 'chart'].map(mode => {
+    const isActive = activeViewMode === mode;
+    const label = mode.charAt(0).toUpperCase() + mode.slice(1);
+    return `<button class="view-toggle-btn${isActive ? ' active' : ''}" data-view-mode="${mode}">${isActive ? check : ''}${label}</button>`;
+  }).join('');
+
+  toggleEl.innerHTML = `<span class="view-toggle-label">View</span>${buttonsHtml}`;
+
+  toggleEl.querySelectorAll('.view-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeViewMode = btn.dataset.viewMode;
+      renderViewToggle(tools, capabilities);
       renderToolFilter(tools, capabilities);
       renderCurrentView();
     });
@@ -192,7 +200,9 @@ function renderToolFilter(tools, capabilities) {
 function updateFilterVisibility() {
   const tab = TABS.find(t => t.id === activeTabId);
   const filterEl = document.getElementById('tool-filter');
+  const toggleEl = document.getElementById('view-toggle');
   filterEl.hidden = !(tab && tab.hasToolFilter);
+  toggleEl.hidden = !(tab && tab.hasToolFilter);
 }
 
 /* ────────────────────────────────────────────
@@ -301,6 +311,7 @@ async function navigate(tabId) {
       loadJSON('data/capabilities.json'),
     ]);
     renderToolFilter(tools, capabilities);
+    renderViewToggle(tools, capabilities);
   }
 
   // Render the view
