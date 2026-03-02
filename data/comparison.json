@@ -315,12 +315,13 @@
       }
     },
     "copilot": {
-      "score": 4,
-      "label": "Best fit",
+      "score": 3,
+      "label": "Good",
       "actions": [
         "Coding agent assigned to GitHub Issues \u2192 autonomous PR creation",
         "Agent mode: multi-file edits, test execution, iterative fixes",
-        "Native GitHub integration \u2014 CI/CD, code review, security scanning"
+        "Native GitHub integration \u2014 CI/CD, code review, security scanning",
+        "Token-credit model not well suited for sustained, heavy coding workloads"
       ]
     }
   },
