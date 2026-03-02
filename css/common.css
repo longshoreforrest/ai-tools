@@ -1,0 +1,515 @@
+/* ================================================================
+   common.css — Shared styles for AI Tools Comparison App
+   Loaded by every view.
+   ================================================================ */
+
+/* Google Fonts loaded via <link> in index.html */
+
+/* ── CSS Variables (merged from all source files) ── */
+:root {
+  /* Core palette */
+  --navy:      #1C2B3A;
+  --navy2:     #263647;
+  --navylt:    #EBF0F5;
+  --teal:      #2B7F6E;
+  --teal2:     #389880;
+  --teallt:    #C8E9E3;
+  --tan2:      #DDD4C6;
+  --sand:      #F4F1EA;
+  --grey:      #7A8A99;
+  --white:     #FFFFFF;
+  --text:      #1C2B3A;
+  --text2:     #4E6070;
+  --amber:     #C47D20;
+  --amberlt:   #FDF3E3;
+  --amberbd:   #E8A83A;
+
+  /* Agent architecture layers */
+  --layer-ui-bg:    #F9F7F2;
+  --layer-orch-bg:  #ECEEF3;
+  --layer-know-bg:  #E5F1EE;
+  --layer-ent-bg:   #E5F1EE;
+
+  /* Agent / Skill / Template card tokens */
+  --agent-bg:  #EBF0F5;
+  --agent-bd:  rgba(28,43,58,0.18);
+  --skill-bg:  #E5F4F1;
+  --skill-bd:  rgba(43,127,110,0.22);
+  --tmpl-bg:   #FDF3E3;
+  --tmpl-bd:   rgba(196,125,32,0.22);
+
+  /* Role category tokens (tool comparison + matrix) */
+  --biz-bg:    #f0eae1;
+  --biz-bd:    #c8b89a;
+  --biz-label: #7a5c3a;
+  --tech-bg:   #e6edf5;
+  --tech-bd:   #9aaec8;
+  --tech-label:#2a4a6a;
+
+  /* Build column tokens */
+  --build-hdr: #7a5010;
+  --build-bd:  #d4922a;
+  --build-bg:  #fdf6e8;
+
+  /* Score colours */
+  --s4: #2b7f6e;
+  --s3: #5a9b5a;
+  --s2: #b8943a;
+  --s1: #b05a40;
+
+  /* Tool category colours */
+  --agentic:       #5b6abf;
+  --agentic-bg:    rgba(91,106,191,0.06);
+  --agentic-bd:    rgba(91,106,191,0.18);
+  --agentic-hdr-bg:rgba(91,106,191,0.07);
+  --agentic-hdr-bd:rgba(91,106,191,0.22);
+
+  --ide-cat:       #6a8a5a;
+  --ide-bg:        rgba(106,138,90,0.05);
+  --ide-bd:        rgba(106,138,90,0.15);
+  --ide-hdr-bg:    rgba(106,138,90,0.06);
+  --ide-hdr-bd:    rgba(106,138,90,0.2);
+
+  /* Score pill backgrounds + borders (functionality matrix) */
+  --s4-bg: rgba(43, 127, 110, 0.1);
+  --s4-bd: rgba(43, 127, 110, 0.28);
+  --s3-bg: rgba(90, 155, 90, 0.1);
+  --s3-bd: rgba(90, 155, 90, 0.28);
+  --s2-bg: rgba(184, 148, 58, 0.1);
+  --s2-bd: rgba(184, 148, 58, 0.28);
+  --s1-bg: rgba(176, 90, 64, 0.08);
+  --s1-bd: rgba(176, 90, 64, 0.2);
+  --na-bg: rgba(221, 212, 198, 0.35);
+  --na-bd: rgba(221, 212, 198, 0.7);
+}
+
+/* ── Reset ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Body ── */
+body {
+  background: var(--sand);
+  font-family: 'Sora', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* ── Navigation Tab Bar ── */
+.nav {
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 46px;
+  gap: 2px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.nav-tab {
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  background: transparent;
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s ease, background 0.15s ease;
+  border-radius: 4px 4px 0 0;
+  white-space: nowrap;
+  letter-spacing: 0.1px;
+}
+
+.nav-tab:hover {
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.06);
+}
+
+.nav-tab.active {
+  color: var(--teallt);
+  background: rgba(43,127,110,0.12);
+}
+
+.nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  height: 3px;
+  background: var(--teal2);
+  border-radius: 3px 3px 0 0;
+}
+
+/* ── Tool Filter Bar ── */
+.tool-filter {
+  background: var(--navy2);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  padding: 5px 24px;
+  gap: 8px;
+}
+.filter-row + .filter-row {
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 4px;
+  padding-bottom: 6px;
+}
+
+.filter-heading {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.filter-section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.tool-chip {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  background: transparent;
+  border: 1.5px dashed rgba(255,255,255,0.12);
+  border-radius: 5px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.tool-chip:hover {
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+  border-style: solid;
+}
+
+.tool-chip.active {
+  color: var(--teallt);
+  background: rgba(43,127,110,0.18);
+  border: 1.5px solid rgba(43,127,110,0.4);
+}
+
+.tool-chip.active.build {
+  color: #f0d8a0;
+  background: rgba(212,146,42,0.15);
+  border: 1.5px solid rgba(212,146,42,0.35);
+}
+.tool-chip.active.agentic {
+  color: #c3caf0;
+  background: rgba(91,106,191,0.18);
+  border: 1.5px solid rgba(91,106,191,0.4);
+}
+.tool-chip.active.ide {
+  color: #c4dabb;
+  background: rgba(106,138,90,0.18);
+  border: 1.5px solid rgba(106,138,90,0.4);
+}
+
+/* Filter bar divider between tool chips and role chips */
+.filter-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 6px;
+  flex-shrink: 0;
+}
+
+/* Role filter chips */
+.role-chip {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  background: transparent;
+  border: 1.5px dashed rgba(255,255,255,0.12);
+  border-radius: 5px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+.role-chip:hover {
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+  border-style: solid;
+}
+.role-chip.active.biz {
+  color: #e8d4b8;
+  background: rgba(122,92,58,0.2);
+  border: 1.5px solid rgba(122,92,58,0.45);
+}
+.role-chip.active.tech {
+  color: #b8d0e8;
+  background: rgba(42,74,106,0.2);
+  border: 1.5px solid rgba(42,74,106,0.45);
+}
+
+/* Capability filter chips */
+.cap-chip {
+  font-family: 'Sora', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  background: transparent;
+  border: 1.5px dashed rgba(255,255,255,0.12);
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+.cap-chip:hover {
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+  border-style: solid;
+}
+.cap-chip .cap-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  opacity: 0.7;
+  margin-right: 3px;
+}
+.cap-chip.active.biz {
+  color: #e8d4b8;
+  background: rgba(122,92,58,0.2);
+  border: 1.5px solid rgba(122,92,58,0.45);
+}
+.cap-chip.active.tech {
+  color: #b8d0e8;
+  background: rgba(42,74,106,0.2);
+  border: 1.5px solid rgba(42,74,106,0.45);
+}
+
+/* ── View Mode Toggle Chips ── */
+.view-mode-chip {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  background: transparent;
+  border: 1.5px dashed rgba(255,255,255,0.12);
+  border-radius: 5px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+.view-mode-chip:hover {
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+  border-style: solid;
+}
+.view-mode-chip.active {
+  color: var(--teallt);
+  background: rgba(43,127,110,0.18);
+  border: 1.5px solid rgba(43,127,110,0.4);
+}
+
+/* ── Radar Chart ── */
+.radar-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0 8px;
+}
+.radar-body svg {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+}
+.radar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+.radar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text2);
+}
+.radar-legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.radar-min-msg {
+  text-align: center;
+  padding: 60px 24px;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  color: var(--grey);
+  font-style: italic;
+}
+
+/* Dot tooltip */
+.radar-tooltip {
+  position: absolute;
+  z-index: 10;
+  background: var(--white);
+  border: 1px solid rgba(28,43,58,0.12);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(28,43,58,0.12);
+  padding: 10px 14px;
+  max-width: 300px;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  font-family: 'Sora', sans-serif;
+}
+.radar-tooltip-label {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.radar-tooltip-label.s4 { color: var(--s4); }
+.radar-tooltip-label.s3 { color: var(--s3); }
+.radar-tooltip-label.s2 { color: var(--s2); }
+.radar-tooltip-label.s1 { color: var(--s1); }
+.radar-tooltip-actions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.radar-tooltip-actions li {
+  font-size: 10px;
+  color: var(--text2);
+  padding: 2px 0;
+  padding-left: 10px;
+  position: relative;
+  line-height: 1.4;
+}
+.radar-tooltip-actions li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--grey);
+}
+.radar-tooltip-chip {
+  font-size: 9px;
+  margin-top: 6px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: var(--text2);
+  background: rgba(28,43,58,0.05);
+  border: 1px solid rgba(28,43,58,0.08);
+  line-height: 1.3;
+}
+
+/* Larger hover target for dots */
+.radar-dot { cursor: pointer; }
+
+/* Dimension toggle buttons */
+.radar-dim-toggle { display: flex; justify-content: center; gap: 4px; margin-bottom: 8px; }
+.radar-dim-btn {
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text2);
+  background: var(--white);
+  border: 1.5px solid rgba(28,43,58,0.12);
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.radar-dim-btn:hover {
+  border-color: rgba(28,43,58,0.25);
+  background: rgba(43,127,110,0.04);
+}
+.radar-dim-btn.active {
+  color: var(--teal);
+  background: rgba(43,127,110,0.1);
+  border-color: rgba(43,127,110,0.35);
+}
+
+/* Series groups: click to lock, dim others */
+.radar-series-group { transition: opacity 0.2s ease; cursor: pointer; }
+.radar-series-group:hover { filter: brightness(1.08); }
+.radar-body[data-hover-series] .radar-series-group { opacity: 0.15; pointer-events: auto; }
+.radar-body[data-hover-series] .radar-series-group.radar-highlight { opacity: 1; }
+
+/* Score labels: hidden until series is locked */
+.radar-score-label { opacity: 0; transition: opacity 0.2s ease; pointer-events: none; }
+.radar-series-group.radar-highlight .radar-score-label { opacity: 1; }
+
+/* Legend items: dim when a series is locked */
+.radar-legend-item { cursor: pointer; transition: opacity 0.2s ease; }
+.radar-legend-item:hover { text-decoration: underline; }
+.radar-body[data-hover-series] .radar-legend-item { opacity: 0.35; }
+.radar-body[data-hover-series] .radar-legend-item.radar-highlight { opacity: 1; }
+
+/* ── Export PPTX Button ── */
+.export-pptx-btn {
+  position: absolute;
+  z-index: 50;
+  font: 600 10px 'Sora', sans-serif;
+  color: var(--text2);
+  background: var(--white);
+  border: 1.5px solid rgba(28,43,58,0.12);
+  border-radius: 5px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.export-pptx-btn:hover {
+  color: var(--teal);
+  border-color: rgba(43,127,110,0.35);
+}
+.export-pptx-btn.exporting {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ── App Container ── */
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}

@@ -1,0 +1,185 @@
+{
+  "sidebar": {
+    "eyebrow": "Quality \u00b7 Capability 06 / 06",
+    "type": "Agent",
+    "title": "Quality Spec &<br>Test Automation",
+    "tagline": "Generates quality specs and TDD contracts before build. Executes and maintains test automation during and after build \u2014 in CI/CD and alongside Builder Agent.",
+    "principle": {
+      "label": "\u26a1 Key Principle \u2014 Quality-first",
+      "text": "Test definitions are the starting contract. TDD contracts sent to Builder before a single line of code is written."
+    },
+    "inputs": [
+      { "text": "Business specs + tech-spec outputs", "highlight": true },
+      { "text": "QA & test automation guidelines", "highlight": false },
+      { "text": "Test plan + test case template library", "highlight": false },
+      { "text": "Reusable test automation asset library", "highlight": false }
+    ],
+    "outputs": [
+      { "text": "TDD contracts \u2192 Builder Agent", "highlight": true },
+      { "text": "Test plan + acceptance criteria", "highlight": true },
+      { "text": "Automated test suite (unit, E2E)", "highlight": false },
+      { "text": "Defect reports + coverage dashboard", "highlight": false },
+      { "text": "Test reports + quality baseline", "highlight": false }
+    ],
+    "pageNum": "04 / 05"
+  },
+  "layers": {
+    "ui": {
+      "type": "dual",
+      "cards": [
+        {
+          "title": "QA Engineer Workspace",
+          "chips": ["VS Code", "GitHub Copilot"],
+          "softChips": ["Test frameworks", "Jira"],
+          "note": "Author quality specs, review test plans, approve TDD contracts before build"
+        },
+        {
+          "title": "CI/CD Pipeline Runner",
+          "chips": ["GitHub Actions", "Azure DevOps"],
+          "softChips": ["Triggered per commit"],
+          "note": "Automated execution surface \u2014 runs contracts, reports defects, gates deployment"
+        }
+      ]
+    },
+    "orchestration": {
+      "type": "dual-phase",
+      "orchestrator": {
+        "name": "Quality Orchestrator Agent",
+        "bullets": [
+          { "text": "Phase management: spec \u2192 contracts \u2192 automation", "highlight": true },
+          { "text": "Sub-agent and skill dispatch", "highlight": false },
+          { "text": "HITL checkpoints before build + before deploy", "highlight": false },
+          { "text": "Artifact assembly: plans, contracts, reports", "highlight": false }
+        ]
+      },
+      "phases": [
+        {
+          "id": "spec",
+          "number": 1,
+          "title": "Quality Specification",
+          "when": "Before build",
+          "components": [
+            {
+              "kind": "skill",
+              "name": "Quality Strategy",
+              "note": "Testing approach per domain \u00b7 coverage targets \u00b7 risk tiers \u00b7 QA guidelines",
+              "typeLabel": "Skill \u2014 shared",
+              "span2": false
+            },
+            {
+              "kind": "skill",
+              "name": "Spec \u2192 Acceptance Criteria",
+              "note": "Reqs \u2192 testable AC \u00b7 HITL-validated before coding",
+              "typeLabel": "Skill \u2014 shared \u00d73",
+              "span2": false,
+              "crossTag": "\u2197 shared with Biz Intent + Sparring"
+            },
+            {
+              "kind": "skill",
+              "name": "Test Plan Generator",
+              "note": "Structured test plan \u00b7 functional + NFR coverage \u00b7 defect surfacing strategy",
+              "typeLabel": "Skill \u2014 reusable",
+              "span2": false
+            },
+            {
+              "kind": "template",
+              "name": "TDD Contract",
+              "note": "Sent to Builder Agent first \u00b7 defines Red\u2192Green\u2192Refactor gate",
+              "typeLabel": "Template \u2014 produced here",
+              "span2": false,
+              "crossTag": "\u2192 consumed by Builder Agent"
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "number": 2,
+          "title": "Test Automation",
+          "when": "During + after build",
+          "components": [
+            {
+              "kind": "skill",
+              "name": "Test Script Generator",
+              "note": "TDD contract stubs (unit) \u00b7 integration + E2E scripts",
+              "typeLabel": "Skill \u2014 shared \u00d72",
+              "span2": false,
+              "crossTag": "\u2197 also called by Builder Agent"
+            },
+            {
+              "kind": "skill",
+              "name": "Automated Test Maintenance",
+              "note": "Generate + maintain test suite \u00b7 keep aligned with codebase changes",
+              "typeLabel": "Skill",
+              "span2": false
+            },
+            {
+              "kind": "skill",
+              "name": "Defect Detection",
+              "note": "Surface functional + non-functional defects during build phase",
+              "typeLabel": "Skill",
+              "span2": false
+            },
+            {
+              "kind": "skill",
+              "name": "Test Report Generator",
+              "note": "Coverage dashboard \u00b7 defect reports \u00b7 living quality baseline",
+              "typeLabel": "Skill",
+              "span2": false
+            }
+          ]
+        }
+      ]
+    },
+    "knowledge": {
+      "cards": [
+        {
+          "name": "QA Ways-of-Working",
+          "desc": "Testing practices \u00b7 quality standards \u00b7 AI-native QA guidelines \u00b7 tools-specific config"
+        },
+        {
+          "name": "Test Asset Library",
+          "desc": "Test plan templates \u00b7 test case templates \u00b7 strategy patterns"
+        },
+        {
+          "name": "Test Automation Assets",
+          "desc": "Reusable script templates \u00b7 automation patterns \u00b7 coverage baselines"
+        }
+      ],
+      "rag": {
+        "label": "RAG / Retrieval Pipeline",
+        "body": "Vector store \u00b7 semantic search over enterprise guidelines, test cases, automation patterns, codebase and defect history"
+      }
+    },
+    "enterprise": {
+      "protoTags": ["MCP", "API"],
+      "cards": [
+        {
+          "name": "CI/CD Pipeline",
+          "detail": "Build triggers \u00b7 test execution \u00b7 gate enforcement",
+          "chips": ["GitHub Actions", "Azure DevOps"]
+        },
+        {
+          "name": "Test Frameworks",
+          "detail": "Unit, integration and E2E execution",
+          "chips": ["Jest", "Playwright", "Cypress"]
+        },
+        {
+          "name": "Code Coverage",
+          "detail": "Coverage analysis \u00b7 threshold enforcement \u00b7 trend tracking",
+          "chips": []
+        },
+        {
+          "name": "Defect Tracking",
+          "detail": "Issue creation \u00b7 defect linkage to specs and commits",
+          "chips": ["Jira"]
+        },
+        {
+          "name": "\u2197 Builder Agent",
+          "detail": "Receives TDD contracts \u00b7 triggers Test Script Generator \u00b7 returns build artefacts for validation",
+          "chips": [],
+          "isBuilderDep": true
+        }
+      ]
+    }
+  }
+}

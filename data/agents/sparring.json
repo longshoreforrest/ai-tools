@@ -1,0 +1,137 @@
+{
+  "sidebar": {
+    "eyebrow": "Tech-Spec \u00b7 Capability 04 / 06",
+    "type": "Agent",
+    "title": "Tech-Spec<br>Sparring Agent",
+    "tagline": "Spars on architecture decisions, flags compliance and security risks, maps dependencies. Keeps the architect in the loop throughout.",
+    "principle": {
+      "label": "\u26a1 Key Principle \u2014 HITL-first",
+      "text": "No architecture decision closes without human sign-off. No ADR is generated without HITL validation."
+    },
+    "inputs": [
+      { "text": "Business specs + technical requirements", "highlight": true },
+      { "text": "Enterprise architecture guidelines", "highlight": false },
+      { "text": "AI Governance & IT security guidelines", "highlight": false },
+      { "text": "System dependency knowledge & docs", "highlight": false }
+    ],
+    "outputs": [
+      { "text": "Architecture proposal + ADRs", "highlight": true },
+      { "text": "Dependency map", "highlight": true },
+      { "text": "Compliance and risk report", "highlight": false },
+      { "text": "Estimation baseline", "highlight": false },
+      { "text": "Requirements + acceptance criteria", "highlight": false }
+    ],
+    "pageNum": "03 / 05"
+  },
+  "layers": {
+    "ui": {
+      "type": "single",
+      "card": {
+        "title": "Multi-modal Sparring Interface",
+        "chips": [
+          "Conversational chat",
+          "Voice / transcription",
+          "Document upload"
+        ],
+        "softChips": [
+          "Structured forms?"
+        ],
+        "note": "Architect or tech lead engages directly \u2014 session-aware, multi-turn dialogue"
+      }
+    },
+    "orchestration": {
+      "type": "standard",
+      "orchestrator": {
+        "name": "Sparring Orchestrator Agent",
+        "bullets": [
+          { "text": "Session management and conversation state", "highlight": true },
+          { "text": "Sub-agent management", "highlight": false },
+          { "text": "Human-in-the-loop checkpoints", "highlight": false },
+          { "text": "Artifact assembly and output formatting", "highlight": false }
+        ]
+      },
+      "components": [
+        {
+          "kind": "agent",
+          "name": "Architectural Sparring",
+          "note": "Suggest solution options aligned with enterprise architecture patterns",
+          "typeLabel": "Agent",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Compliance & Security Check",
+          "note": "Flag risks against AI Gov., IT Security and Data governance rules",
+          "typeLabel": "Skill \u2014 shared",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Specification Refinement",
+          "note": "Sharpen and structure technical specs from sparring output",
+          "typeLabel": "Skill \u2014 shared",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Dependency Mapping",
+          "note": "Build system dependency maps from codebase and integration docs",
+          "typeLabel": "Skill \u2014 shared",
+          "span2": false
+        },
+        {
+          "kind": "agent",
+          "name": "Complexity & Risk Assessment",
+          "note": "Surface hidden complexity drivers \u2014 integration, data, cross-domain impact",
+          "typeLabel": "Agent",
+          "span2": true
+        }
+      ]
+    },
+    "knowledge": {
+      "cards": [
+        {
+          "name": "Context Assembly",
+          "desc": "Constraints \u00b7 standards \u00b7 architecture guidelines \u00b7 patterns"
+        },
+        {
+          "name": "Session Memory",
+          "desc": "Conversation history \u00b7 decisions made \u00b7 open items"
+        },
+        {
+          "name": "Knowledge Graph",
+          "desc": "Dependencies \u00b7 impact analysis paths \u00b7 data flows \u00b7 integration topology"
+        }
+      ],
+      "rag": {
+        "label": "RAG / Retrieval Pipeline",
+        "body": "Vector store \u00b7 semantic search over enterprise documentation, architecture guidelines, and codebase patterns"
+      }
+    },
+    "enterprise": {
+      "protoTags": ["MCP", "API"],
+      "cards": [
+        {
+          "name": "Integration Catalog",
+          "detail": "Enterprise integration patterns and connector registry",
+          "chips": ["Boomi", "ESB"]
+        },
+        {
+          "name": "Document Repositories",
+          "detail": "Architecture docs \u00b7 ADRs \u00b7 technical specs \u00b7 compliance docs",
+          "chips": []
+        },
+        {
+          "name": "ForBot",
+          "detail": "Internal knowledge base and process automation connector",
+          "chips": []
+        },
+        {
+          "name": "Project Management",
+          "detail": "Backlog \u00b7 sprint tracking \u00b7 change requests",
+          "chips": ["ServiceNow", "Azure DevOps", "Jira"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "knowledge-gen": {
+    "claude-code": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Read, update and version docs programmatically",
+        "Check guideline alignment via scripted rules"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "CLI or IDE \u2014 both inaccessible to doc owners without dev setup"
+      }
+    },
+    "ide": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "Inline doc comments for developers only"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "IDE \u2014 inaccessible to doc owners"
+      }
+    },
+    "codex": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "Developer-facing codebase tool only",
+        "No doc governance or guideline workflows"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Developer desktop \u2014 not for doc roles"
+      }
+    },
+    "cowork": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Assess, clean and summarise docs in natural language",
+        "Check alignment to enterprise guidelines",
+        "Manage file updates and Confluence sync"
+      ]
+    },
+    "custom": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Doc portal with embedded guideline checker",
+        "Conversational search over the doc corpus",
+        "Built-in HITL sign-off and approval workflow"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Highest tailoring value"
+      }
+    }
+  },
+  "demand-assistant": {
+    "claude-code": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Codebase impact analysis of new requirements",
+        "Effort estimation from repo history"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "CLI or IDE \u2014 not self-serve for PMs/BAs regardless of surface"
+      }
+    },
+    "ide": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "No demand or estimation capability"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "IDE-scoped \u2014 not designed for this role"
+      }
+    },
+    "codex": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "Code-centric multi-agent tool",
+        "No business demand or estimation workflows"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Developer desktop \u2014 no business layer"
+      }
+    },
+    "cowork": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Compare demands and draft project timelines",
+        "Create project structure documents",
+        "Light on cross-system technical impact analysis"
+      ]
+    },
+    "custom": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Structured demand intake triggers AI impact analysis",
+        "Estimation dashboard drawing on historical project data",
+        "Jira/ADO integration \u2014 output lands directly in backlog"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Consistent, auditable demand outputs"
+      }
+    }
+  },
+  "biz-intent": {
+    "claude-code": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Best reasoning for memo-to-spec synthesis",
+        "Cannot self-serve \u2014 requires API wrapper or dev setup"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "CLI or IDE \u2014 neither surface reaches business roles without a wrapper"
+      }
+    },
+    "ide": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "No document synthesis or spec drafting workflows"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "IDE-only \u2014 no access for business roles"
+      }
+    },
+    "codex": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "Code-generation desktop app, no business document input",
+        "No natural language spec drafting for non-technical roles"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Developer desktop \u2014 not for this role"
+      }
+    },
+    "cowork": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Ingest Teams memos and spar on requirements",
+        "Draft feature specs and generate structured artifacts",
+        "No technical setup \u2014 direct business role access"
+      ]
+    },
+    "custom": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Teams-integrated memo ingestion and guided AI sparring",
+        "Templated feature spec / change spec outputs",
+        "HITL approval and sign-off tracking baked in"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Enterprise templates and approval flows by design"
+      }
+    }
+  },
+  "tech-spec": {
+    "claude-code": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Full codebase traversal for dependency mapping \u2014 in terminal or IDE",
+        "Flag compliance and security risks; generate ADRs inside the editor",
+        "IDE extension removes context-switching \u2014 architect stays in their tool"
+      ]
+    },
+    "ide": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Inline spec review and architecture pattern suggestions",
+        "Limited cross-repo analysis and no governance enforcement"
+      ]
+    },
+    "codex": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Reason about code structure and surface hidden complexity",
+        "No enterprise compliance rules or architecture governance"
+      ]
+    },
+    "cowork": {
+      "score": 1,
+      "label": "N/A",
+      "actions": [
+        "No architecture, dependency or compliance capability"
+      ]
+    },
+    "custom": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Sparring UI pre-loaded with enterprise patterns and compliance rules",
+        "Visual dependency map and ADR generation with structured templates",
+        "Compliance flag dashboard \u2014 context no generic tool carries by default"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Enterprise context embedded by design"
+      }
+    }
+  },
+  "builder": {
+    "claude-code": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Reads spec \u2192 decomposes tasks \u2192 loads TDD contracts first",
+        "Writes code, runs tests, enforces guardrails, commits, raises PR",
+        "Runs from terminal or within IDE via extension \u2014 developer's choice of surface"
+      ]
+    },
+    "ide": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Real-time inline suggestions and agent mode in the editor",
+        "Best developer-in-loop experience \u2014 high velocity, immediate feedback"
+      ]
+    },
+    "codex": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Run multiple coding agents in parallel via Git worktrees",
+        "Review diffs, comment inline, commit \u2014 all without leaving the app",
+        "Automations for scheduled builds and CI/CD tasks"
+      ]
+    },
+    "cowork": {
+      "score": 1,
+      "label": "N/A",
+      "actions": [
+        "Desktop automation \u2014 no code generation or build workflows"
+      ]
+    },
+    "custom": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Build health dashboard \u2014 agent task progress, TDD contract status, PR queue",
+        "Readable by leads and stakeholders \u2014 no CLI access needed"
+      ],
+      "chip": {
+        "type": "monitor",
+        "text": "Monitoring layer \u2014 not an execution tool"
+      }
+    }
+  },
+  "quality": {
+    "claude-code": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Generate TDD contracts, test plans and test scripts from requirements",
+        "Run tests, surface defects, produce coverage reports with CI/CD integration",
+        "QA engineers can invoke directly from IDE without switching to terminal"
+      ]
+    },
+    "ide": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Generate test cases and suggest edge cases inline in the editor",
+        "No autonomous test execution \u2014 engineer runs and interprets manually"
+      ]
+    },
+    "codex": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Scheduled automations for CI/CD monitoring and issue triage",
+        "Generate test scripts; no built-in test plan or defect-surfacing workflow"
+      ]
+    },
+    "cowork": {
+      "score": 1,
+      "label": "N/A",
+      "actions": [
+        "No test generation, execution or QA reporting capability"
+      ]
+    },
+    "custom": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Quality dashboard \u2014 coverage, defect severity, gate status per sprint",
+        "Visible to QA leads, PMs and stakeholders in plain language"
+      ],
+      "chip": {
+        "type": "monitor",
+        "text": "Monitoring layer \u2014 complements execution tools"
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "sidebar": {
+    "eyebrow": "Builder \u00b7 Capability 05 / 06",
+    "type": "Agent",
+    "title": "Builder /<br>Coding Agent",
+    "tagline": "Orchestrates spec-driven code generation. Delegates to shared skills. Owns the TDD enforcement loop.",
+    "principle": {
+      "label": "\u26a1 Key Principle \u2014 TDD-first",
+      "text": "Code only starts after test contracts are loaded. A task closes only when all contracts pass."
+    },
+    "inputs": [
+      { "text": "TDD contracts \u2014 from Quality Agent first", "highlight": true },
+      { "text": "Approved technical specifications", "highlight": false },
+      { "text": "Governance & guardrail policies", "highlight": false },
+      { "text": "AI-native ways of working", "highlight": false }
+    ],
+    "outputs": [
+      { "text": "Production code \u00b7 passing test suite", "highlight": true },
+      { "text": "Spec \u2194 code \u2194 test traceability matrix", "highlight": false },
+      { "text": "PR ready for human review", "highlight": false },
+      { "text": "Quality gate reports", "highlight": false }
+    ],
+    "pageNum": "02 / 05"
+  },
+  "layers": {
+    "ui": {
+      "type": "dual",
+      "cards": [
+        {
+          "title": "Developer Workspace",
+          "chips": ["VS Code", "GitHub Copilot"],
+          "softChips": ["Jira"],
+          "note": "In-editor \u00b7 developer drives or delegates to agent"
+        },
+        {
+          "title": "Remote Agent Dashboard",
+          "chips": [],
+          "softChips": ["Running build agents", "HITL checkpoints", "Clarifying Q&As"],
+          "note": "Monitor parallel agents \u00b7 review diffs \u00b7 approve gates"
+        }
+      ]
+    },
+    "orchestration": {
+      "type": "standard",
+      "orchestrator": {
+        "name": "Build Orchestrator Agent",
+        "bullets": [
+          { "text": "Decompose spec into atomic tasks", "highlight": true },
+          { "text": "Dispatch sub-agents (parallel where possible)", "highlight": false },
+          { "text": "Enforce quality gate at each step", "highlight": false },
+          { "text": "HITL review checkpoints before merge", "highlight": false }
+        ]
+      },
+      "components": [
+        {
+          "kind": "agent",
+          "name": "Code Implementor",
+          "note": "Generate, iterate & self-review per task",
+          "typeLabel": "Agent",
+          "span2": false
+        },
+        {
+          "kind": "agent",
+          "name": "Quality Gate Agent",
+          "note": "Enforce pass criteria before task closes",
+          "typeLabel": "Agent",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Test-Driven Development",
+          "note": "Load TDD contract first \u00b7 Red \u2192 Green \u2192 Refactor",
+          "typeLabel": "Skill \u2014 shared",
+          "span2": false
+        },
+        {
+          "kind": "agent",
+          "name": "Code Review Agent",
+          "note": "Pattern conformance \u00b7 coverage gaps \u00b7 PR readiness",
+          "typeLabel": "Agent",
+          "span2": false
+        },
+        {
+          "kind": "agent",
+          "name": "Complexity & Risk Assessment",
+          "note": "Surface hidden complexity drivers \u2014 integration, data, cross-domain impact",
+          "typeLabel": "Agent",
+          "span2": true
+        }
+      ]
+    },
+    "knowledge": {
+      "cards": [
+        {
+          "name": "Specification Context",
+          "desc": "Accepted architecture \u00b7 requirements \u00b7 acceptance criteria \u00b7 TDD contracts"
+        },
+        {
+          "name": "Codebase Intelligence",
+          "desc": "Conventions \u00b7 test coverage \u00b7 code style patterns \u00b7 dependency map"
+        },
+        {
+          "name": "Ways-of-Working",
+          "desc": "AI-native guides \u00b7 coding standards \u00b7 QA practices \u00b7 tools-specific config"
+        }
+      ],
+      "rag": {
+        "label": "RAG / Retrieval Pipeline",
+        "body": "Vector store + semantic search \u00b7 codebase patterns \u00b7 solved problems \u00b7 internal libraries \u00b7 API docs"
+      }
+    },
+    "enterprise": {
+      "protoTags": ["MCP", "API"],
+      "cards": [
+        {
+          "name": "Source Control",
+          "detail": "Git repos \u00b7 PR/MR APIs",
+          "chips": []
+        },
+        {
+          "name": "CI/CD Pipeline",
+          "detail": "Build triggers \u00b7 pipeline status \u00b7 artifact publishing",
+          "chips": []
+        },
+        {
+          "name": "Project Management",
+          "detail": "Backlog & sprint tracking",
+          "chips": ["Jira", "Azure DevOps"]
+        },
+        {
+          "name": "Security Scanning",
+          "detail": "SAST tools \u00b7 dependency scanners",
+          "chips": []
+        },
+        {
+          "name": "Governance & Compliance",
+          "detail": "Policy docs \u00b7 IT Security \u00b7 Data/AI governance",
+          "chips": []
+        }
+      ]
+    }
+  }
+}

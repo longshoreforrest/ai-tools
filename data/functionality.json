@@ -1,0 +1,400 @@
+[
+  {
+    "capabilityId": "knowledge-gen",
+    "number": "01",
+    "name": "Knowledge Generator & Documentation Maintenance",
+    "roleCategory": "biz",
+    "roleLabel": "BA \u00b7 Doc Owner \u00b7 IT",
+    "functions": [
+      {
+        "id": "1.1",
+        "name": "Assess and clean up existing documentation",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s4",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "1.2",
+        "name": "Engage user through conversational search engine",
+        "scores": {
+          "claude-code": "s1",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s3",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "1.3",
+        "name": "Summarise existing documentation and capabilities",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s4",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "1.4",
+        "name": "Check documentation is in line with enterprise guidelines",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s3",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "1.5",
+        "name": "Ensure human sign-off and update documentation after sign-off",
+        "scores": {
+          "claude-code": "s1",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s3",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "1.6",
+        "name": "Documentation review \u2192 IT Transformation pipeline",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s2",
+          "custom": "s3"
+        }
+      }
+    ]
+  },
+  {
+    "capabilityId": "demand-assistant",
+    "number": "02",
+    "name": "Demand Assistant",
+    "roleCategory": "biz",
+    "roleLabel": "PM \u00b7 Business Analyst \u00b7 Portfolio Owner",
+    "functions": [
+      {
+        "id": "2.1",
+        "name": "Impact analysis of new requirements",
+        "scores": {
+          "claude-code": "s3",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s3",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "2.2",
+        "name": "Assess new demands and compare with current implementations across BAs",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s3",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "2.3",
+        "name": "Suggest high-level time and effort estimation based on historical data",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s2",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "2.4",
+        "name": "Build project timeline and create project structure",
+        "scores": {
+          "claude-code": "s1",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s3",
+          "custom": "s4"
+        }
+      }
+    ]
+  },
+  {
+    "capabilityId": "biz-intent",
+    "number": "03",
+    "name": "Business Intent Translator",
+    "roleCategory": "biz",
+    "roleLabel": "Product Owner \u00b7 BA \u00b7 Business Lead",
+    "functions": [
+      {
+        "id": "4.1",
+        "name": "Synthesise meeting memos automatically and create business specs",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s4",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "4.2",
+        "name": "Spar with experts ensuring business specs are explicit and comprehensive",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s4",
+          "custom": "s3"
+        }
+      },
+      {
+        "id": "4.3",
+        "name": "Draft and document business requirements as concept/feature specifications",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s4",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "4.4",
+        "name": "Translate business requirement to high-level technical requirements",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s3",
+          "custom": "s3"
+        }
+      },
+      {
+        "id": "1.5",
+        "name": "Ensure human sign-off and update documentation after sign-off",
+        "scores": {
+          "claude-code": "s1",
+          "ide": "s1",
+          "codex": "s1",
+          "cowork": "s3",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "4.5",
+        "name": "AI generate artifacts",
+        "secondary": "Out-of-box tooling starting point",
+        "scores": {
+          "claude-code": "s2",
+          "ide": "s3",
+          "codex": "s3",
+          "cowork": "s2",
+          "custom": "s3"
+        }
+      }
+    ]
+  },
+  {
+    "capabilityId": "tech-spec",
+    "number": "04",
+    "name": "Tech-Spec Sparring Agent \u2014 Architecture, Dependencies, Security & Compliance",
+    "roleCategory": "tech",
+    "roleLabel": "Architect \u00b7 Tech Lead \u00b7 Senior Dev",
+    "functions": [
+      {
+        "id": "3.1",
+        "name": "Architecture sparring: suggest solution options aligned with enterprise architecture patterns",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s3",
+          "codex": "s2",
+          "cowork": "s1",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "3.2",
+        "name": "Flag compliance and security risks",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s2",
+          "codex": "s2",
+          "cowork": "s1",
+          "custom": "s4"
+        }
+      },
+      {
+        "id": "3.3",
+        "name": "Create more in-depth technical specifications for implementation",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s3",
+          "codex": "s2",
+          "cowork": "s1",
+          "custom": "s3"
+        }
+      },
+      {
+        "id": "3.4a",
+        "name": "Create system dependency maps",
+        "scores": {
+          "claude-code": "s3",
+          "ide": "s2",
+          "codex": "s2",
+          "cowork": "s1",
+          "custom": "s3"
+        }
+      },
+      {
+        "id": "3.4b",
+        "name": "Surface learnings of system dependencies from tests",
+        "scores": {
+          "claude-code": "s3",
+          "ide": "s2",
+          "codex": "s3",
+          "cowork": "s1",
+          "custom": "s2"
+        }
+      },
+      {
+        "id": "3.5",
+        "name": "Surface hidden complexity drivers",
+        "secondary": "Integration, data, cross-domain impact",
+        "scores": {
+          "claude-code": "s3",
+          "ide": "s3",
+          "codex": "s2",
+          "cowork": "s1",
+          "custom": "s2"
+        }
+      }
+    ]
+  },
+  {
+    "capabilityId": "builder",
+    "number": "05",
+    "name": "Builder / Coding Agent",
+    "roleCategory": "tech",
+    "roleLabel": "Developer \u00b7 Software Engineer",
+    "functions": [
+      {
+        "id": "5.1",
+        "name": "Translate technical specifications to executable task sequence and generate code",
+        "secondary": "Out-of-box tools as the starting point",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s4",
+          "codex": "s4",
+          "cowork": "na",
+          "custom": "na"
+        }
+      },
+      {
+        "id": "5.2",
+        "name": "Enforce the quality gates during the build phase",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s2",
+          "codex": "s3",
+          "cowork": "na",
+          "custom": "s2"
+        }
+      },
+      {
+        "id": "5.3",
+        "name": "Embedded guardrails and traceability by default",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s2",
+          "codex": "s3",
+          "cowork": "na",
+          "custom": "s2"
+        }
+      }
+    ]
+  },
+  {
+    "capabilityId": "quality",
+    "number": "06",
+    "name": "Quality Spec Agent & Test Automation",
+    "roleCategory": "tech",
+    "roleLabel": "QA Engineer \u00b7 Test Lead \u00b7 Developer",
+    "functions": [
+      {
+        "id": "6.1",
+        "name": "Suggest the best testing practices",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s3",
+          "codex": "s3",
+          "cowork": "s1",
+          "custom": "s2"
+        }
+      },
+      {
+        "id": "6.2",
+        "name": "Turn requirements and design into test plan and quality specs (acceptance criteria)",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s3",
+          "codex": "s3",
+          "cowork": "s1",
+          "custom": "s2"
+        }
+      },
+      {
+        "id": "6.3a",
+        "name": "Turn requirements and design into test scripts for test automation",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s3",
+          "codex": "s3",
+          "cowork": "s1",
+          "custom": "s1"
+        }
+      },
+      {
+        "id": "6.3b",
+        "name": "Generate and maintain automated tests",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s2",
+          "codex": "s3",
+          "cowork": "s1",
+          "custom": "s1"
+        }
+      },
+      {
+        "id": "6.4a",
+        "name": "Surface the functional and non-functional defects",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s2",
+          "codex": "s3",
+          "cowork": "s1",
+          "custom": "s3"
+        }
+      },
+      {
+        "id": "6.4b",
+        "name": "Create test reports",
+        "scores": {
+          "claude-code": "s4",
+          "ide": "s2",
+          "codex": "s3",
+          "cowork": "s1",
+          "custom": "s3"
+        }
+      }
+    ]
+  }
+]

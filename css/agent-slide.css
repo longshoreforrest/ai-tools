@@ -1,0 +1,399 @@
+/* ================================================================
+   agent-slide.css — Agent architecture slide styles
+   Shared by: Sparring Agent, Builder Agent, Quality Agent
+   ================================================================ */
+
+/* ── SLIDE SHELL ── */
+.slide {
+  width: 1480px;
+  background: var(--sand);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 56px rgba(0,0,0,0.26);
+  display: grid;
+  grid-template-columns: 252px 1fr;
+  position: relative;
+}
+
+/* Top accent stripe */
+.slide::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--teal2) 48%, var(--amberbd) 100%);
+  z-index: 10;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  background: var(--navy);
+  padding: 28px 18px 20px;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+
+/* Decorative glow */
+.sidebar::after {
+  content: '';
+  position: absolute; bottom: -70px; right: -70px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(56,152,128,0.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.sb-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); margin-bottom: 7px;
+}
+
+.sb-type {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 4px; padding: 3px 9px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; color: rgba(255,255,255,0.35);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 13px; width: fit-content;
+}
+.type-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal2); }
+
+.sb-title {
+  font-size: 21px; font-weight: 800; color: #fff;
+  line-height: 1.12; letter-spacing: -0.4px;
+  margin-bottom: 8px;
+}
+
+.sb-tagline {
+  font-size: 9px; color: rgba(255,255,255,0.36);
+  line-height: 1.65; margin-bottom: 14px;
+}
+
+/* Principle callout */
+.sb-principle {
+  background: rgba(232,168,58,0.09);
+  border: 1px solid rgba(232,168,58,0.18);
+  border-left: 3px solid var(--amberbd);
+  border-radius: 0 5px 5px 0;
+  padding: 7px 10px; margin-bottom: 13px;
+}
+.sb-pr-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--amberbd); margin-bottom: 3px;
+}
+.sb-pr-text {
+  font-size: 8.5px; color: rgba(255,255,255,0.55); line-height: 1.5;
+}
+
+.sb-sec { margin-bottom: 10px; }
+.sb-sec-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.18); margin-bottom: 5px;
+}
+.sb-row {
+  display: flex; align-items: flex-start; gap: 5px;
+  font-size: 8.5px; color: rgba(255,255,255,0.34);
+  line-height: 1.45; padding: 2px 0;
+}
+.sb-row::before { content: '\2192'; color: var(--teal2); font-size: 8px; flex-shrink: 0; margin-top: 1px; }
+.sb-row.hi { color: var(--teallt); font-weight: 600; }
+
+.sb-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; color: rgba(255,255,255,0.1);
+  position: absolute; bottom: 14px; right: 14px;
+}
+
+/* ── MAIN CONTENT ── */
+.main {
+  padding: 10px 16px 10px;
+  display: flex; flex-direction: column; gap: 5px;
+}
+
+/* ── LAYER SHELL ── */
+.layer {
+  border-radius: 7px;
+  padding: 8px 11px 9px;
+  position: relative;
+}
+
+.lyr-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.layer.ui   { background: var(--layer-ui-bg);   border: 1px solid rgba(221,212,198,0.75); }
+.layer.orch { background: var(--layer-orch-bg); border: 1px solid rgba(150,165,185,0.45); }
+.layer.know { background: var(--layer-know-bg); border: 1px solid rgba(43,127,110,0.18); }
+.layer.ent  { background: var(--layer-ent-bg);  border: 1px solid rgba(43,127,110,0.18); }
+
+.layer.ui   .lyr-label { color: #907A62; }
+.layer.orch .lyr-label { color: #4A5A70; }
+.layer.know .lyr-label { color: var(--teal); }
+.layer.ent  .lyr-label { color: var(--teal); }
+
+/* ── UI LAYER ── */
+/* Single card (sparring agent) */
+.ui-single {
+  background: var(--white);
+  border: 1.5px solid var(--tan2);
+  border-radius: 6px; padding: 9px 16px;
+  max-width: 560px;
+}
+
+/* Two-card row (builder + quality agents) */
+.ui-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+.ui-card {
+  background: var(--white);
+  border: 1.5px solid var(--tan2);
+  border-radius: 6px; padding: 9px 12px;
+}
+.ui-card-title {
+  font-size: 10px; font-weight: 700; color: var(--text); margin-bottom: 6px;
+}
+.tool-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+.chip-tool {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; font-weight: 600; color: var(--navy);
+  background: var(--navylt); border: 1px solid rgba(28,43,58,0.1);
+  border-radius: 3px; padding: 2px 7px;
+}
+.chip-tool.soft {
+  background: var(--white); border-color: var(--tan2);
+  color: var(--text2); font-weight: 400;
+}
+.ui-card-note { font-size: 8px; color: var(--grey); line-height: 1.4; }
+
+/* ── ORCH LAYER ── */
+.orch-row {
+  display: grid;
+  grid-template-columns: 236px 28px 1fr;
+  align-items: start;
+  gap: 0;
+}
+
+/* Arrow column */
+.orch-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding-top: 28px;
+}
+.orch-arrow svg { width: 16px; height: 16px; fill: none; stroke: var(--tan2); stroke-width: 2; }
+
+/* Orchestrator card */
+.orch-main {
+  background: var(--white);
+  border: 1.5px solid var(--agent-bd);
+  border-radius: 6px; padding: 10px 12px;
+}
+
+/* Sub-agents grid */
+.sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 5px;
+}
+
+/* Component card base */
+.ccard { border-radius: 5px; padding: 8px 10px; }
+.ccard.agent { background: var(--agent-bg); border: 1.5px solid var(--agent-bd); }
+.ccard.skill { background: var(--skill-bg); border: 1.5px solid var(--skill-bd); }
+.ccard.tmpl  { background: var(--tmpl-bg);  border: 1.5px solid var(--tmpl-bd); }
+
+/* Full-width span */
+.ccard.span2 { grid-column: 1 / -1; }
+.ccard.span2 .cc-body { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+
+/* Badge + type row */
+.cc-head { display: flex; align-items: center; gap: 5px; margin-bottom: 5px; }
+.cc-badge {
+  width: 17px; height: 17px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 800; flex-shrink: 0;
+}
+.cc-badge.a { background: var(--navy); color: #fff; }
+.cc-badge.s { background: var(--teal2); color: #fff; }
+.cc-badge.t { background: var(--amberbd); color: #fff; }
+
+.cc-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; text-transform: uppercase; letter-spacing: 0.4px;
+}
+.cc-type.a { color: rgba(28,43,58,0.5); }
+.cc-type.s { color: rgba(43,127,110,0.7); }
+.cc-type.t { color: var(--amber); }
+
+.cc-name { font-size: 9.5px; font-weight: 700; color: var(--text); line-height: 1.2; }
+.cc-note { font-size: 7.5px; color: var(--grey); line-height: 1.35; margin-top: 3px; }
+
+/* Orchestrator bullets */
+.ob { font-size: 8.5px; color: var(--text2); padding-left: 9px; position: relative; line-height: 1.4; margin-bottom: 2px; }
+.ob::before { content: '\00B7'; position: absolute; left: 0; color: var(--teal2); font-size: 13px; font-weight: 700; line-height: 0.9; top: 2px; }
+.ob.hi { color: var(--navy); font-weight: 600; }
+
+/* ── QUALITY AGENT: Dual-phase layout ── */
+
+/* Orchestrator top bar (full width) */
+.orch-top {
+  background: var(--white);
+  border: 1.5px solid var(--agent-bd);
+  border-radius: 6px; padding: 9px 14px;
+  margin-bottom: 7px;
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.orch-top-left { flex: 0 0 auto; }
+.orch-top-bullets { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; flex: 1; padding-top: 2px; }
+
+/* Large badge + type for orchestrator header */
+.cc-head-lg { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.cc-badge-lg {
+  width: 18px; height: 18px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9.5px; font-weight: 800; flex-shrink: 0;
+  background: var(--navy); color: #fff;
+}
+.cc-name-lg { font-size: 10.5px; font-weight: 700; color: var(--text); }
+.cc-type-sm {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; text-transform: uppercase; letter-spacing: 0.4px;
+  color: rgba(28,43,58,0.5);
+}
+
+/* Two phase panels side by side */
+.orch-phases {
+  display: grid;
+  grid-template-columns: 1fr 10px 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+.phase-divider {
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 14px;
+}
+.phase-divider-line {
+  width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--tan2) 20%, var(--tan2) 80%, transparent);
+  min-height: 60px;
+}
+
+/* Phase panel */
+.phase-panel {
+  border-radius: 6px; padding: 8px 10px;
+}
+.phase-panel.spec { background: rgba(235,240,245,0.6); border: 1px solid rgba(28,43,58,0.1); }
+.phase-panel.auto { background: rgba(229,244,241,0.6); border: 1px solid rgba(43,127,110,0.15); }
+
+.phase-hdr {
+  display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+}
+.phase-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  border-radius: 3px; padding: 2px 7px; flex-shrink: 0;
+}
+.phase-panel.spec .phase-badge { background: var(--navylt); color: var(--navy2); border: 1px solid var(--agent-bd); }
+.phase-panel.auto .phase-badge { background: var(--skill-bg); color: var(--teal); border: 1px solid var(--skill-bd); }
+
+.phase-title {
+  font-size: 9px; font-weight: 700; color: var(--text);
+}
+.phase-when {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px; letter-spacing: 1px; text-transform: uppercase;
+  margin-left: auto; flex-shrink: 0;
+}
+.phase-panel.spec .phase-when { color: rgba(28,43,58,0.35); }
+.phase-panel.auto .phase-when { color: rgba(43,127,110,0.5); }
+
+/* Sub-component cards within phases */
+.phase-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+
+/* Cross-agent dependency tag */
+.cross-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(232,168,58,0.1); border: 1px solid rgba(232,168,58,0.28);
+  border-radius: 3px; padding: 1.5px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  color: var(--amber); margin-top: 3px; width: fit-content;
+}
+
+/* ── KNOWLEDGE LAYER ── */
+.know-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin-bottom: 7px; }
+
+.kcard {
+  background: var(--white);
+  border: 1.5px solid rgba(43,127,110,0.14);
+  border-radius: 5px; padding: 8px 10px;
+}
+.kcard-name { font-size: 9.5px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+.kcard-desc { font-size: 8px; color: var(--text2); line-height: 1.4; }
+
+.rag-bar {
+  background: #2C5F54;
+  border-radius: 5px; padding: 7px 13px;
+  display: flex; align-items: center; gap: 10px;
+}
+.rag-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--teallt); flex-shrink: 0; white-space: nowrap;
+}
+.rag-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+.rag-body { font-size: 8px; color: rgba(255,255,255,0.55); line-height: 1.35; }
+
+/* ── ENTERPRISE LAYER ── */
+.ent-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+
+.ecard {
+  background: var(--white);
+  border: 1.5px solid rgba(43,127,110,0.14);
+  border-radius: 5px; padding: 8px 10px;
+}
+.ecard-name {
+  font-size: 8.5px; font-weight: 700; color: var(--navy);
+  line-height: 1.2; margin-bottom: 4px;
+}
+.ecard-detail { font-size: 7.5px; color: var(--text2); line-height: 1.45; }
+.ecard-chips { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+.echip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px; color: var(--teal);
+  background: var(--skill-bg); border: 1px solid rgba(43,127,110,0.22);
+  border-radius: 3px; padding: 1px 5px;
+}
+
+/* Cross-agent card (quality agent) */
+.ecard.builder-dep {
+  border-color: rgba(232,168,58,0.3);
+  background: var(--amberlt);
+}
+.ecard.builder-dep .ecard-name { color: var(--amber); }
+.ecard.builder-dep .ecard-detail { color: rgba(100,70,10,0.7); }
+
+/* Proto tags in enterprise layer header */
+.proto-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; font-weight: 700; letter-spacing: 1px;
+  border-radius: 100px; padding: 2px 8px;
+  border: 1px solid; flex-shrink: 0;
+}
+.proto-tag.mcp { background: rgba(43,127,110,0.10); border-color: rgba(43,127,110,0.3); color: var(--teal); }
+.proto-tag.api { background: rgba(28,43,58,0.06); border-color: rgba(28,43,58,0.18); color: var(--navy2); }
+
+/* Protocol bridge row (builder agent) */
+.proto-row {
+  display: flex; align-items: center; gap: 7px;
+  padding: 2px 2px;
+}
+.proto-line { flex: 1; height: 1px; background: var(--tan2); }
+.proto-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(221,212,198,0.8);
+}

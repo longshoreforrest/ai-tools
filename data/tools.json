@@ -1,0 +1,35 @@
+[
+  {
+    "id": "claude-code",
+    "name": "Claude Code",
+    "subtitle": "Agentic CLI + IDE extension \u00b7 terminal or editor",
+    "isBuild": false,
+    "category": "agentic"
+  },
+  {
+    "id": "codex",
+    "name": "Codex App",
+    "subtitle": "Desktop \u00b7 multi-agent \u00b7 macOS",
+    "isBuild": false,
+    "category": "agentic"
+  },
+  {
+    "id": "ide",
+    "name": "VS Code \u00b7 Cursor \u00b7 Windsurf",
+    "subtitle": "AI-assisted IDE \u00b7 dev-in-loop",
+    "isBuild": false,
+    "category": "ide"
+  },
+  {
+    "id": "cowork",
+    "name": "Claude Cowork",
+    "subtitle": "Desktop app \u00b7 natural language",
+    "isBuild": false
+  },
+  {
+    "id": "custom",
+    "name": "Custom-Built App",
+    "subtitle": "AI-native internal tool \u00b7 tailored UX",
+    "isBuild": true
+  }
+]

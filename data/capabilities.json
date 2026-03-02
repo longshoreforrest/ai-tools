@@ -1,0 +1,44 @@
+[
+  {
+    "id": "knowledge-gen",
+    "number": "01",
+    "name": "Knowledge Generator & Doc Maintenance",
+    "roleCategory": "biz",
+    "roleLabel": "BA \u00b7 Doc Owner \u00b7 IT"
+  },
+  {
+    "id": "demand-assistant",
+    "number": "02",
+    "name": "Demand Assistant",
+    "roleCategory": "biz",
+    "roleLabel": "PM \u00b7 Business Analyst \u00b7 Portfolio Owner"
+  },
+  {
+    "id": "biz-intent",
+    "number": "03",
+    "name": "Business Intent Translator",
+    "roleCategory": "biz",
+    "roleLabel": "Product Owner \u00b7 BA \u00b7 Business Lead"
+  },
+  {
+    "id": "tech-spec",
+    "number": "04",
+    "name": "Tech-Spec Sparring Agent",
+    "roleCategory": "tech",
+    "roleLabel": "Architect \u00b7 Tech Lead \u00b7 Senior Dev"
+  },
+  {
+    "id": "builder",
+    "number": "05",
+    "name": "Builder / Coding Agent",
+    "roleCategory": "tech",
+    "roleLabel": "Developer \u00b7 Software Engineer"
+  },
+  {
+    "id": "quality",
+    "number": "06",
+    "name": "Quality Spec & Test Automation",
+    "roleCategory": "tech",
+    "roleLabel": "QA Engineer \u00b7 Test Lead \u00b7 Developer"
+  }
+]
