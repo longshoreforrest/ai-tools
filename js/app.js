@@ -202,6 +202,8 @@ function updateFilterVisibility() {
   const show = tab && tab.hasToolFilter;
   const filterEl = document.getElementById('tool-filter');
   const toggleEl = document.getElementById('view-toggle');
+  filterEl.hidden = !show;
+  toggleEl.hidden = !show;
   filterEl.style.display = show ? '' : 'none';
   toggleEl.style.display = show ? '' : 'none';
 }
