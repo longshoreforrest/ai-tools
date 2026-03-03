@@ -451,7 +451,7 @@ export function wireRadarInteractions(container) {
         const data = tooltipMap[key];
         if (!data) return;
 
-        const cls = SCORE_CLS[data.score] || '';
+        const cls = SCORE_CLS[Math.ceil(data.score)] || '';
         let html = `<div class="radar-tooltip-label ${cls}">${esc(data.label)}</div>`;
         if (data.actions.length) {
           html += `<ul class="radar-tooltip-actions">${data.actions.map(a => `<li>${esc(a)}</li>`).join('')}</ul>`;

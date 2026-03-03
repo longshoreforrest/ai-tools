@@ -199,10 +199,11 @@ function renderViewToggle(tools, capabilities) {
  */
 function updateFilterVisibility() {
   const tab = TABS.find(t => t.id === activeTabId);
+  const show = tab && tab.hasToolFilter;
   const filterEl = document.getElementById('tool-filter');
   const toggleEl = document.getElementById('view-toggle');
-  filterEl.hidden = !(tab && tab.hasToolFilter);
-  toggleEl.hidden = !(tab && tab.hasToolFilter);
+  filterEl.style.display = show ? '' : 'none';
+  toggleEl.style.display = show ? '' : 'none';
 }
 
 /* ────────────────────────────────────────────

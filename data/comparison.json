@@ -279,8 +279,8 @@
       ]
     },
     "ide": {
-      "score": 4,
-      "label": "Best fit",
+      "score": 3.5,
+      "label": "Strong",
       "actions": [
         "Real-time inline suggestions and agent mode in the editor",
         "Best developer-in-loop experience \u2014 high velocity, immediate feedback"
@@ -327,8 +327,8 @@
   },
   "quality": {
     "claude-code": {
-      "score": 4,
-      "label": "Best fit",
+      "score": 3.5,
+      "label": "Strong",
       "actions": [
         "Generate TDD contracts, test plans and test scripts from requirements",
         "Run tests, surface defects, produce coverage reports with CI/CD integration",

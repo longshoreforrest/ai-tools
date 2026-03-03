@@ -357,6 +357,11 @@ td.cat-ide.best .si {
 .d2 { background: var(--s2); }
 .d1 { background: var(--s1); }
 .doff { background: var(--tan2); }
+.dot.dhalf { background: linear-gradient(to right, currentColor 50%, var(--tan2) 50%); }
+.dot.dhalf.d4 { color: var(--s4); }
+.dot.dhalf.d3 { color: var(--s3); }
+.dot.dhalf.d2 { color: var(--s2); }
+.dot.dhalf.d1 { color: var(--s1); }
 
 .sl {
   font-size: 8.5px;

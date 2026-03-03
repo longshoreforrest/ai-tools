@@ -21,26 +21,37 @@ export function esc(str) {
 /**
  * Render score dots (1-4 filled, rest empty, total 4).
  * All filled dots use the SAME colour class matching the score level.
+ * Supports half scores (e.g. 3.5 => d4 d4 d4 dhalf doff-style).
  * e.g. score 3 => d3 d3 d3 doff, score 2 => d2 d2 doff doff
- * @param {number} score - Integer 1-4
+ * @param {number} score - 1-4 (may include .5 halves)
  * @returns {string} HTML for the dots container
  */
 export function renderScoreDots(score) {
+  const full = Math.floor(score);
+  const hasHalf = score % 1 !== 0;
+  const colorTier = Math.ceil(score);           // 3.5 → use d4 colour
   const dots = [];
   for (let i = 0; i < 4; i++) {
-    dots.push(`<div class="dot ${i < score ? 'd' + score : 'doff'}"></div>`);
+    if (i < full) {
+      dots.push(`<div class="dot d${colorTier}"></div>`);
+    } else if (i === full && hasHalf) {
+      dots.push(`<div class="dot dhalf d${colorTier}"></div>`);
+    } else {
+      dots.push(`<div class="dot doff"></div>`);
+    }
   }
   return `<div class="dots">${dots.join('')}</div>`;
 }
 
 /**
  * Render a score label span.
- * @param {number} score - Integer 1-4
+ * @param {number} score - 1-4 (may include .5 halves)
  * @param {string} label - Display text (e.g. "Best fit", "Good", "Partial", "Weak", "N/A")
  * @returns {string}
  */
 export function renderScoreLabel(score, label) {
-  return `<span class="sl s${score}">${esc(label)}</span>`;
+  const tier = Math.ceil(score);
+  return `<span class="sl s${tier}">${esc(label)}</span>`;
 }
 
 /**

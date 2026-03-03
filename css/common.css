@@ -157,6 +157,9 @@ body {
   padding: 0;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
+.tool-filter[hidden] {
+  display: none;
+}
 
 .filter-row {
   display: flex;
@@ -487,6 +490,9 @@ body {
   gap: 8px;
   padding: 12px 24px 0;
   background: var(--sand);
+}
+.view-toggle-bar[hidden] {
+  display: none;
 }
 
 .view-toggle-label {
