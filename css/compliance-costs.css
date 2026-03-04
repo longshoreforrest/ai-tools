@@ -1,6 +1,6 @@
 /* ================================================================
-   tool-comparison.css — Tool Comparison Table view
-   Source: slide4_tool_comparison_2.html
+   compliance-costs.css — Compliance & Costs view
+   Based on tool-comparison.css
    ================================================================ */
 
 /* ── SLIDE SHELL ── */
@@ -42,79 +42,41 @@
   letter-spacing: -0.3px;
 }
 
-.hdr-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.role-pills {
-  display: flex;
-  gap: 6px;
-}
-.role-pill {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  border-radius: 4px;
-  padding: 3px 9px;
-  font-size: 8.5px;
-  font-weight: 600;
-  font-family: "JetBrains Mono", monospace;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-.role-pill.biz {
-  background: var(--biz-bg);
-  border: 1.5px solid var(--biz-bd);
-  color: var(--biz-label);
-}
-.role-pill.tech {
-  background: var(--tech-bg);
-  border: 1.5px solid var(--tech-bd);
-  color: var(--tech-label);
-}
-.role-pill.build {
-  background: var(--build-bg);
-  border: 1.5px solid var(--build-bd);
-  color: var(--build-hdr);
-}
-.role-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-.role-pill.biz .role-dot {
-  background: var(--biz-label);
-}
-.role-pill.tech .role-dot {
-  background: var(--tech-label);
-}
-.role-pill.build .role-dot {
-  background: var(--build-hdr);
-}
-
-.hdr-div {
-  width: 1px;
-  height: 22px;
-  background: var(--tan2);
-}
-
-.legend {
-  display: flex;
-  gap: 10px;
-}
-.leg-item {
-  display: flex;
-  align-items: center;
+/* ── VENDOR LINKS (in-table row) ── */
+.link-cell {
   gap: 5px;
-  font-size: 9px;
-  color: var(--text2);
 }
-.leg-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 2px;
+
+.link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.link-category {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-top: 3px;
+}
+.link-group:first-child .link-category {
+  margin-top: 0;
+}
+
+.link-item {
+  font-size: 8.5px;
+  color: var(--teal2);
+  text-decoration: none;
+  padding: 1px 0;
+  line-height: 1.3;
+  display: block;
+}
+.link-item:hover {
+  color: var(--navy);
+  text-decoration: underline;
 }
 
 /* ── TABLE ── */
@@ -131,7 +93,7 @@ table {
   table-layout: fixed;
 }
 
-col.c-cap {
+col.c-dim {
   width: 168px;
 }
 col.c-tool {
@@ -155,6 +117,14 @@ thead tr th {
 .th-card.build-card {
   border-color: var(--build-bd);
   background: var(--build-bg);
+}
+.th-card.agentic-card {
+  border-color: var(--agentic-bd);
+  background: var(--agentic-hdr-bg);
+}
+.th-card.ide-card {
+  border-color: var(--ide-bd);
+  background: var(--ide-hdr-bg);
 }
 
 .th-name {
@@ -185,16 +155,6 @@ thead tr th {
   font-size: 7px;
   color: var(--grey);
   margin-top: 2px;
-}
-
-/* Category header cards */
-.th-card.agentic-card {
-  border-color: var(--agentic-bd);
-  background: var(--agentic-hdr-bg);
-}
-.th-card.ide-card {
-  border-color: var(--ide-bd);
-  background: var(--ide-hdr-bg);
 }
 .th-cat-tag {
   display: inline-block;
@@ -232,71 +192,42 @@ tbody tr td {
   padding: 0;
   vertical-align: top;
 }
-tbody tr:nth-child(odd) td:not(.div-row-td) {
+tbody tr:nth-child(odd) td {
   background: #f8f9fa;
 }
-tbody tr:nth-child(even) td:not(.div-row-td) {
+tbody tr:nth-child(even) td {
   background: #ffffff;
 }
 
-/* ── CAP CELL ── */
-.cap-cell {
+/* ── DIMENSION CELL ── */
+.dim-cell {
   display: flex;
   height: 100%;
 }
-.role-stripe {
-  width: 3px;
-  flex-shrink: 0;
-  border-radius: 2px 0 0 2px;
-}
-.role-stripe.biz {
-  background: var(--biz-label);
-  opacity: 0.55;
-}
-.role-stripe.tech {
-  background: var(--tech-label);
-  opacity: 0.55;
-}
-.cap-inner {
-  padding: 6px 7px 6px 7px;
+.dim-inner {
+  padding: 6px 7px;
   flex: 1;
 }
-.cap-num {
+.dim-num {
   font-family: "JetBrains Mono", monospace;
-  font-size: 7px;
+  font-size: 8px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  color: var(--teal2);
   margin-bottom: 1px;
+  font-weight: 700;
 }
-.cap-num.biz {
-  color: var(--biz-label);
-}
-.cap-num.tech {
-  color: var(--tech-label);
-}
-.cap-name {
+.dim-name {
   font-size: 10px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.2;
   margin-bottom: 3px;
 }
-.cap-role {
+.dim-desc {
   font-size: 7.5px;
-  font-weight: 600;
-  border-radius: 3px;
-  padding: 1px 5px;
-  display: inline-block;
-}
-.cap-role.biz {
-  background: var(--biz-bg);
-  color: var(--biz-label);
-  border: 1px solid var(--biz-bd);
-}
-.cap-role.tech {
-  background: var(--tech-bg);
-  color: var(--tech-label);
-  border: 1px solid var(--tech-bd);
+  color: var(--grey);
+  line-height: 1.3;
 }
 
 /* ── SCORE CELL ── */
@@ -329,8 +260,6 @@ td.build-col.best .si {
 td.build-col {
   border-left: 2px solid rgba(196, 125, 32, 0.18);
 }
-
-/* Category column tinting */
 td.cat-agentic .si {
   background: var(--agentic-bg);
 }
@@ -440,40 +369,6 @@ td.cat-enterprise.best .si {
   color: var(--build-hdr);
 }
 
-/* ── SECTION DIVIDER ROWS ── */
-.div-row td {
-  padding: 0;
-}
-.div-row-td {
-  background: transparent !important;
-}
-.section-div {
-  height: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 2px;
-}
-.section-div-line {
-  flex: 1;
-  height: 1px;
-  background: var(--tan2);
-}
-.section-div-label {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 7px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding: 0 4px;
-}
-.section-div-label.biz {
-  color: var(--biz-label);
-}
-.section-div-label.tech {
-  color: var(--tech-label);
-}
-
 /* ── FOOTER ── */
 .ftr {
   background: var(--navy);
@@ -498,11 +393,6 @@ td.cat-enterprise.best .si {
 .ftr-note strong {
   color: var(--teallt);
   font-weight: 600;
-}
-.ftr-div {
-  width: 1px;
-  height: 18px;
-  background: rgba(255, 255, 255, 0.1);
 }
 .ftr-num {
   font-family: "JetBrains Mono", monospace;

@@ -68,6 +68,15 @@
         "type": "barrier",
         "text": "IDE \u2014 not designed for documentation roles"
       }
+    },
+    "ms-copilot": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Copilot in Word rewrites, summarises and restructures existing documents",
+        "M365 Chat searches across SharePoint, OneDrive and Graph-connected content",
+        "No guideline-checking engine, sign-off workflow or IT pipeline integration"
+      ]
     }
   },
   "demand-assistant": {
@@ -138,6 +147,19 @@
       "chip": {
         "type": "barrier",
         "text": "IDE \u2014 no business-layer capabilities"
+      }
+    },
+    "ms-copilot": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Copilot in Excel analyses data tables with natural language prompts",
+        "Draft timelines and summaries in Word — basic structure only",
+        "No requirements impact analysis, backlog integration or estimation framework"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Productivity suite — no SDLC demand workflow"
       }
     }
   },
@@ -210,6 +232,15 @@
         "type": "barrier",
         "text": "IDE-only \u2014 no access for business roles"
       }
+    },
+    "ms-copilot": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Teams Copilot generates meeting recaps, action items and follow-ups",
+        "Copilot in Word drafts specs from prompts, Outlook threads and meeting notes",
+        "No structured spec templates, biz-to-tech translation or approval workflow"
+      ]
     }
   },
   "tech-spec": {
@@ -266,6 +297,18 @@
         "Built-in security scanning, dependency checks and code review",
         "Plan mode for reviewing approach before implementation"
       ]
+    },
+    "ms-copilot": {
+      "score": 1,
+      "label": "N/A",
+      "actions": [
+        "General conversational sparring only \u2014 zero codebase awareness",
+        "No architecture analysis, dependency mapping or compliance scanning"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Productivity suite \u2014 no developer or architecture capability"
+      }
     }
   },
   "builder": {
@@ -323,6 +366,18 @@
         "Native GitHub integration \u2014 CI/CD, code review, security scanning",
         "Token-credit model not well suited for sustained, heavy coding workloads"
       ]
+    },
+    "ms-copilot": {
+      "score": 1,
+      "label": "N/A",
+      "actions": [
+        "No code generation, IDE integration or CI/CD capability",
+        "M365 productivity suite \u2014 not a developer or build tool"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Productivity suite \u2014 not a coding or build tool"
+      }
     }
   },
   "quality": {
@@ -378,6 +433,18 @@
         "Automated code review with security and vulnerability scanning",
         "Agent self-reviews PRs before opening \u2014 CodeQL integration"
       ]
+    },
+    "ms-copilot": {
+      "score": 1,
+      "label": "N/A",
+      "actions": [
+        "Can draft test plans in Word/Excel but no executable test scripts",
+        "No test automation, defect surfacing or CI/CD integration"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Productivity suite \u2014 not a testing or QA tool"
+      }
     }
   }
 }

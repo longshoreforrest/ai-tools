@@ -4,7 +4,7 @@
     "number": "01",
     "name": "Knowledge Generator & Documentation Maintenance",
     "roleCategory": "biz",
-    "roleLabel": "BA \u00b7 Doc Owner \u00b7 IT",
+    "roleLabel": "BA · Doc Owner · IT",
     "functions": [
       {
         "id": "1.1",
@@ -15,7 +15,8 @@
           "codex": "s1",
           "cowork": "s4",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s3"
         }
       },
       {
@@ -27,7 +28,8 @@
           "codex": "s1",
           "cowork": "s3",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s3"
         }
       },
       {
@@ -39,7 +41,8 @@
           "codex": "s1",
           "cowork": "s4",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s3"
         }
       },
       {
@@ -51,7 +54,8 @@
           "codex": "s1",
           "cowork": "s3",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s2"
         }
       },
       {
@@ -63,19 +67,21 @@
           "codex": "s1",
           "cowork": "s3",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s1"
         }
       },
       {
         "id": "1.6",
-        "name": "Documentation review \u2192 IT Transformation pipeline",
+        "name": "Documentation review → IT Transformation pipeline",
         "scores": {
           "claude-code": "s2",
           "ide": "s1",
           "codex": "s1",
           "cowork": "s2",
           "custom": "s3",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s1"
         }
       }
     ]
@@ -85,7 +91,7 @@
     "number": "02",
     "name": "Demand Assistant",
     "roleCategory": "biz",
-    "roleLabel": "PM \u00b7 Business Analyst \u00b7 Portfolio Owner",
+    "roleLabel": "PM · Business Analyst · Portfolio Owner",
     "functions": [
       {
         "id": "2.1",
@@ -96,7 +102,8 @@
           "codex": "s1",
           "cowork": "s3",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s1"
         }
       },
       {
@@ -108,7 +115,8 @@
           "codex": "s1",
           "cowork": "s3",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s1"
         }
       },
       {
@@ -120,7 +128,8 @@
           "codex": "s1",
           "cowork": "s2",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s1"
         }
       },
       {
@@ -132,7 +141,8 @@
           "codex": "s1",
           "cowork": "s3",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s2"
         }
       }
     ]
@@ -142,7 +152,7 @@
     "number": "03",
     "name": "Business Intent Translator",
     "roleCategory": "biz",
-    "roleLabel": "Product Owner \u00b7 BA \u00b7 Business Lead",
+    "roleLabel": "Product Owner · BA · Business Lead",
     "functions": [
       {
         "id": "4.1",
@@ -153,7 +163,8 @@
           "codex": "s1",
           "cowork": "s4",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s3"
         }
       },
       {
@@ -165,7 +176,8 @@
           "codex": "s1",
           "cowork": "s4",
           "custom": "s3",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s2"
         }
       },
       {
@@ -177,7 +189,8 @@
           "codex": "s1",
           "cowork": "s4",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s2"
         }
       },
       {
@@ -189,7 +202,8 @@
           "codex": "s1",
           "cowork": "s3",
           "custom": "s3",
-          "copilot": "s2"
+          "copilot": "s2",
+          "ms-copilot": "s1"
         }
       },
       {
@@ -201,7 +215,8 @@
           "codex": "s1",
           "cowork": "s3",
           "custom": "s4",
-          "copilot": "s1"
+          "copilot": "s1",
+          "ms-copilot": "s1"
         }
       },
       {
@@ -214,7 +229,8 @@
           "codex": "s3",
           "cowork": "s2",
           "custom": "s3",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "s2"
         }
       }
     ]
@@ -222,9 +238,9 @@
   {
     "capabilityId": "tech-spec",
     "number": "04",
-    "name": "Tech-Spec Sparring Agent \u2014 Architecture, Dependencies, Security & Compliance",
+    "name": "Tech-Spec Sparring Agent — Architecture, Dependencies, Security & Compliance",
     "roleCategory": "tech",
-    "roleLabel": "Architect \u00b7 Tech Lead \u00b7 Senior Dev",
+    "roleLabel": "Architect · Tech Lead · Senior Dev",
     "functions": [
       {
         "id": "3.1",
@@ -235,7 +251,8 @@
           "codex": "s2",
           "cowork": "s1",
           "custom": "s4",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "na"
         }
       },
       {
@@ -247,7 +264,8 @@
           "codex": "s2",
           "cowork": "s1",
           "custom": "s4",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "na"
         }
       },
       {
@@ -259,7 +277,8 @@
           "codex": "s2",
           "cowork": "s1",
           "custom": "s3",
-          "copilot": "s2"
+          "copilot": "s2",
+          "ms-copilot": "na"
         }
       },
       {
@@ -271,7 +290,8 @@
           "codex": "s2",
           "cowork": "s1",
           "custom": "s3",
-          "copilot": "s2"
+          "copilot": "s2",
+          "ms-copilot": "na"
         }
       },
       {
@@ -283,7 +303,8 @@
           "codex": "s3",
           "cowork": "s1",
           "custom": "s2",
-          "copilot": "s2"
+          "copilot": "s2",
+          "ms-copilot": "na"
         }
       },
       {
@@ -296,7 +317,8 @@
           "codex": "s2",
           "cowork": "s1",
           "custom": "s2",
-          "copilot": "s2"
+          "copilot": "s2",
+          "ms-copilot": "na"
         }
       }
     ]
@@ -306,7 +328,7 @@
     "number": "05",
     "name": "Builder / Coding Agent",
     "roleCategory": "tech",
-    "roleLabel": "Developer \u00b7 Software Engineer",
+    "roleLabel": "Developer · Software Engineer",
     "functions": [
       {
         "id": "5.1",
@@ -318,7 +340,8 @@
           "codex": "s4",
           "cowork": "na",
           "custom": "na",
-          "copilot": "s4"
+          "copilot": "s4",
+          "ms-copilot": "na"
         }
       },
       {
@@ -330,7 +353,8 @@
           "codex": "s3",
           "cowork": "na",
           "custom": "s2",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "na"
         }
       },
       {
@@ -342,7 +366,8 @@
           "codex": "s3",
           "cowork": "na",
           "custom": "s2",
-          "copilot": "s2"
+          "copilot": "s2",
+          "ms-copilot": "na"
         }
       }
     ]
@@ -352,7 +377,7 @@
     "number": "06",
     "name": "Quality Spec Agent & Test Automation",
     "roleCategory": "tech",
-    "roleLabel": "QA Engineer \u00b7 Test Lead \u00b7 Developer",
+    "roleLabel": "QA Engineer · Test Lead · Developer",
     "functions": [
       {
         "id": "6.1",
@@ -363,7 +388,8 @@
           "codex": "s3",
           "cowork": "s1",
           "custom": "s2",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "s1"
         }
       },
       {
@@ -375,7 +401,8 @@
           "codex": "s3",
           "cowork": "s1",
           "custom": "s2",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "s1"
         }
       },
       {
@@ -387,7 +414,8 @@
           "codex": "s3",
           "cowork": "s1",
           "custom": "s1",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "na"
         }
       },
       {
@@ -399,7 +427,8 @@
           "codex": "s3",
           "cowork": "s1",
           "custom": "s1",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "na"
         }
       },
       {
@@ -411,7 +440,8 @@
           "codex": "s3",
           "cowork": "s1",
           "custom": "s3",
-          "copilot": "s3"
+          "copilot": "s3",
+          "ms-copilot": "na"
         }
       },
       {
@@ -423,7 +453,8 @@
           "codex": "s3",
           "cowork": "s1",
           "custom": "s3",
-          "copilot": "s2"
+          "copilot": "s2",
+          "ms-copilot": "na"
         }
       }
     ]

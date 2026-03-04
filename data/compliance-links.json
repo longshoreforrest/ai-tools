@@ -1,0 +1,44 @@
+{
+  "claude-code": [
+    { "category": "Trust", "label": "Anthropic Trust Center", "url": "https://trust.anthropic.com" },
+    { "category": "Pricing", "label": "Claude API Pricing", "url": "https://www.anthropic.com/pricing" },
+    { "category": "Security", "label": "Claude Security Overview", "url": "https://docs.anthropic.com/en/docs/about-claude/security" },
+    { "category": "Privacy", "label": "Anthropic Privacy Policy", "url": "https://www.anthropic.com/privacy" }
+  ],
+  "codex": [
+    { "category": "Trust", "label": "OpenAI Trust Portal", "url": "https://trust.openai.com" },
+    { "category": "Pricing", "label": "OpenAI API Pricing", "url": "https://openai.com/api/pricing/" },
+    { "category": "Security", "label": "OpenAI Security & Privacy", "url": "https://openai.com/security-and-privacy/" },
+    { "category": "Privacy", "label": "OpenAI Enterprise Privacy", "url": "https://openai.com/enterprise-privacy/" }
+  ],
+  "copilot": [
+    { "category": "Trust", "label": "Copilot Trust Center", "url": "https://resources.github.com/copilot-trust-center" },
+    { "category": "Pricing", "label": "GitHub Copilot Plans", "url": "https://github.com/features/copilot/plans" },
+    { "category": "Security", "label": "GitHub Security", "url": "https://github.com/security" },
+    { "category": "Privacy", "label": "Copilot Business Privacy", "url": "https://docs.github.com/en/site-policy/privacy-policies/github-copilot-business-privacy-statement" }
+  ],
+  "ide": [
+    { "category": "Pricing", "label": "Cursor Pricing", "url": "https://www.cursor.com/pricing" },
+    { "category": "Pricing", "label": "Windsurf Pricing", "url": "https://windsurf.com/pricing" },
+    { "category": "Security", "label": "Cursor Security", "url": "https://www.cursor.com/security" },
+    { "category": "Privacy", "label": "Cursor Privacy Mode", "url": "https://docs.cursor.com/account/privacy" }
+  ],
+  "cowork": [
+    { "category": "Trust", "label": "Anthropic Trust Center", "url": "https://trust.anthropic.com" },
+    { "category": "Pricing", "label": "Claude Pricing Plans", "url": "https://www.anthropic.com/pricing" },
+    { "category": "Security", "label": "Claude Security Overview", "url": "https://docs.anthropic.com/en/docs/about-claude/security" },
+    { "category": "Privacy", "label": "Anthropic Privacy Policy", "url": "https://www.anthropic.com/privacy" }
+  ],
+  "ms-copilot": [
+    { "category": "Trust", "label": "Microsoft Trust Center", "url": "https://www.microsoft.com/en-us/trust-center" },
+    { "category": "Pricing", "label": "M365 Copilot Pricing", "url": "https://www.microsoft.com/en-us/microsoft-365/copilot#plans" },
+    { "category": "Security", "label": "M365 Copilot Security", "url": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy" },
+    { "category": "Privacy", "label": "Microsoft Privacy Statement", "url": "https://privacy.microsoft.com/en-us/privacystatement" }
+  ],
+  "custom": [
+    { "category": "Trust", "label": "Anthropic Trust Center", "url": "https://trust.anthropic.com" },
+    { "category": "Trust", "label": "OpenAI Trust Portal", "url": "https://trust.openai.com" },
+    { "category": "Pricing", "label": "Claude API Pricing", "url": "https://www.anthropic.com/pricing" },
+    { "category": "Security", "label": "OWASP LLM Top 10", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications" }
+  ]
+}

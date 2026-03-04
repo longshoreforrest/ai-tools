@@ -26,7 +26,7 @@ export async function exportSlideToPptx(tabLabel) {
   const btn = document.getElementById('export-pptx-btn');
   try {
     if (btn) {
-      btn.textContent = 'Exporting\u2026';
+      btn.innerHTML = '\u23F3 Exporting\u2026';
       btn.classList.add('exporting');
     }
 
@@ -69,7 +69,7 @@ export async function exportSlideToPptx(tabLabel) {
     alert('Export failed — see console for details.');
   } finally {
     if (btn) {
-      btn.textContent = 'Export PPTX';
+      btn.innerHTML = '\uD83D\uDCDD PPTX';
       btn.classList.remove('exporting');
     }
   }

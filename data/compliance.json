@@ -1,0 +1,306 @@
+{
+  "security-compliance": {
+    "claude-code": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "SOC 2 Type II certified",
+        "GDPR compliant with DPA available",
+        "CSA STAR Level 1 listed"
+      ]
+    },
+    "codex": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "SOC 2 Type II certified via OpenAI",
+        "GDPR compliant — DPA available",
+        "No ISO 27001 certification yet"
+      ]
+    },
+    "copilot": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "SOC 2 Type II via GitHub / Microsoft",
+        "ISO 27001 and ISO 27018 certified",
+        "FedRAMP authorised via Azure backbone"
+      ]
+    },
+    "ide": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Varies by vendor — Cursor and Windsurf emerging",
+        "Limited published certifications",
+        "Rely on upstream model provider compliance"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Certification maturity varies across IDE vendors"
+      }
+    },
+    "cowork": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Inherits Anthropic SOC 2 Type II",
+        "GDPR compliant with DPA",
+        "Enterprise security controls built in"
+      ]
+    },
+    "custom": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Inherits API provider certifications",
+        "Compliance posture depends on hosting choices",
+        "Can be hardened to meet any standard"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Full control over compliance posture"
+      }
+    },
+    "ms-copilot": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "SOC 2 Type II, ISO 27001, ISO 27018 via Microsoft",
+        "FedRAMP High, HIPAA, GxP compliant",
+        "Broadest certification portfolio across all tools"
+      ]
+    }
+  },
+  "data-privacy": {
+    "claude-code": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Zero-retention API by default — no training on inputs",
+        "Data stays in-session, not stored server-side",
+        "EU data residency available"
+      ]
+    },
+    "codex": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Business data not used for training (API policy)",
+        "30-day data retention on API tier",
+        "No EU data residency option yet"
+      ]
+    },
+    "copilot": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Enterprise: code excluded from training",
+        "Prompts and suggestions not retained",
+        "Data residency via Azure region selection"
+      ]
+    },
+    "ide": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Privacy policies vary per IDE vendor",
+        "Some send context to third-party models",
+        "Opt-out mechanisms inconsistent"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Check each vendor's data handling policy individually"
+      }
+    },
+    "cowork": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "No training on business data",
+        "Conversation data not retained beyond session",
+        "Enterprise DPA covers all usage"
+      ]
+    },
+    "custom": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Full control over data routing and storage",
+        "Can enforce zero-retention at API layer",
+        "On-prem or private cloud deployment possible"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Maximum data sovereignty"
+      }
+    },
+    "ms-copilot": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Enterprise data not used for model training",
+        "Data residency via Azure region — EU Data Boundary",
+        "Microsoft Graph respects existing permissions and DLP policies"
+      ]
+    }
+  },
+  "enterprise-readiness": {
+    "claude-code": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "API key or OAuth-based team access",
+        "Audit logging via API usage dashboard",
+        "No native SSO/SAML — relies on org API key management"
+      ]
+    },
+    "codex": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Team management via OpenAI platform",
+        "Basic usage logging — no granular audit trail",
+        "No SSO/SAML or RBAC in desktop app"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Enterprise admin features still maturing"
+      }
+    },
+    "copilot": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Full SSO/SAML via GitHub Enterprise + Azure AD",
+        "Granular RBAC and policy enforcement",
+        "Audit log API and compliance dashboard"
+      ]
+    },
+    "ide": {
+      "score": 1,
+      "label": "Weak",
+      "actions": [
+        "No centralised enterprise admin console",
+        "No SSO/SAML or RBAC across IDE AI features",
+        "Individual developer licensing only"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "No enterprise governance layer"
+      }
+    },
+    "cowork": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Teams-integrated access management",
+        "Usage analytics and admin controls",
+        "SSO via Anthropic enterprise plan"
+      ]
+    },
+    "custom": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Full SSO/SAML integration by design",
+        "Custom audit logging and RBAC",
+        "VPC or on-prem deployment option"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Enterprise-grade by design"
+      }
+    },
+    "ms-copilot": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Full SSO/SAML via Azure AD / Entra ID",
+        "Granular RBAC, Conditional Access, Intune policies",
+        "Unified audit logging in Microsoft Purview"
+      ]
+    }
+  },
+  "cost-licensing": {
+    "claude-code": {
+      "score": 4,
+      "label": "Best fit",
+      "actions": [
+        "Per-seat plans ($20–200/mo) or API pay-per-token pricing",
+        "Max plan removes rate limits — sustained agentic SDLC workloads",
+        "Enterprise agreements via Anthropic sales"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Best value for deep agentic coding at scale"
+      }
+    },
+    "codex": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "Included in ChatGPT Plus ($20/mo) or Pro ($200/mo)",
+        "Message-based limits — heavy agent use hits caps quickly",
+        "Team plan $25–30/seat/mo; Enterprise via sales"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Message caps constrain sustained agentic workloads"
+      }
+    },
+    "copilot": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Clear per-seat pricing ($19–39/user/month)",
+        "Enterprise plan with volume discounts",
+        "Token-credit model limits heavy agentic coding sessions"
+      ],
+      "chip": {
+        "type": "barrier",
+        "text": "Credit caps constrain sustained agentic SDLC workloads"
+      }
+    },
+    "ide": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Per-seat subscription models ($10–40/mo)",
+        "Pricing transparent and published",
+        "No enterprise volume agreements"
+      ]
+    },
+    "cowork": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "Enterprise pricing via Anthropic sales",
+        "Seat-based for teams, usage-based for API",
+        "Volume discounts for large deployments"
+      ]
+    },
+    "custom": {
+      "score": 2,
+      "label": "Partial",
+      "actions": [
+        "API costs + development and hosting investment",
+        "Total cost depends on usage patterns and infra",
+        "Highest upfront cost — lowest marginal cost at scale"
+      ],
+      "chip": {
+        "type": "value",
+        "text": "Best unit economics at scale"
+      }
+    },
+    "ms-copilot": {
+      "score": 3,
+      "label": "Good",
+      "actions": [
+        "M365 Copilot $30/user/month add-on to existing M365 licence",
+        "Predictable per-seat pricing, enterprise volume discounts",
+        "Requires M365 E3/E5 base licence — total cost is higher"
+      ]
+    }
+  }
+}

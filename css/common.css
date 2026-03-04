@@ -70,6 +70,12 @@
   --ide-hdr-bg:    rgba(106,138,90,0.06);
   --ide-hdr-bd:    rgba(106,138,90,0.2);
 
+  --enterprise:       #0078d4;
+  --enterprise-bg:    rgba(0,120,212,0.04);
+  --enterprise-bd:    rgba(0,120,212,0.15);
+  --enterprise-hdr-bg:rgba(0,120,212,0.06);
+  --enterprise-hdr-bd:rgba(0,120,212,0.2);
+
   /* Score pill backgrounds + borders (functionality matrix) */
   --s4-bg: rgba(43, 127, 110, 0.1);
   --s4-bd: rgba(43, 127, 110, 0.28);
@@ -110,6 +116,25 @@ body {
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.nav-group-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  padding: 0 8px 0 4px;
+  white-space: nowrap;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 8px;
+  flex-shrink: 0;
 }
 
 .nav-tab {
@@ -478,6 +503,39 @@ body {
   border-color: rgba(43,127,110,0.35);
 }
 .export-pptx-btn.exporting {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ── In-bar Export Buttons (inside view-toggle-bar) ── */
+.export-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 16px;
+}
+.export-btn {
+  font: 600 10px 'Sora', sans-serif;
+  color: var(--text2);
+  background: var(--white);
+  border: 1.5px solid rgba(28,43,58,0.12);
+  border-radius: 5px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+.export-btn .export-icon {
+  font-size: 12px;
+  vertical-align: -1px;
+  margin-right: 1px;
+}
+.export-btn:hover {
+  color: var(--teal);
+  border-color: rgba(43,127,110,0.35);
+}
+.export-btn.exporting {
   pointer-events: none;
   opacity: 0.5;
 }

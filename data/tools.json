@@ -28,6 +28,13 @@
     "category": "ide"
   },
   {
+    "id": "ms-copilot",
+    "name": "MS Copilot",
+    "subtitle": "M365 AI \u00b7 Word \u00b7 Excel \u00b7 Teams \u00b7 Graph",
+    "isBuild": false,
+    "category": "enterprise"
+  },
+  {
     "id": "cowork",
     "name": "Claude Cowork",
     "subtitle": "Desktop app \u00b7 natural language",

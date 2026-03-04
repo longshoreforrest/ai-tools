@@ -11,18 +11,23 @@ const TOOL_COLORS = {
   'codex':       '#9b59b6',
   'copilot':     '#1f6feb',
   'ide':         '#6a8a5a',
+  'ms-copilot':  '#0078d4',
   'cowork':      '#2b7f6e',
   'custom':      '#c47d20',
 };
 
 /* ── Capability colour palette (flipped mode) ── */
 const CAP_COLORS = {
-  'knowledge-gen':    '#d4782a',
-  'demand-assistant': '#7a5ab5',
-  'biz-intent':       '#b8943a',
-  'tech-spec':        '#2b7f6e',
-  'builder':          '#5b6abf',
-  'quality':          '#c25060',
+  'knowledge-gen':        '#d4782a',
+  'demand-assistant':     '#7a5ab5',
+  'biz-intent':           '#b8943a',
+  'tech-spec':            '#2b7f6e',
+  'builder':              '#5b6abf',
+  'quality':              '#c25060',
+  'security-compliance':  '#3a6fa0',
+  'data-privacy':         '#6a8a5a',
+  'enterprise-readiness': '#9b59b6',
+  'cost-licensing':       '#c47d20',
 };
 
 /* ── Chart geometry ── */

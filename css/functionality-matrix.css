@@ -188,6 +188,10 @@ thead tr th {
   border-color: var(--ide-bd);
   background: var(--ide-hdr-bg);
 }
+.th-card.enterprise-card {
+  border-color: var(--enterprise-bd);
+  background: var(--enterprise-hdr-bg);
+}
 .th-cat-tag {
   display: inline-block;
   font-family: "JetBrains Mono", monospace;
@@ -208,6 +212,11 @@ thead tr th {
   background: rgba(106,138,90,0.08);
   color: var(--ide-cat);
   border: 1px solid var(--ide-bd);
+}
+.th-cat-tag.enterprise {
+  background: rgba(0,120,212,0.08);
+  color: var(--enterprise);
+  border: 1px solid var(--enterprise-bd);
 }
 
 /* ── CAPABILITY GROUP HEADER ROW ── */
