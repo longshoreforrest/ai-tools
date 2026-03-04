@@ -234,6 +234,7 @@ function renderViewToggle(tools, capabilities) {
     `<span class="view-toggle-label">Export</span>` +
     (showExcel ? `<button class="export-btn" id="bar-export-xlsx"><span class="export-icon">\uD83D\uDCCA</span> Excel</button>` : '') +
     `<button class="export-btn" id="bar-export-pptx"><span class="export-icon">\uD83D\uDCDD</span> PPTX</button>` +
+    `<button class="export-btn" id="bar-export-html"><span class="export-icon">\uD83C\uDF10</span> HTML</button>` +
     `</div>`;
 
   toggleEl.innerHTML = `<span class="view-toggle-label">View</span>${buttonsHtml}${exportHtml}`;
@@ -260,6 +261,12 @@ function renderViewToggle(tools, capabilities) {
   const barXlsx = document.getElementById('bar-export-xlsx');
   if (barXlsx) {
     barXlsx.addEventListener('click', () => handleExcelExport(barXlsx));
+  }
+
+  // Wire in-bar HTML export
+  const barHtml = document.getElementById('bar-export-html');
+  if (barHtml) {
+    barHtml.addEventListener('click', () => handleHtmlExport(barHtml));
   }
 }
 
@@ -492,6 +499,69 @@ async function handleExcelExport(btnEl) {
     alert('Excel export failed \u2014 see console for details.');
   } finally {
     btnEl.innerHTML = '<span class="export-icon">\uD83D\uDCCA</span> Excel';
+    btnEl.classList.remove('exporting');
+  }
+}
+
+/**
+ * Handle HTML export — builds a self-contained HTML file from the current view.
+ */
+async function handleHtmlExport(btnEl) {
+  const tab = TABS.find(t => t.id === activeTabId);
+  const label = tab ? tab.label : 'export';
+  btnEl.innerHTML = '\u23F3 Exporting\u2026';
+  btnEl.classList.add('exporting');
+
+  try {
+    // Gather the slide HTML
+    const appEl = document.getElementById('app');
+    const slideHtml = appEl.innerHTML;
+
+    // Fetch CSS files as text
+    const commonCss = await fetch('css/common.css').then(r => r.text());
+    const viewCssLink = document.getElementById('view-css');
+    let viewCss = '';
+    if (viewCssLink && viewCssLink.href) {
+      viewCss = await fetch(viewCssLink.href).then(r => r.text());
+    }
+
+    // Build self-contained HTML
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${label} — AI Tools Comparison</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+${commonCss}
+  </style>
+  <style>
+${viewCss}
+  </style>
+</head>
+<body>
+  <div id="app" style="display:flex;flex-direction:column;align-items:center;padding:24px;">
+${slideHtml}
+  </div>
+</body>
+</html>`;
+
+    // Download as file
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = label.replace(/[^a-zA-Z0-9]+/g, '_') + '.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    console.error('[exportHtml] Export failed:', err);
+    alert('HTML export failed \u2014 see console for details.');
+  } finally {
+    btnEl.innerHTML = '<span class="export-icon">\uD83C\uDF10</span> HTML';
     btnEl.classList.remove('exporting');
   }
 }
