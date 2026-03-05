@@ -1,0 +1,134 @@
+{
+  "sidebar": {
+    "eyebrow": "Biz Intent · Capability 03 / 06",
+    "type": "Agent",
+    "title": "Business Intent<br>Translator",
+    "tagline": "Turns early business ideas into validated, owner-backed, testable requirements and alignment artifacts — stories, acceptance criteria, and rapid prototypes.",
+    "principle": {
+      "label": "⚡ Key Principle — Requirement Quality",
+      "text": "No requirement closes without human sign-off. Every business spec is explicit, comprehensive, and traceable to acceptance criteria."
+    },
+    "inputs": [
+      { "text": "Business demands + MS Teams memos", "highlight": true },
+      { "text": "Library of business & technical specifications", "highlight": false },
+      { "text": "Corporate guidelines for requirements & specs", "highlight": false }
+    ],
+    "outputs": [
+      { "text": "Validated business requirements", "highlight": true },
+      { "text": "Feature specs + acceptance criteria", "highlight": true },
+      { "text": "High-level technical requirements", "highlight": false },
+      { "text": "Meeting synthesis & decision log", "highlight": false },
+      { "text": "AI-generated artifacts (prototypes)", "highlight": false }
+    ],
+    "pageNum": "03 / 07"
+  },
+  "layers": {
+    "ui": {
+      "type": "single",
+      "card": {
+        "title": "Requirements Capture Interface",
+        "chips": [
+          "Conversational chat",
+          "Meeting transcription",
+          "Document upload"
+        ],
+        "softChips": [],
+        "note": "Product owners and business analysts capture and refine requirements through guided dialogue"
+      }
+    },
+    "orchestration": {
+      "type": "standard",
+      "orchestrator": {
+        "name": "Intent Orchestrator Agent",
+        "bullets": [
+          { "text": "Session management and conversation state", "highlight": true },
+          { "text": "Sub-agent coordination & task routing", "highlight": false },
+          { "text": "Human-in-the-loop checkpoints", "highlight": false },
+          { "text": "Artifact assembly and output formatting", "highlight": false }
+        ]
+      },
+      "components": [
+        {
+          "kind": "skill",
+          "name": "Meeting Synthesis",
+          "note": "Automatically synthesize meeting memos and extract business specs",
+          "typeLabel": "Skill",
+          "span2": false
+        },
+        {
+          "kind": "agent",
+          "name": "Expert Sparring",
+          "note": "Spar with domain experts to ensure specs are explicit and comprehensive",
+          "typeLabel": "Agent",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Requirement Drafting",
+          "note": "Draft and document business requirements as concept/feature specifications",
+          "typeLabel": "Skill",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Business-to-Tech Translation",
+          "note": "Translate business requirements to high-level technical requirements",
+          "typeLabel": "Skill — shared",
+          "span2": false
+        },
+        {
+          "kind": "agent",
+          "name": "Human Sign-off & Artifact Generation",
+          "note": "Route specs for human validation, then generate artifacts via out-of-box tooling",
+          "typeLabel": "Agent",
+          "span2": true
+        }
+      ]
+    },
+    "knowledge": {
+      "cards": [
+        {
+          "name": "Requirements Library",
+          "desc": "Business demands · feature specs · acceptance criteria · change history"
+        },
+        {
+          "name": "Business Specs Templates",
+          "desc": "Standard templates · requirement patterns · specification frameworks"
+        },
+        {
+          "name": "Corporate Guidelines",
+          "desc": "Requirements standards · communication rules · maintenance procedures"
+        }
+      ],
+      "rag": {
+        "label": "RAG / Retrieval Pipeline",
+        "body": "Vector store · semantic search over requirements library, business specs, and guideline documentation"
+      }
+    },
+    "enterprise": {
+      "protoTags": ["MCP", "API"],
+      "cards": [
+        {
+          "name": "MS Teams",
+          "detail": "Meeting transcripts · chat history · collaboration channels",
+          "chips": []
+        },
+        {
+          "name": "Document Repositories",
+          "detail": "Business specs · requirement docs · feature specifications",
+          "chips": []
+        },
+        {
+          "name": "Project Management",
+          "detail": "Backlog · sprint tracking · change requests",
+          "chips": ["ServiceNow", "Azure DevOps", "Jira"]
+        },
+        {
+          "name": "Artifact Generation",
+          "detail": "Rapid prototyping · story mapping · out-of-box tooling",
+          "chips": []
+        }
+      ]
+    }
+  }
+}

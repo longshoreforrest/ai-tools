@@ -1,0 +1,128 @@
+{
+  "sidebar": {
+    "eyebrow": "Knowledge Gen · Capability 01 / 06",
+    "type": "Agent",
+    "title": "Knowledge Generator<br>& Doc Maintenance",
+    "tagline": "An AI learning engine that converts operational work into reusable knowledge — drafts resolution guides, proposes documentation updates, and keeps templates & FAQs current.",
+    "principle": {
+      "label": "⚡ Key Principle — HITL-first",
+      "text": "No documentation is published without human sign-off. Every update is validated before it enters the knowledge base."
+    },
+    "inputs": [
+      { "text": "Technical solution docs (impl, test, maintenance)", "highlight": true },
+      { "text": "Business requirement descriptions & docs", "highlight": false },
+      { "text": "Corporate documentation guidelines", "highlight": false }
+    ],
+    "outputs": [
+      { "text": "Updated & validated documentation", "highlight": true },
+      { "text": "Knowledge summaries & resolution guides", "highlight": true },
+      { "text": "Guideline compliance report", "highlight": false },
+      { "text": "Documentation review recommendations", "highlight": false }
+    ],
+    "pageNum": "01 / 07"
+  },
+  "layers": {
+    "ui": {
+      "type": "single",
+      "card": {
+        "title": "Documentation & Knowledge Interface",
+        "chips": [
+          "Conversational search",
+          "Document upload",
+          "Template editor"
+        ],
+        "softChips": [],
+        "note": "Knowledge owners and IT teams interact via search, upload, and guided editing"
+      }
+    },
+    "orchestration": {
+      "type": "standard",
+      "orchestrator": {
+        "name": "Knowledge Orchestrator Agent",
+        "bullets": [
+          { "text": "Session management and conversation state", "highlight": true },
+          { "text": "Sub-agent coordination & task routing", "highlight": false },
+          { "text": "Human-in-the-loop checkpoints", "highlight": false },
+          { "text": "Artifact assembly and output formatting", "highlight": false }
+        ]
+      },
+      "components": [
+        {
+          "kind": "skill",
+          "name": "Doc Assessment & Cleanup",
+          "note": "Assess and clean up existing documentation for accuracy and completeness",
+          "typeLabel": "Skill",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Conversational Search",
+          "note": "Engage users through natural-language search over the knowledge base",
+          "typeLabel": "Skill",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Summarization",
+          "note": "Summarize existing documentation and surface key capabilities",
+          "typeLabel": "Skill",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Guideline Compliance",
+          "note": "Check documentation against Corporate guidelines and flag deviations",
+          "typeLabel": "Skill — shared",
+          "span2": false
+        },
+        {
+          "kind": "agent",
+          "name": "Human Sign-off & Publish",
+          "note": "Route validated docs for human review, then update the knowledge base after sign-off",
+          "typeLabel": "Agent",
+          "span2": true
+        }
+      ]
+    },
+    "knowledge": {
+      "cards": [
+        {
+          "name": "Documentation Library",
+          "desc": "Resolution guides · templates · FAQs · operational runbooks"
+        },
+        {
+          "name": "Corporate Guidelines",
+          "desc": "Documentation standards · naming conventions · compliance rules"
+        },
+        {
+          "name": "Session Memory",
+          "desc": "Conversation history · review decisions · open items"
+        }
+      ],
+      "rag": {
+        "label": "RAG / Retrieval Pipeline",
+        "body": "Vector store · semantic search over documentation library, guidelines, and operational knowledge"
+      }
+    },
+    "enterprise": {
+      "protoTags": ["MCP", "API"],
+      "cards": [
+        {
+          "name": "Document Repositories",
+          "detail": "Technical docs · business specs · operational runbooks",
+          "chips": []
+        },
+        {
+          "name": "ForBot",
+          "detail": "Internal knowledge base and process automation connector",
+          "chips": []
+        },
+        {
+          "name": "Integration Catalog",
+          "detail": "Enterprise integration patterns and connector registry",
+          "chips": ["Boomi", "ESB"]
+        }
+      ]
+    }
+  }
+}

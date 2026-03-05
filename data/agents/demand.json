@@ -1,0 +1,134 @@
+{
+  "sidebar": {
+    "eyebrow": "Demand \u00b7 Capability 02 / 06",
+    "type": "Agent",
+    "title": "Demand<br>Assistant Agent",
+    "tagline": "Impact study, effort estimation, risk mapping, backlog analysis. Assesses every demand for strategic fit and cost before it enters the backlog.",
+    "principle": {
+      "label": "\u26a1 Key Principle \u2014 Efficiency-first",
+      "text": "Every demand is assessed for strategic fit and cost-benefit before entering the backlog. No item moves to sprint without meeting Definition of Ready."
+    },
+    "inputs": [
+      { "text": "Business demands + strategy", "highlight": true },
+      { "text": "Demand library", "highlight": false },
+      { "text": "PM best practices", "highlight": false },
+      { "text": "Historical estimation data", "highlight": false }
+    ],
+    "outputs": [
+      { "text": "Impact analysis + risk map", "highlight": true },
+      { "text": "Effort & time estimation", "highlight": true },
+      { "text": "Project timeline", "highlight": false },
+      { "text": "Sprint-ready backlog items", "highlight": false },
+      { "text": "Status reports", "highlight": false }
+    ],
+    "pageNum": "02 / 07"
+  },
+  "layers": {
+    "ui": {
+      "type": "single",
+      "card": {
+        "title": "Demand Management Interface",
+        "chips": [
+          "Conversational chat",
+          "Document upload",
+          "Dashboard view"
+        ],
+        "note": "PM or delivery lead submits demands and reviews AI-generated analysis in a guided workflow"
+      }
+    },
+    "orchestration": {
+      "type": "standard",
+      "orchestrator": {
+        "name": "Demand Orchestrator Agent",
+        "bullets": [
+          { "text": "Demand intake workflow and routing", "highlight": true },
+          { "text": "Sub-agent dispatch", "highlight": false },
+          { "text": "Human-in-the-loop checkpoints", "highlight": false },
+          { "text": "Artifact assembly and output formatting", "highlight": false }
+        ]
+      },
+      "components": [
+        {
+          "kind": "agent",
+          "name": "Impact Analyser",
+          "note": "Analyse new requirements and compare with current implementations across BAs",
+          "typeLabel": "Agent",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Effort Estimator",
+          "note": "Suggest high-level time and effort estimation based on historical data",
+          "typeLabel": "Skill \u2014 shared",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Backlog Qualifier",
+          "note": "Validate backlog items against Definition of Ready compliance criteria",
+          "typeLabel": "Skill \u2014 shared",
+          "span2": false
+        },
+        {
+          "kind": "skill",
+          "name": "Timeline Builder",
+          "note": "Build project timeline and create project structure from estimation output",
+          "typeLabel": "Skill",
+          "span2": false
+        },
+        {
+          "kind": "agent",
+          "name": "Strategic Fit & Risk Assessment",
+          "note": "Cross-cut value proposition analysis \u2014 strategic alignment, risk mapping, dependency impact",
+          "typeLabel": "Agent",
+          "span2": true
+        }
+      ]
+    },
+    "knowledge": {
+      "cards": [
+        {
+          "name": "Demand Library",
+          "desc": "Well-structured demands \u00b7 templates \u00b7 classification taxonomy"
+        },
+        {
+          "name": "PM Best Practices",
+          "desc": "Estimation frameworks \u00b7 DoR checklists \u00b7 planning guidelines"
+        },
+        {
+          "name": "Business Strategy Context",
+          "desc": "Strategic priorities \u00b7 roadmap \u00b7 portfolio alignment criteria"
+        }
+      ],
+      "rag": {
+        "label": "RAG / Retrieval Pipeline",
+        "body": "Semantic search over historical demands, estimation baselines, retrospectives, and vendor documentation"
+      }
+    },
+    "enterprise": {
+      "protoTags": ["MCP", "API"],
+      "cards": [
+        {
+          "name": "Project Management",
+          "detail": "Backlog \u00b7 sprint tracking \u00b7 demand intake \u00b7 change requests",
+          "chips": ["ServiceNow", "Azure DevOps", "Jira"]
+        },
+        {
+          "name": "Portfolio & Strategy",
+          "detail": "Strategic roadmap \u00b7 portfolio prioritisation \u00b7 investment tracking",
+          "chips": []
+        },
+        {
+          "name": "Document Repositories",
+          "detail": "Demand specs \u00b7 estimation docs \u00b7 process documentation",
+          "chips": ["SharePoint", "Confluence"]
+        },
+        {
+          "name": "Vendor & Tooling",
+          "detail": "Vendor roadmaps \u00b7 tool evaluations \u00b7 feature tracking",
+          "chips": []
+        }
+      ]
+    }
+  }
+}
