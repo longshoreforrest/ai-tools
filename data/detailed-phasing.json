@@ -1,0 +1,671 @@
+{
+  "title": "Detailed Implementation Phasing \u2014 H2 2026",
+  "subtitle": "Component-level delivery timeline \u00b7 Hybrid A+C approach \u00b7 20 weeks to full capability \u00b7 Start: June 2026",
+  "goalReminder": "Target: 50% faster, 50% cheaper software delivery. Each capability contributes a share of the projected 5\u20137.5\u2009M\u20ac/year savings.",
+
+  "timeline": {
+    "unit": "sprint",
+    "sprintWeeks": 2,
+    "sprints": [
+      { "id": "S0", "label": "Sprint 0", "title": "Foundation",  "weeks": "Jun 1\u201314" },
+      { "id": "S1", "label": "Sprint 1", "title": "Quick Wins",  "weeks": "Jun 15\u201328" },
+      { "id": "S2", "label": "Sprint 2", "title": "Quick Wins",  "weeks": "Jun 29\u2013Jul 12" },
+      { "id": "S3", "label": "Sprint 3", "title": "Core Build",  "weeks": "Jul 13\u201326" },
+      { "id": "S4", "label": "Sprint 4", "title": "Core Build",  "weeks": "Jul 27\u2013Aug 9" },
+      { "id": "S5", "label": "Sprint 5", "title": "Advanced",    "weeks": "Aug 10\u201323" },
+      { "id": "S6", "label": "Sprint 6", "title": "Advanced",    "weeks": "Aug 24\u2013Sep 6" },
+      { "id": "S7", "label": "Sprint 7", "title": "Harden",      "weeks": "Sep 7\u201320" },
+      { "id": "S8", "label": "Sprint 8", "title": "Harden",      "weeks": "Sep 21\u2013Oct 4" },
+      { "id": "S9", "label": "Sprint 9", "title": "AMS Prep",    "weeks": "Oct 5\u201318" }
+    ]
+  },
+
+  "phases": [
+    { "id": "foundation", "label": "Foundation", "sprints": ["S0"], "color": "grey" },
+    { "id": "quick-wins", "label": "Quick Wins \u2014 SaaS Accelerated", "sprints": ["S1", "S2"], "color": "teal" },
+    { "id": "core-build", "label": "Core Build \u2014 Custom Agents", "sprints": ["S3", "S4"], "color": "navy" },
+    { "id": "advanced", "label": "Advanced Orchestration", "sprints": ["S5", "S6"], "color": "amber" },
+    { "id": "harden", "label": "Harden & Optimize", "sprints": ["S7", "S8"], "color": "navy" },
+    { "id": "ams", "label": "AMS Transition", "sprints": ["S9"], "color": "grey" }
+  ],
+
+  "groups": [
+    {
+      "id": "platform",
+      "name": "Shared Platform & Reusable Assets",
+      "icon": "\u2699\uFE0F",
+      "reusable": true,
+      "components": [
+        {
+          "id": "ai-gateway",
+          "name": "AI Gateway Configuration",
+          "approach": "Azure API Mgmt",
+          "type": "infra",
+          "start": "S0", "end": "S1",
+          "reusableBy": ["all"],
+          "architectureRef": { "layer": "control-plane", "component": "AI Gateway" },
+          "detail": "LLM routing via UPM centralized AI Gateway. Multi-model support (Azure OpenAI, future Claude/Gemini)."
+        },
+        {
+          "id": "terraform-base",
+          "name": "Terraform IaC Foundation",
+          "approach": "Azure DevOps",
+          "type": "infra",
+          "start": "S0", "end": "S1",
+          "reusableBy": ["all"],
+          "siiliReady": "ready",
+          "architectureRef": { "layer": "infrastructure", "component": "Terraform IaC" },
+          "detail": "Base Terraform modules: Container Apps, AI Search, Key Vault, Entra ID. Reuses AI Landing Zone patterns."
+        },
+        {
+          "id": "otel-pipeline",
+          "name": "OpenTelemetry Observability",
+          "approach": "Azure Monitor",
+          "type": "infra",
+          "start": "S0", "end": "S2",
+          "reusableBy": ["all"],
+          "siiliReady": "partial",
+          "architectureRef": { "layer": "observability", "component": "OpenTelemetry SDK" },
+          "detail": "Structured trace pipeline for all agents. Feeds AI CoE centralized observability."
+        },
+        {
+          "id": "mcp-confluence",
+          "name": "MCP: Confluence Connector",
+          "approach": "Custom MCP Server",
+          "type": "connector",
+          "start": "S1", "end": "S2",
+          "reusableBy": ["cap1", "cap3", "cap4"],
+          "architectureRef": { "layer": "integration", "tier": 1, "system": "Confluence" },
+          "detail": "Read/write to Confluence spaces. Used by Knowledge, Intent Translator, and Sparring agents."
+        },
+        {
+          "id": "mcp-sharepoint",
+          "name": "MCP: SharePoint Connector",
+          "approach": "Graph API + MCP",
+          "type": "connector",
+          "start": "S1", "end": "S2",
+          "reusableBy": ["cap1", "cap3"],
+          "architectureRef": { "layer": "integration", "tier": 2, "system": "SharePoint" },
+          "detail": "Document search, read, update via Microsoft Graph. Shared by Knowledge and Intent agents."
+        },
+        {
+          "id": "mcp-ado",
+          "name": "MCP: Azure DevOps Connector",
+          "approach": "ADO REST + MCP",
+          "type": "connector",
+          "start": "S1", "end": "S3",
+          "reusableBy": ["cap2", "cap5", "cap6"],
+          "architectureRef": { "layer": "integration", "tier": 1, "system": "Azure DevOps" },
+          "detail": "Work items, pipelines, repos. Used by Demand, Builder, and QA agents."
+        },
+        {
+          "id": "mcp-servicenow",
+          "name": "MCP: ServiceNow Connector",
+          "approach": "ServiceNow REST + MCP",
+          "type": "connector",
+          "start": "S2", "end": "S3",
+          "reusableBy": ["cap2", "cap3"],
+          "architectureRef": { "layer": "integration", "tier": 1, "system": "ServiceNow" },
+          "detail": "Demand intake, incident data, knowledge base. Used by Demand and Intent agents."
+        },
+        {
+          "id": "mcp-jira",
+          "name": "MCP: Jira Connector",
+          "approach": "Jira REST + MCP",
+          "type": "connector",
+          "start": "S2", "end": "S3",
+          "reusableBy": ["cap2", "cap5", "cap6"],
+          "architectureRef": { "layer": "integration", "tier": 1, "system": "Jira" },
+          "detail": "Issue tracking, backlog management. Used by Demand, Builder, and QA agents."
+        },
+        {
+          "id": "ai-search-index",
+          "name": "Azure AI Search \u2014 Knowledge Index",
+          "approach": "Azure AI Search",
+          "type": "infra",
+          "start": "S1", "end": "S4",
+          "reusableBy": ["cap1", "cap2", "cap4"],
+          "architectureRef": { "layer": "knowledge", "component": "Azure AI Search" },
+          "detail": "Unified vector store for docs, architecture, project history. RAG backbone for caps 1, 2, 4."
+        },
+        {
+          "id": "a2a-cards",
+          "name": "A2A Agent Card Standard",
+          "approach": "MS Agent Framework",
+          "type": "governance",
+          "start": "S3", "end": "S4",
+          "reusableBy": ["all"],
+          "architectureRef": { "layer": "control-plane", "component": "Agent Registry" },
+          "detail": "Standardized agent discovery and communication protocol. Required by AI CoE."
+        },
+        {
+          "id": "agent-runtime",
+          "name": "Agent Runtime (Semantic Kernel)",
+          "approach": "Azure AI Foundry",
+          "type": "infra",
+          "start": "S0", "end": "S3",
+          "reusableBy": ["cap2", "cap4"],
+          "architectureRef": { "layer": "orchestration", "component": "MS Agent Framework" },
+          "detail": "Python + Semantic Kernel base for custom agents. Foundation for caps 2, 4 and future expansion."
+        }
+      ]
+    },
+    {
+      "id": "cap5",
+      "name": "05 \u2014 Builder / Coding",
+      "icon": "\uD83D\uDEE0\uFE0F",
+      "savings": "15.9%",
+      "approach": "SaaS + Guardrails",
+      "components": [
+        {
+          "id": "copilot-agent-mode",
+          "name": "GitHub Copilot Agent Mode",
+          "approach": "GitHub Copilot",
+          "type": "saas-config",
+          "start": "S1", "end": "S2",
+          "reusableBy": ["cap6"],
+          "architectureRef": { "layer": "agents", "agent": "05" },
+          "detail": "Already approved & active. Configure agent mode for spec-to-code, multi-file edits, PR creation."
+        },
+        {
+          "id": "coderabbit",
+          "name": "CodeRabbit PR Review",
+          "approach": "CodeRabbit SaaS",
+          "type": "saas-config",
+          "start": "S1", "end": "S2",
+          "architectureRef": { "layer": "integration", "tier": 2, "system": "CodeRabbit" },
+          "detail": "AI-powered code review on every PR. RFQ-named tool. Configure rulesets for UPM standards."
+        },
+        {
+          "id": "blackduck",
+          "name": "Semgrep OSS Scanning",
+          "approach": "Semgrep OSS (interim)",
+          "type": "saas-config",
+          "start": "S2", "end": "S3",
+          "architectureRef": { "layer": "integration", "tier": 2, "system": "Black Duck" },
+          "detail": "OSS license compliance and vulnerability scanning. Semgrep (open-source) as interim — Black Duck procurement decision Q4 2026."
+        },
+        {
+          "id": "builder-quality-gates",
+          "name": "Quality Gates Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S4", "end": "S6",
+          "reusableBy": ["cap6"],
+          "architectureRef": { "layer": "control-plane", "component": "Gate Approvals (G1\u2013G4)" },
+          "detail": "Automated gate checks before merge: test pass, coverage threshold, SAST/DAST clean, review approved."
+        },
+        {
+          "id": "builder-orchestrator",
+          "name": "Builder Orchestration Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S5", "end": "S7",
+          "architectureRef": { "layer": "orchestration", "component": "Coordinator Agent" },
+          "detail": "Spec-to-code task decomposition. Coordinates Copilot, CodeRabbit, and quality gates."
+        }
+      ]
+    },
+    {
+      "id": "cap6",
+      "name": "06 \u2014 Test & Quality Assurance",
+      "icon": "\u2705",
+      "savings": "13.9%",
+      "approach": "SaaS + Custom Agent",
+      "components": [
+        {
+          "id": "copilot-test-gen",
+          "name": "Test Generation (Copilot)",
+          "approach": "GitHub Copilot",
+          "type": "saas-config",
+          "start": "S1", "end": "S2",
+          "architectureRef": { "layer": "agents", "agent": "06" },
+          "detail": "Test case generation from specs/requirements. TDD contract stubs. Edge-case suggestions."
+        },
+        {
+          "id": "playwright-cypress",
+          "name": "Playwright/Cypress Automation",
+          "approach": "OSS + CI/CD",
+          "type": "integration",
+          "start": "S2", "end": "S4",
+          "reusableBy": ["cap5"],
+          "architectureRef": { "layer": "agents", "agent": "06" },
+          "detail": "Non-SAP E2E test automation. GitHub Actions pipeline for automated test execution."
+        },
+        {
+          "id": "sap-joule-test",
+          "name": "SAP Joule Test Generation",
+          "approach": "SAP Joule",
+          "type": "saas-config",
+          "start": "S3", "end": "S5",
+          "architectureRef": { "layer": "integration", "tier": 3, "system": "SAP Joule" },
+          "detail": "SAP-domain test generation (ABAP/RAP). Orchestrated by quality agent, not replaced."
+        },
+        {
+          "id": "quality-spec-agent",
+          "name": "Quality Spec Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S4", "end": "S6",
+          "architectureRef": { "layer": "agents", "agent": "06" },
+          "detail": "Automated TDD contract generation from approved specs. Dual-phase: specification quality + test automation."
+        },
+        {
+          "id": "test-report-agent",
+          "name": "Test Report Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S6", "end": "S8",
+          "architectureRef": { "layer": "observability", "component": "AI CoE Dashboards" },
+          "detail": "Coverage dashboards, defect severity analysis, release readiness reports for stakeholders."
+        }
+      ]
+    },
+    {
+      "id": "cap1",
+      "name": "01 \u2014 Knowledge Intelligence",
+      "icon": "\uD83D\uDCDA",
+      "savings": "9.0%",
+      "approach": "Copilot Studio + RAG",
+      "components": [
+        {
+          "id": "copilot-sharepoint",
+          "name": "M365 Copilot \u00b7 SharePoint Search",
+          "approach": "M365 Copilot",
+          "type": "saas-config",
+          "start": "S1", "end": "S2",
+          "architectureRef": { "layer": "agents", "agent": "01" },
+          "detail": "Copilot in Word + M365 Chat over SharePoint/OneDrive/Graph. Immediate knowledge search."
+        },
+        {
+          "id": "knowledge-rag",
+          "name": "RAG Pipeline (Confluence + SP)",
+          "approach": "Azure AI Search",
+          "type": "integration",
+          "start": "S2", "end": "S4",
+          "architectureRef": { "layer": "knowledge", "component": "Azure AI Search" },
+          "detail": "Vector index over Confluence, SharePoint, Solman docs. Semantic search with source citations."
+        },
+        {
+          "id": "knowledge-agent",
+          "name": "Knowledge Intelligence Agent",
+          "approach": "Copilot Studio",
+          "type": "custom-agent",
+          "start": "S3", "end": "S5",
+          "architectureRef": { "layer": "agents", "agent": "01" },
+          "detail": "Copilot Studio agent with RAG. Doc gap detection, freshness scoring, update recommendations."
+        },
+        {
+          "id": "doc-update-agent",
+          "name": "Doc Update Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S5", "end": "S7",
+          "reusableBy": ["cap3"],
+          "architectureRef": { "layer": "knowledge", "component": "Knowledge Curator" },
+          "detail": "Automated doc cleanup, guideline alignment checking, HITL sign-off before publish. Shared with cap 3."
+        }
+      ]
+    },
+    {
+      "id": "cap3",
+      "name": "03 \u2014 Business Intent Translator",
+      "icon": "\uD83D\uDDE3\uFE0F",
+      "savings": "10.2%",
+      "approach": "Copilot Studio + Custom",
+      "components": [
+        {
+          "id": "teams-transcription",
+          "name": "Teams Meeting Transcription",
+          "approach": "Teams Copilot",
+          "type": "saas-config",
+          "start": "S1", "end": "S2",
+          "architectureRef": { "layer": "integration", "tier": 2, "system": "MS Teams" },
+          "detail": "Meeting recaps, action items, follow-ups via Teams Copilot. Feeds into spec drafting."
+        },
+        {
+          "id": "spec-drafting",
+          "name": "Spec Drafting (Word Copilot)",
+          "approach": "M365 Copilot",
+          "type": "saas-config",
+          "start": "S2", "end": "S3",
+          "architectureRef": { "layer": "agents", "agent": "03" },
+          "detail": "Draft feature specs from prompts, meeting notes, Outlook threads in Word."
+        },
+        {
+          "id": "intent-agent",
+          "name": "Business-to-Tech Spec Agent",
+          "approach": "Copilot Studio",
+          "type": "custom-agent",
+          "start": "S3", "end": "S5",
+          "architectureRef": { "layer": "agents", "agent": "03" },
+          "detail": "Structured NL-to-spec translation. Domain model awareness, acceptance criteria generation."
+        },
+        {
+          "id": "servicenow-writeback",
+          "name": "ServiceNow Spec Write-back",
+          "approach": "ServiceNow REST",
+          "type": "integration",
+          "start": "S4", "end": "S5",
+          "architectureRef": { "layer": "integration", "tier": 1, "system": "ServiceNow" },
+          "detail": "Approved specs auto-filed as ServiceNow demands. Closes the intent-to-demand loop."
+        }
+      ]
+    },
+    {
+      "id": "cap2",
+      "name": "02 \u2014 Feature Requirement",
+      "icon": "\uD83D\uDCCB",
+      "savings": "6.0%",
+      "approach": "Custom Agent (no SaaS fit)",
+      "components": [
+        {
+          "id": "demand-data-ingest",
+          "name": "Historical Project Data Ingest",
+          "approach": "Azure AI Search",
+          "type": "integration",
+          "start": "S2", "end": "S4",
+          "architectureRef": { "layer": "knowledge", "component": "Azure AI Search" },
+          "detail": "Index historical projects from ADO/Keto/ServiceNow into vector store for estimation baselines."
+        },
+        {
+          "id": "demand-agent",
+          "name": "Feature Requirement Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S3", "end": "S6",
+          "architectureRef": { "layer": "agents", "agent": "02" },
+          "detail": "Impact analysis, effort estimation, duplicate detection. Python + Semantic Kernel on AI Foundry."
+        },
+        {
+          "id": "project-structure",
+          "name": "Project Structure Creation",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S5", "end": "S7",
+          "architectureRef": { "layer": "agents", "agent": "02" },
+          "detail": "Auto-generate project timelines, WBS, resource plans from approved demands."
+        }
+      ]
+    },
+    {
+      "id": "cap4",
+      "name": "04 \u2014 Tech-Spec Sparring",
+      "icon": "\u2694\uFE0F",
+      "savings": "9.1%",
+      "approach": "Custom Agent (no SaaS fit)",
+      "components": [
+        {
+          "id": "arch-catalog-ingest",
+          "name": "Architecture Catalog Ingest",
+          "approach": "Azure AI Search",
+          "type": "integration",
+          "start": "S2", "end": "S4",
+          "architectureRef": { "layer": "knowledge", "component": "Azure AI Search" },
+          "detail": "Index enterprise architecture catalog, dependency registry, ADRs into vector store."
+        },
+        {
+          "id": "sparring-agent",
+          "name": "Architecture Sparring Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S3", "end": "S6",
+          "architectureRef": { "layer": "agents", "agent": "04" },
+          "detail": "Interactive sparring with graph reasoning. ADR generation, compliance flagging, pattern matching."
+        },
+        {
+          "id": "risk-agent",
+          "name": "Complexity & Risk Assessment Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "start": "S5", "end": "S7",
+          "architectureRef": { "layer": "agents", "agent": "04" },
+          "detail": "Cross-system impact analysis, NFR validation, dependency risk scoring."
+        }
+      ]
+    },
+    {
+      "id": "org-readiness",
+      "name": "Organizational Readiness",
+      "icon": "\uD83D\uDC65",
+      "components": [
+        {
+          "id": "ai-capability-lead",
+          "name": "AI Capability Lead Assignment",
+          "approach": "UPM Internal",
+          "type": "governance",
+          "start": "S0", "end": "S0",
+          "detail": "One lead per capability. Bridges business, IT, and vendor; tracks KPIs; owns end-to-end realisation."
+        },
+        {
+          "id": "ai-sdlc-champion",
+          "name": "AI SDLC Champion Recruitment",
+          "approach": "Per Delivery Team",
+          "type": "governance",
+          "start": "S0", "end": "S1",
+          "detail": "One champion per delivery domain. First adopter, coaches peers, surfaces friction, submits improvement feedback to AI CoE."
+        },
+        {
+          "id": "knowledge-curator-role",
+          "name": "Knowledge Curator Designation",
+          "approach": "Evolved from BA/Architect",
+          "type": "governance",
+          "start": "S1", "end": "S2",
+          "detail": "Per domain/system team. Maintains knowledge base quality for capability 1; ensures docs are current and structured."
+        },
+        {
+          "id": "context-engineer-role",
+          "name": "Context Engineer Onboarding",
+          "approach": "Vendor-side Senior Dev",
+          "type": "governance",
+          "start": "S2", "end": "S3",
+          "detail": "Designs and maintains agent instructions (prompts, guardrails, context) for coding agents. Owns AI-generated code quality."
+        },
+        {
+          "id": "ai-qa-specialist",
+          "name": "AI QA Specialist Designation",
+          "approach": "Evolved from QA Engineer",
+          "type": "governance",
+          "start": "S2", "end": "S3",
+          "detail": "Designs and validates TDD contracts fed to AI; reviews AI-generated test scripts; owns test coverage quality."
+        }
+      ]
+    },
+    {
+      "id": "change-mgmt",
+      "name": "Change Management & Training",
+      "icon": "\uD83D\uDCE2",
+      "components": [
+        {
+          "id": "exec-briefing",
+          "name": "Executive Briefing & Awareness",
+          "approach": "Workshops",
+          "type": "adoption",
+          "start": "S0", "end": "S0",
+          "detail": "C-level and IT leadership briefing. Transformation vision, KPI framework socialisation, sponsor identification per capability."
+        },
+        {
+          "id": "champion-enablement",
+          "name": "AI Champion Enablement Workshop",
+          "approach": "2-day Workshop",
+          "type": "adoption",
+          "start": "S0", "end": "S1",
+          "detail": "Champion role definition and recruitment. 2-day enablement programme with access to preview capabilities."
+        },
+        {
+          "id": "wave1-training",
+          "name": "Wave 1: PMs, BAs & Architects",
+          "approach": "4hr Workshops",
+          "type": "adoption",
+          "start": "S2", "end": "S3",
+          "detail": "Role-specific workshops for caps 1-4. Hands-on exercises with real UPM data. Prompt writing and governance walkthrough."
+        },
+        {
+          "id": "wave2-training",
+          "name": "Wave 2: Developers & QA Engineers",
+          "approach": "Full-day Workshop",
+          "type": "adoption",
+          "start": "S3", "end": "S4",
+          "detail": "GitHub Copilot agent mode training. TDD contract design. CodeRabbit onboarding. Worksoft AI extensions. Playwright basics."
+        },
+        {
+          "id": "vendor-onboarding",
+          "name": "Vendor AI Onboarding Programme",
+          "approach": "Workshops + Licences",
+          "type": "adoption",
+          "start": "S2", "end": "S4",
+          "detail": "GitHub Copilot seats issued to vendor devs. 2-day onboarding workshop. Scoped access to UPM knowledge bases."
+        },
+        {
+          "id": "embedded-coaching",
+          "name": "Embedded Coaching & Office Hours",
+          "approach": "Pair-working",
+          "type": "adoption",
+          "start": "S4", "end": "S6",
+          "detail": "Weekly AI office hours. Champion-led peer coaching. AI output review sessions. Prompt library building in shared Confluence."
+        },
+        {
+          "id": "community-of-practice",
+          "name": "Community of Practice Launch",
+          "approach": "Self-sustaining",
+          "type": "adoption",
+          "start": "S6", "end": "S7",
+          "detail": "Champion network self-sustaining. Monthly KPI review with teams. Best practice sharing. Friction retrospectives."
+        }
+      ]
+    },
+    {
+      "id": "governance-gates",
+      "name": "Governance Gates (AI-SDLC)",
+      "icon": "\uD83C\uDFC1",
+      "components": [
+        {
+          "id": "gate-1",
+          "name": "G1: Study \u2192 Design",
+          "approach": "AI CoE Gate",
+          "type": "governance",
+          "start": "S2", "end": "S2",
+          "architectureRef": { "layer": "control-plane", "component": "Gate Approvals (G1\u2013G4)" },
+          "detail": "AI impact analysis completed. Demand compared to backlog. Reuse opportunities documented. Effort estimate from historical data."
+        },
+        {
+          "id": "gate-2",
+          "name": "G2: Design \u2192 Realise",
+          "approach": "AI CoE Gate",
+          "type": "governance",
+          "start": "S3", "end": "S3",
+          "architectureRef": { "layer": "control-plane", "component": "Gate Approvals (G1\u2013G4)" },
+          "detail": "Structured spec (AI-assisted) approved. Measurable acceptance criteria defined. Tech impact mapped. No open ambiguity flags."
+        },
+        {
+          "id": "gate-3",
+          "name": "G3: Realise \u2192 Deploy",
+          "approach": "AI CoE Gate",
+          "type": "governance",
+          "start": "S7", "end": "S7",
+          "architectureRef": { "layer": "control-plane", "component": "Gate Approvals (G1\u2013G4)" },
+          "detail": "Architecture sparring completed. ADR stored. Dependency map approved by Architect. Compliance check passed."
+        },
+        {
+          "id": "gate-4",
+          "name": "G4: Deploy \u2192 Run",
+          "approach": "AI CoE Gate",
+          "type": "governance",
+          "start": "S8", "end": "S8",
+          "architectureRef": { "layer": "control-plane", "component": "Gate Approvals (G1\u2013G4)" },
+          "detail": "All test suites pass. Coverage thresholds met. AI quality gate report signed by QA. AMS knowledge base updated."
+        }
+      ]
+    },
+    {
+      "id": "adoption",
+      "name": "Vendor Enablement & AMS Transition",
+      "icon": "\uD83C\uDF93",
+      "components": [
+        {
+          "id": "vendor-sow",
+          "name": "Vendor SOW Addendum Templates",
+          "approach": "Legal/Sourcing",
+          "type": "governance",
+          "start": "S1", "end": "S2",
+          "detail": "All new development SOWs require: GitHub Copilot usage mandatory, CodeRabbit PR review, AI output logs per sprint."
+        },
+        {
+          "id": "vendor-governance-forum",
+          "name": "Vendor AI Governance Forum",
+          "approach": "Bi-weekly Review",
+          "type": "governance",
+          "start": "S3", "end": "S7",
+          "detail": "AI usage review with vendor leads. Issue resolution, shared learning, contractual compliance. Non-compliance escalated to sourcing."
+        },
+        {
+          "id": "efficiency-data",
+          "name": "Efficiency Gain Data Collection",
+          "approach": "Vendor Reporting",
+          "type": "governance",
+          "start": "S6", "end": "S7",
+          "detail": "Collect AI efficiency data from vendor teams. Hours saved per capability. Negotiate gain sharing or blended rate reduction."
+        },
+        {
+          "id": "rfx-criteria-update",
+          "name": "RFx Criteria Update with AI KPIs",
+          "approach": "Sourcing",
+          "type": "governance",
+          "start": "S7", "end": "S8",
+          "detail": "Future RFx includes: vendor AI adoption score, demonstrated efficiency gains, AI tooling plan. AI weighted at 20% of technical scoring."
+        },
+        {
+          "id": "runbooks",
+          "name": "AMS Runbooks & Dashboards",
+          "approach": "Documentation",
+          "type": "governance",
+          "start": "S7", "end": "S9",
+          "detail": "Agent runbooks (inputs, outputs, failure modes). Observability dashboards live before handover."
+        },
+        {
+          "id": "ams-shadow",
+          "name": "AMS Shadow Team (4 weeks)",
+          "approach": "Knowledge Transfer",
+          "type": "adoption",
+          "start": "S8", "end": "S9",
+          "detail": "AMS team participates in last 4 weeks. Shadow operations, incident co-handling, handover sign-off."
+        }
+      ]
+    }
+  ],
+
+  "crossDomain": {
+    "headline": "Cross-Domain Reusability",
+    "subtext": "Components built once, consumed by multiple capabilities and future expansions (Caps 7\u201311 in H1 2027).",
+    "items": [
+      { "component": "AI Gateway", "usedBy": ["All 6 capabilities", "Future caps 7\u201311"], "expandsTo": "Multi-model routing (Claude, Gemini) in 2027" },
+      { "component": "MCP Connectors", "usedBy": ["Confluence \u2192 1,3,4", "SharePoint \u2192 1,3", "ADO \u2192 2,5,6", "Jira \u2192 2,5,6", "ServiceNow \u2192 2,3"], "expandsTo": "New capability onboarding in days, not weeks" },
+      { "component": "Azure AI Search Index", "usedBy": ["Knowledge RAG \u2192 1", "Project archive \u2192 2", "Arch catalog \u2192 4"], "expandsTo": "Training coach (cap 10), defect agent (cap 11)" },
+      { "component": "Agent Runtime", "usedBy": ["Custom agents 2,4", "Quality gates 5,6"], "expandsTo": "All future agents share same runtime + deployment model" },
+      { "component": "OpenTelemetry Pipeline", "usedBy": ["All agents"], "expandsTo": "AI CoE centralized monitoring, cost tracking, audit compliance" },
+      { "component": "Doc Update Agent", "usedBy": ["Knowledge (1)", "Intent Translator (3)"], "expandsTo": "Any future doc-generating capability" }
+    ]
+  },
+
+  "typeLabels": {
+    "saas-config": "SaaS Config",
+    "custom-agent": "Custom Agent",
+    "integration": "Integration",
+    "infra": "Infrastructure",
+    "connector": "MCP Connector",
+    "governance": "Governance",
+    "adoption": "Adoption"
+  },
+
+  "typeColors": {
+    "saas-config": "teal",
+    "custom-agent": "navy",
+    "integration": "blue",
+    "infra": "grey",
+    "connector": "purple",
+    "governance": "amber",
+    "adoption": "green"
+  },
+
+  "pageNum": "11 / 11"
+}

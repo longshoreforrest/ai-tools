@@ -1,0 +1,113 @@
+{
+  "title": "KPI Framework \u2014 Measuring AI Transformation Success",
+  "subtitle": "Baselined before deployment \u00b7 Measured at 30/60/90/180 days \u00b7 Results feed future RFx criteria",
+
+  "capabilities": [
+    {
+      "cap": "01",
+      "name": "Knowledge Intelligence",
+      "icon": "\uD83D\uDCDA",
+      "kpi": "Hrs/week/person finding or rewriting docs",
+      "baseline": "2-week time-tracking survey before launch",
+      "target30": "-20%",
+      "target90": "-40%",
+      "color": "teal"
+    },
+    {
+      "cap": "02",
+      "name": "Feature Requirement",
+      "icon": "\uD83D\uDCCB",
+      "kpi": "Days from idea to approved Gate 1 demand",
+      "baseline": "ADO/ServiceNow ticket timestamps (last 6 months)",
+      "target30": "-25%",
+      "target90": "-40%",
+      "color": "navy"
+    },
+    {
+      "cap": "03",
+      "name": "Business Intent Translator",
+      "icon": "\uD83D\uDDE3\uFE0F",
+      "kpi": "Days from discussion to Gate 2-ready structured spec",
+      "baseline": "Confluence version history (last 6 months)",
+      "target30": "-30%",
+      "target90": "-50%",
+      "color": "teal"
+    },
+    {
+      "cap": "04",
+      "name": "Tech-Spec Sparring",
+      "icon": "\u2694\uFE0F",
+      "kpi": "Days from scope intake to architecture baseline approved",
+      "baseline": "ADO milestone data (last 6 months)",
+      "target30": "-20%",
+      "target90": "-35%",
+      "color": "navy"
+    },
+    {
+      "cap": "05",
+      "name": "Builder / Coding",
+      "icon": "\uD83D\uDEE0\uFE0F",
+      "kpi": "Days from spec to merged, deployable code; PR turnaround hrs",
+      "baseline": "GitHub cycle time metrics (last 6 months)",
+      "target30": "-20%",
+      "target90": "-35%",
+      "color": "teal"
+    },
+    {
+      "cap": "06",
+      "name": "Test & Quality Assurance",
+      "icon": "\u2705",
+      "kpi": "Manual test hours per sprint; defect escape rate to production",
+      "baseline": "ALM/Azure DevOps test reporting (last 6 months)",
+      "target30": "-25% manual hrs",
+      "target90": "-40% manual hrs",
+      "color": "navy"
+    }
+  ],
+
+  "portfolio": [
+    {
+      "name": "Cost per Feature Point",
+      "definition": "Total IT&AI project spend / feature points delivered per quarter",
+      "baseline": "50 M\u20ac/year baseline",
+      "icon": "\uD83D\uDCB0"
+    },
+    {
+      "name": "Project Overrun Rate",
+      "definition": "% of projects exceeding budget or schedule baseline",
+      "baseline": "Should decline as estimation accuracy improves (cap 2)",
+      "icon": "\uD83D\uDCC9"
+    },
+    {
+      "name": "SIT/UAT Rework Rate",
+      "definition": "% of build output requiring rework in test phases",
+      "baseline": "Should decline as spec quality improves (caps 3, 4)",
+      "icon": "\uD83D\uDD04"
+    },
+    {
+      "name": "Vendor AI Adoption Score",
+      "definition": "% of vendor dev hours using AI tools (Copilot telemetry + sprint logs)",
+      "baseline": "Tracked from July 2026; target >80% by Q4 2026",
+      "icon": "\uD83D\uDCCA"
+    },
+    {
+      "name": "Knowledge Base Health Score",
+      "definition": "% of indexed documents with last-updated date <90 days",
+      "baseline": "Monthly tracking by Knowledge Curators",
+      "icon": "\uD83E\uDDE0"
+    },
+    {
+      "name": "AI Output Override Rate",
+      "definition": "% of AI suggestions accepted vs. overridden by humans",
+      "baseline": "Healthy range indicates tool calibration; extreme lows = under-review risk",
+      "icon": "\u26A0\uFE0F"
+    }
+  ],
+
+  "rfxIntegration": {
+    "headline": "Feeding Results into Future RFx",
+    "text": "From Q3 2026, all new RFx documents must include: (1) vendor's demonstrated AI tool adoption rate from prior UPM projects; (2) baseline KPI improvement vs. non-AI baseline; (3) proposed AI tooling plan and efficiency gain commitment. AI capability weighted at 20% of technical scoring."
+  },
+
+  "pageNum": "13 / 13"
+}

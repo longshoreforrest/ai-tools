@@ -1,0 +1,2116 @@
+{
+  "title": "AI-Powered SDLC Factory — Implementation Timeline",
+  "subtitle": "Phase 1: Build (20 wk) · Phase 2: Pilot & Prove (6 mo) · Phase 3: Enterprise Scale (8 mo) · 3 dev tracks · Jun 2026 – Dec 2027",
+  "goalReminder": "North Star: 50% efficiency / 50% cost reduction over 2–3 years. Year 1 target: 12–24% on pilot projects. This timeline shows the credible ramp from build → proof → scale.",
+  "timeline": {
+    "unit": "mixed",
+    "sprints": [
+      {
+        "id": "S0",
+        "label": "S0",
+        "title": "Foundation",
+        "weeks": "Jun 1–14"
+      },
+      {
+        "id": "S1",
+        "label": "S1",
+        "title": "Quick Wins",
+        "weeks": "Jun 15–28"
+      },
+      {
+        "id": "S2",
+        "label": "S2",
+        "title": "Quick Wins",
+        "weeks": "Jun 29–Jul 12"
+      },
+      {
+        "id": "S3",
+        "label": "S3",
+        "title": "Core Build",
+        "weeks": "Jul 13–26"
+      },
+      {
+        "id": "S4",
+        "label": "S4",
+        "title": "Core Build",
+        "weeks": "Jul 27–Aug 9"
+      },
+      {
+        "id": "S5",
+        "label": "S5",
+        "title": "Advanced",
+        "weeks": "Aug 10–23"
+      },
+      {
+        "id": "S6",
+        "label": "S6",
+        "title": "Advanced",
+        "weeks": "Aug 24–Sep 6"
+      },
+      {
+        "id": "S7",
+        "label": "S7",
+        "title": "Harden",
+        "weeks": "Sep 7–20"
+      },
+      {
+        "id": "S8",
+        "label": "S8",
+        "title": "Pilot",
+        "weeks": "Sep 21–Oct 4"
+      },
+      {
+        "id": "S9",
+        "label": "S9",
+        "title": "AMS Prep",
+        "weeks": "Oct 5–18"
+      },
+      {
+        "id": "P2-1",
+        "label": "Nov",
+        "title": "Pilot",
+        "weeks": "Nov 2026"
+      },
+      {
+        "id": "P2-2",
+        "label": "Dec",
+        "title": "Pilot",
+        "weeks": "Dec 2026"
+      },
+      {
+        "id": "P2-3",
+        "label": "Jan",
+        "title": "Measure",
+        "weeks": "Jan 2027"
+      },
+      {
+        "id": "P2-4",
+        "label": "Feb",
+        "title": "Measure",
+        "weeks": "Feb 2027"
+      },
+      {
+        "id": "P2-5",
+        "label": "Mar",
+        "title": "Iterate",
+        "weeks": "Mar 2027"
+      },
+      {
+        "id": "P2-6",
+        "label": "Apr",
+        "title": "Report",
+        "weeks": "Apr 2027"
+      },
+      {
+        "id": "P3-1",
+        "label": "Q2 '27",
+        "title": "Scale",
+        "weeks": "May–Jun"
+      },
+      {
+        "id": "P3-2",
+        "label": "Q3 '27",
+        "title": "Scale",
+        "weeks": "Jul–Aug"
+      },
+      {
+        "id": "P3-3",
+        "label": "Q4a",
+        "title": "Optimize",
+        "weeks": "Sep–Oct"
+      },
+      {
+        "id": "P3-4",
+        "label": "Q4b",
+        "title": "Optimize",
+        "weeks": "Nov–Dec"
+      }
+    ]
+  },
+  "phases": [
+    {
+      "id": "foundation",
+      "label": "Foundation",
+      "sprints": [
+        "S0"
+      ],
+      "color": "grey"
+    },
+    {
+      "id": "quick-wins",
+      "label": "Quick Wins",
+      "sprints": [
+        "S1",
+        "S2"
+      ],
+      "color": "teal"
+    },
+    {
+      "id": "core-build",
+      "label": "Core Build",
+      "sprints": [
+        "S3",
+        "S4"
+      ],
+      "color": "navy"
+    },
+    {
+      "id": "advanced",
+      "label": "Advanced",
+      "sprints": [
+        "S5",
+        "S6"
+      ],
+      "color": "amber"
+    },
+    {
+      "id": "harden",
+      "label": "Harden & Pilot",
+      "sprints": [
+        "S7",
+        "S8"
+      ],
+      "color": "navy"
+    },
+    {
+      "id": "ams",
+      "label": "AMS Transition",
+      "sprints": [
+        "S9"
+      ],
+      "color": "grey"
+    },
+    {
+      "id": "pilot",
+      "label": "PHASE 2 — Pilot & Prove",
+      "sprints": [
+        "P2-1",
+        "P2-2",
+        "P2-3",
+        "P2-4",
+        "P2-5",
+        "P2-6"
+      ],
+      "color": "teal"
+    },
+    {
+      "id": "scale",
+      "label": "PHASE 3 — Enterprise",
+      "sprints": [
+        "P3-1",
+        "P3-2",
+        "P3-3",
+        "P3-4"
+      ],
+      "color": "amber"
+    }
+  ],
+  "groups": [
+    {
+      "id": "factory-platform",
+      "name": "Factory Platform (Shared Infrastructure)",
+      "icon": "🏭",
+      "reusable": true,
+      "components": [
+        {
+          "id": "ai-gateway",
+          "name": "AI Gateway Configuration",
+          "approach": "Azure API Mgmt",
+          "type": "infra",
+          "track": "all",
+          "start": "S0",
+          "end": "S1",
+          "reusableBy": [
+            "all tracks"
+          ],
+          "detail": "Centralized LLM routing via UPM AI Gateway. All 3 dev tracks route through this. Rate limiting, cost attribution per team.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "AI Gateway"
+          }
+        },
+        {
+          "id": "terraform-base",
+          "name": "Terraform IaC Foundation",
+          "approach": "Azure DevOps",
+          "type": "infra",
+          "track": "all",
+          "start": "S0",
+          "end": "S1",
+          "reusableBy": [
+            "all tracks"
+          ],
+          "detail": "Base Terraform modules: Container Apps, AI Search, Key Vault, Entra ID. Reuses Siili AI Landing Zone patterns.",
+          "architectureRef": {
+            "layer": "infrastructure",
+            "component": "Terraform IaC"
+          }
+        },
+        {
+          "id": "otel-pipeline",
+          "name": "OpenTelemetry Pipeline",
+          "approach": "Azure Monitor",
+          "type": "infra",
+          "track": "all",
+          "start": "S0",
+          "end": "S2",
+          "reusableBy": [
+            "all tracks"
+          ],
+          "detail": "Structured trace pipeline for all Factory agents. Feeds AI CoE centralized observability.",
+          "architectureRef": {
+            "layer": "observability",
+            "component": "OpenTelemetry SDK"
+          }
+        },
+        {
+          "id": "agent-runtime",
+          "name": "Agent Runtime (Semantic Kernel)",
+          "approach": "Azure AI Foundry",
+          "type": "infra",
+          "track": "all",
+          "start": "S0",
+          "end": "S3",
+          "reusableBy": [
+            "all custom agents"
+          ],
+          "detail": "Python + Semantic Kernel base runtime. Shared by all Factory workflow agents.",
+          "architectureRef": {
+            "layer": "orchestration",
+            "component": "MS Agent Framework"
+          }
+        },
+        {
+          "id": "a2a-cards",
+          "name": "A2A Agent Card Standard",
+          "approach": "MS Agent Framework",
+          "type": "governance",
+          "track": "all",
+          "start": "S3",
+          "end": "S4",
+          "reusableBy": [
+            "all agents"
+          ],
+          "detail": "Standardized agent discovery and communication protocol. Required by AI CoE for all Factory agents.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "Agent Registry"
+          }
+        },
+        {
+          "id": "cross-track-standards",
+          "name": "Cross-Track Standardization",
+          "approach": "Unified Governance",
+          "type": "governance",
+          "track": "all",
+          "start": "P3-1",
+          "end": "P3-3",
+          "detail": "Standardize quality gates, reporting templates, and agent configurations across all 3 tracks. Single pane of glass for SDLC efficiency."
+        }
+      ]
+    },
+    {
+      "id": "connectors",
+      "name": "Factory Connectors (MCP + REST)",
+      "icon": "🔌",
+      "reusable": true,
+      "components": [
+        {
+          "id": "mcp-confluence",
+          "name": "MCP: Confluence",
+          "approach": "Custom MCP Server",
+          "type": "connector",
+          "track": "all",
+          "start": "S1",
+          "end": "S1",
+          "reusableBy": [
+            "IDEA",
+            "STRUCTURE",
+            "REVIEW"
+          ],
+          "detail": "Read/write Confluence spaces. Used by Knowledge Hub, Spec agents, and Architecture Sparring.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 1,
+            "system": "Confluence"
+          }
+        },
+        {
+          "id": "mcp-sharepoint",
+          "name": "MCP: SharePoint",
+          "approach": "Graph API + MCP",
+          "type": "connector",
+          "track": "all",
+          "start": "S1",
+          "end": "S1",
+          "reusableBy": [
+            "IDEA",
+            "STRUCTURE"
+          ],
+          "detail": "Document search and update via Microsoft Graph. Shared by Knowledge and Spec stages.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 2,
+            "system": "SharePoint"
+          }
+        },
+        {
+          "id": "mcp-ado",
+          "name": "MCP: Azure DevOps",
+          "approach": "ADO REST + MCP",
+          "type": "connector",
+          "track": "all",
+          "start": "S1",
+          "end": "S2",
+          "reusableBy": [
+            "STRUCTURE",
+            "BUILD",
+            "TEST"
+          ],
+          "detail": "Work items, pipelines, repos. All 3 tracks use ADO for CI/CD orchestration.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 1,
+            "system": "Azure DevOps"
+          }
+        },
+        {
+          "id": "mcp-jira",
+          "name": "MCP: Jira",
+          "approach": "Jira REST + MCP",
+          "type": "connector",
+          "track": "all",
+          "start": "S2",
+          "end": "S2",
+          "reusableBy": [
+            "STRUCTURE",
+            "BUILD",
+            "TEST"
+          ],
+          "detail": "Issue tracking, backlog management. Shared across all tracks.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 1,
+            "system": "Jira"
+          }
+        },
+        {
+          "id": "mcp-servicenow",
+          "name": "MCP: ServiceNow",
+          "approach": "ServiceNow REST + MCP",
+          "type": "connector",
+          "track": "all",
+          "start": "S2",
+          "end": "S2",
+          "reusableBy": [
+            "STRUCTURE"
+          ],
+          "detail": "Demand intake, incident data. Entry point for the IDEA→STRUCTURE pipeline.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 1,
+            "system": "ServiceNow"
+          }
+        },
+        {
+          "id": "mcp-github",
+          "name": "MCP: GitHub",
+          "approach": "GitHub REST + MCP",
+          "type": "connector",
+          "track": "cloud",
+          "start": "S1",
+          "end": "S1",
+          "reusableBy": [
+            "BUILD",
+            "TEST"
+          ],
+          "detail": "PR creation, code review integration. Primary for Cloud/Web track.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 1,
+            "system": "GitHub"
+          }
+        },
+        {
+          "id": "sap-a2a-bridge",
+          "name": "🔶 SAP A2A Governance Bridge",
+          "approach": "Custom Integration",
+          "type": "integration",
+          "track": "sap",
+          "start": "S3",
+          "end": "S4",
+          "reusableBy": [
+            "BUILD (SAP)",
+            "TEST (SAP)"
+          ],
+          "detail": "A2A adapter connecting SAP Joule to Factory governance. Routes Joule requests through AI Gateway for cost attribution, audit logging, and policy enforcement. SAP uses native orchestration while Factory maintains observability. Leverages SAP Integration Suite MCP Gateway.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 3,
+            "system": "SAP Joule"
+          }
+        },
+        {
+          "id": "sf-a2a-bridge",
+          "name": "🔷 SF Agentforce Governance Bridge",
+          "approach": "Custom Integration",
+          "type": "integration",
+          "track": "sf",
+          "start": "S4",
+          "end": "S5",
+          "reusableBy": [
+            "BUILD (SF)",
+            "TEST (SF)"
+          ],
+          "detail": "A2A adapter connecting Salesforce Agentforce to Factory governance. Routes agent actions through AI Gateway for audit logging and cost attribution. Leverages Agentforce native MCP client for bidirectional tool exchange with Factory agents.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 3,
+            "system": "SF Agentforce"
+          }
+        },
+        {
+          "id": "a2a-hardening",
+          "name": "A2A Bridge Hardening (SAP + SF)",
+          "approach": "Production Readiness",
+          "type": "integration",
+          "track": "all",
+          "start": "P2-3",
+          "end": "P2-5",
+          "detail": "Harden governance bridges based on pilot findings. Error handling, retry logic, audit trail completeness, performance under load."
+        }
+      ]
+    },
+    {
+      "id": "idea-stage",
+      "name": "IDEA — Knowledge Hub",
+      "icon": "💡",
+      "savings": "9.0%",
+      "approach": "Copilot Studio + RAG",
+      "components": [
+        {
+          "id": "knowledge-index",
+          "name": "Knowledge Hub — Vector Index",
+          "approach": "Azure AI Search",
+          "type": "infra",
+          "track": "all",
+          "start": "S1",
+          "end": "S4",
+          "reusableBy": [
+            "all stages"
+          ],
+          "detail": "Unified vector store: Confluence, SharePoint, Solman, architecture catalog, project history. Central brain of the Factory.",
+          "architectureRef": {
+            "layer": "knowledge",
+            "component": "Azure AI Search"
+          }
+        },
+        {
+          "id": "m365-copilot",
+          "name": "M365 Copilot · SharePoint Search",
+          "approach": "M365 Copilot · SaaS",
+          "type": "saas-config",
+          "track": "all",
+          "start": "S1",
+          "end": "S2",
+          "detail": "Copilot in Word + M365 Chat over SharePoint. Immediate knowledge search for all teams.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "idea"
+          }
+        },
+        {
+          "id": "knowledge-agent",
+          "name": "Knowledge Intelligence Agent",
+          "approach": "Copilot Studio",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S3",
+          "end": "S5",
+          "detail": "Doc gap detection, freshness scoring, update recommendations. Multi-source: Confluence, SP, Solman, SAP docs.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "idea"
+          },
+          "expandable": true,
+          "capabilityRef": "knowledge-gen",
+          "subComponents": [
+            {
+              "id": "kg-orchestrator",
+              "name": "Knowledge Orchestrator Agent",
+              "kind": "orchestrator",
+              "type": "orchestrator",
+              "start": "S3",
+              "end": "S3",
+              "detail": "Session management, sub-agent coordination & task routing, HITL checkpoints, artifact assembly and output formatting.",
+              "useCaseRef": []
+            },
+            {
+              "id": "kg-doc-assessment",
+              "name": "Doc Assessment & Cleanup",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S3",
+              "end": "S4",
+              "detail": "Assess and clean up existing documentation for accuracy and completeness. Maps to UPM use case 1.1.",
+              "useCaseRef": [
+                "1.1"
+              ]
+            },
+            {
+              "id": "kg-conversational-search",
+              "name": "Conversational Search",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S3",
+              "end": "S4",
+              "detail": "Engage users in natural-language search over the knowledge base. Maps to UPM use case 1.2.",
+              "useCaseRef": [
+                "1.2"
+              ]
+            },
+            {
+              "id": "kg-summarization",
+              "name": "Summarization",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Summarize existing documentation and surface key capabilities. Maps to UPM use case 1.3.",
+              "useCaseRef": [
+                "1.3"
+              ]
+            },
+            {
+              "id": "kg-guideline-compliance",
+              "name": "Guideline Compliance",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Check documentation against Corporate guidelines and flag deviations. Maps to UPM use case 1.4.",
+              "sharedWith": [
+                "Cap 04 Sparring"
+              ],
+              "useCaseRef": [
+                "1.4"
+              ]
+            },
+            {
+              "id": "kg-signoff-publish",
+              "name": "Human Sign-off & Publish",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Route validated docs for human review, then update the knowledge base after sign-off. Maps to UPM use case 1.5.",
+              "useCaseRef": [
+                "1.5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "doc-curator",
+          "name": "Doc Curator Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S5",
+          "end": "S7",
+          "reusableBy": [
+            "STRUCTURE"
+          ],
+          "detail": "Automated doc cleanup, guideline alignment, IT transformation insight generation. HITL sign-off before publish. Feeds back into Knowledge Hub. Maps to UPM use cases 1.5, 1.6.",
+          "architectureRef": {
+            "layer": "knowledge",
+            "component": "Knowledge Curator"
+          }
+        },
+        {
+          "id": "sap-knowledge-ingest",
+          "name": "🔶 SAP Knowledge Ingest",
+          "approach": "Azure AI Search",
+          "type": "integration",
+          "track": "sap",
+          "start": "S3",
+          "end": "S5",
+          "reusableBy": [
+            "IDEA",
+            "STRUCTURE",
+            "REVIEW"
+          ],
+          "detail": "Index SAP Solution Manager documents, ABAP custom code catalog, transport history, and SAP Notes into Knowledge Hub. Enables Factory agents to understand UPM's SAP landscape for code generation context and impact analysis.",
+          "architectureRef": {
+            "layer": "knowledge",
+            "component": "Azure AI Search"
+          }
+        },
+        {
+          "id": "sf-knowledge-ingest",
+          "name": "🔷 SF Knowledge Ingest",
+          "approach": "Azure AI Search",
+          "type": "integration",
+          "track": "sf",
+          "start": "S4",
+          "end": "S6",
+          "reusableBy": [
+            "IDEA",
+            "STRUCTURE",
+            "REVIEW"
+          ],
+          "detail": "Index Salesforce org metadata, custom object schemas, Apex class documentation, Flow definitions, and Data Cloud configuration into Knowledge Hub. Enables Factory agents to understand UPM's Salesforce landscape.",
+          "architectureRef": {
+            "layer": "knowledge",
+            "component": "Azure AI Search"
+          }
+        },
+        {
+          "id": "knowledge-expansion",
+          "name": "Knowledge Hub Expansion",
+          "approach": "Content Pipeline",
+          "type": "integration",
+          "track": "all",
+          "start": "P2-2",
+          "end": "P2-5",
+          "detail": "Ingest additional knowledge sources based on pilot gaps: architecture decisions, incident history, deployment patterns. Continuous enrichment."
+        },
+        {
+          "id": "self-improving-kb",
+          "name": "Self-Improving Knowledge Graph",
+          "approach": "Continuous Learning",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "P3-1",
+          "end": "P3-4",
+          "detail": "Knowledge Hub auto-enrichment from resolved incidents, merged PRs, architecture decisions. Quality scores improve automatically over time."
+        }
+      ]
+    },
+    {
+      "id": "structure-stage",
+      "name": "STRUCTURE — Requirements & Specs",
+      "icon": "📐",
+      "savings": "16.2%",
+      "approach": "Copilot Studio + Custom Agents",
+      "components": [
+        {
+          "id": "teams-transcription",
+          "name": "Teams Meeting Transcription",
+          "approach": "Teams Copilot · SaaS",
+          "type": "saas-config",
+          "track": "all",
+          "start": "S1",
+          "end": "S1",
+          "detail": "Meeting recaps, action items, follow-ups. Feeds into spec drafting for all tracks.",
+          "architectureRef": {
+            "layer": "integration",
+            "tier": 2,
+            "system": "MS Teams"
+          }
+        },
+        {
+          "id": "spec-drafting",
+          "name": "Spec Drafting (Word Copilot)",
+          "approach": "M365 Copilot · SaaS",
+          "type": "saas-config",
+          "track": "all",
+          "start": "S2",
+          "end": "S2",
+          "detail": "Draft feature specs from prompts, meeting notes, Outlook threads. Track-agnostic — same spec format for all.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "structure"
+          }
+        },
+        {
+          "id": "intent-agent",
+          "name": "Business-to-Tech Spec Agent",
+          "approach": "Copilot Studio",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S3",
+          "end": "S5",
+          "detail": "NL-to-structured-spec translation. Domain model awareness, acceptance criteria generation. Outputs feed all 3 tracks.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "structure"
+          },
+          "expandable": true,
+          "capabilityRef": "biz-intent",
+          "subComponents": [
+            {
+              "id": "bi-orchestrator",
+              "name": "Intent Orchestrator Agent",
+              "kind": "orchestrator",
+              "type": "orchestrator",
+              "start": "S3",
+              "end": "S3",
+              "detail": "Session management, sub-agent coordination & task routing, HITL checkpoints, artifact assembly.",
+              "useCaseRef": []
+            },
+            {
+              "id": "bi-meeting-synthesis",
+              "name": "Meeting Synthesis",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S3",
+              "end": "S4",
+              "detail": "Automatically synthesize meeting memos and extract business specs from Teams transcripts. Maps to UPM use case 3.1.",
+              "useCaseRef": [
+                "3.1"
+              ]
+            },
+            {
+              "id": "bi-requirement-drafting",
+              "name": "Requirement Drafting",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S3",
+              "end": "S4",
+              "detail": "Draft and document business requirements as concept/feature specifications. Maps to UPM use case 3.3.",
+              "useCaseRef": [
+                "3.3"
+              ]
+            },
+            {
+              "id": "bi-expert-sparring",
+              "name": "Expert Sparring",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Spar with domain experts to ensure specs are explicit and comprehensive. Maps to UPM use case 3.2.",
+              "useCaseRef": [
+                "3.2"
+              ]
+            },
+            {
+              "id": "bi-biz-to-tech",
+              "name": "Business-to-Tech Translation",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Translate business requirements to high-level technical requirements. Maps to UPM use case 3.4.",
+              "sharedWith": [
+                "Cap 04 Sparring"
+              ],
+              "useCaseRef": [
+                "3.4"
+              ]
+            },
+            {
+              "id": "bi-signoff-artifacts",
+              "name": "Human Sign-off & Artifact Generation",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Route specs for human validation, then generate artifacts via out-of-box tooling. Maps to UPM use case 3.5.",
+              "useCaseRef": [
+                "3.5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "demand-ingest",
+          "name": "Historical Project Data Ingest",
+          "approach": "Azure AI Search",
+          "type": "integration",
+          "track": "all",
+          "start": "S2",
+          "end": "S4",
+          "detail": "Index historical projects from ADO/Keto/ServiceNow. Estimation baselines for Cloud, SAP, and SF projects.",
+          "architectureRef": {
+            "layer": "knowledge",
+            "component": "Azure AI Search"
+          }
+        },
+        {
+          "id": "demand-agent",
+          "name": "Feature Requirement Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S3",
+          "end": "S6",
+          "detail": "Impact analysis, effort estimation, duplicate detection, proactive demand suggestion. Uses historical data across all 3 tracks.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "structure"
+          },
+          "expandable": true,
+          "capabilityRef": "demand",
+          "subComponents": [
+            {
+              "id": "da-orchestrator",
+              "name": "Demand Orchestrator Agent",
+              "kind": "orchestrator",
+              "type": "orchestrator",
+              "start": "S3",
+              "end": "S3",
+              "detail": "Demand intake workflow and routing, sub-agent dispatch, HITL checkpoints, artifact assembly.",
+              "useCaseRef": []
+            },
+            {
+              "id": "da-impact-analyser",
+              "name": "Impact Analyser",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S3",
+              "end": "S4",
+              "detail": "Analyse new requirements and compare with current implementations across business areas. Maps to UPM use cases 2.1, 2.2.",
+              "useCaseRef": [
+                "2.1",
+                "2.2"
+              ]
+            },
+            {
+              "id": "da-effort-estimator",
+              "name": "Effort Estimator",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S3",
+              "end": "S5",
+              "detail": "Suggest high-level time and effort estimation based on historical data. Maps to UPM use case 2.3.",
+              "sharedWith": [
+                "Cap 04 Sparring",
+                "Cap 05 Builder"
+              ],
+              "useCaseRef": [
+                "2.3"
+              ]
+            },
+            {
+              "id": "da-backlog-qualifier",
+              "name": "Backlog Qualifier",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Validate backlog items against Definition of Ready compliance criteria. Maps to UPM use case 2.5.",
+              "sharedWith": [
+                "Cap 03 Biz Intent"
+              ],
+              "useCaseRef": [
+                "2.5"
+              ]
+            },
+            {
+              "id": "da-timeline-builder",
+              "name": "Timeline Builder",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S4",
+              "end": "S6",
+              "detail": "Build project timeline and create project structure from estimation output. Maps to UPM use case 2.4.",
+              "useCaseRef": [
+                "2.4"
+              ]
+            },
+            {
+              "id": "da-strategic-fit",
+              "name": "Strategic Fit & Risk Assessment",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S5",
+              "end": "S6",
+              "detail": "Cross-cut value proposition analysis — strategic alignment, risk mapping, dependency impact. Also suggests new demands based on pattern mining. Maps to UPM use case 2.5.",
+              "useCaseRef": [
+                "2.5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "project-structure",
+          "name": "Project Structure Creation",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S5",
+          "end": "S7",
+          "detail": "Auto-generate project timelines, WBS, resource plans. Track-aware templates (Cloud vs SAP vs SF).",
+          "architectureRef": {
+            "layer": "orchestration",
+            "component": "Coordinator Agent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "review-stage",
+      "name": "REVIEW — Architecture Sparring",
+      "icon": "⚔️",
+      "savings": "9.1%",
+      "approach": "Azure AI Foundry + MS Marketplace",
+      "components": [
+        {
+          "id": "arch-catalog",
+          "name": "Architecture Catalog Ingest",
+          "approach": "Azure AI Search",
+          "type": "integration",
+          "track": "all",
+          "start": "S2",
+          "end": "S4",
+          "detail": "Index enterprise architecture catalog, dependency registry, ADRs. Covers Cloud, SAP, and SF landscapes.",
+          "architectureRef": {
+            "layer": "knowledge",
+            "component": "Azure AI Search"
+          }
+        },
+        {
+          "id": "sparring-agent",
+          "name": "Architecture Sparring Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S3",
+          "end": "S6",
+          "detail": "Interactive sparring with graph reasoning. ADR generation, compliance flagging, cross-track impact analysis.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "review"
+          },
+          "expandable": true,
+          "capabilityRef": "sparring",
+          "subComponents": [
+            {
+              "id": "sp-orchestrator",
+              "name": "Sparring Orchestrator Agent",
+              "kind": "orchestrator",
+              "type": "orchestrator",
+              "start": "S3",
+              "end": "S3",
+              "detail": "Session management, sub-agent management, HITL checkpoints, artifact assembly and output formatting.",
+              "useCaseRef": []
+            },
+            {
+              "id": "sp-architectural-sparring",
+              "name": "Architectural Sparring",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S3",
+              "end": "S5",
+              "detail": "Suggest solution options aligned with enterprise architecture patterns. Interactive dialogue. Maps to UPM use case 4.1.",
+              "useCaseRef": [
+                "4.1"
+              ]
+            },
+            {
+              "id": "sp-compliance-security",
+              "name": "Compliance & Security Check",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Flag risks against AI Gov, IT Security, and Data governance rules. Maps to UPM use case 4.2.",
+              "sharedWith": [
+                "Cap 05 Builder",
+                "Cap 06 Quality"
+              ],
+              "useCaseRef": [
+                "4.2"
+              ]
+            },
+            {
+              "id": "sp-spec-refinement",
+              "name": "Specification Refinement",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S6",
+              "detail": "Sharpen and structure technical specs from sparring output. Creates detailed specs for implementation. Maps to UPM use case 4.3.",
+              "sharedWith": [
+                "Cap 03 Biz Intent",
+                "Cap 05 Builder"
+              ],
+              "useCaseRef": [
+                "4.3"
+              ]
+            },
+            {
+              "id": "sp-dependency-mapping",
+              "name": "Dependency Mapping",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S6",
+              "detail": "Build system dependency maps from codebase and integration docs. Maps to UPM use case 4.4.",
+              "sharedWith": [
+                "Cap 05 Builder"
+              ],
+              "useCaseRef": [
+                "4.4"
+              ]
+            },
+            {
+              "id": "sp-complexity-risk",
+              "name": "Complexity & Risk Assessment",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S5",
+              "end": "S6",
+              "detail": "Surface hidden complexity drivers — integration, data, cross-domain impact. Maps to UPM use case 4.5.",
+              "useCaseRef": [
+                "4.5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ms-arch-review",
+          "name": "MS Architecture Review Agent",
+          "approach": "AI Foundry Marketplace",
+          "type": "saas-config",
+          "track": "cloud",
+          "start": "S3",
+          "end": "S3",
+          "detail": "Microsoft's Architecture Review Agent from Foundry marketplace. Pre-built Azure Well-Architected checks. Accelerator for Cap 04.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "review"
+          }
+        },
+        {
+          "id": "risk-agent",
+          "name": "Complexity & Risk Assessment",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S5",
+          "end": "S7",
+          "detail": "Cross-system impact analysis, NFR validation. Understands SAP and SF dependency chains.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "review"
+          }
+        }
+      ]
+    },
+    {
+      "id": "build-stage",
+      "name": "BUILD — Code Generation (3 Tracks)",
+      "icon": "🛠️",
+      "savings": "15.9%",
+      "approach": "Per-Track Code Gen",
+      "components": [
+        {
+          "id": "copilot-agent",
+          "name": "☁️ GitHub Copilot Agent Mode",
+          "approach": "GitHub Copilot · SaaS",
+          "type": "saas-config",
+          "track": "cloud",
+          "start": "S1",
+          "end": "S1",
+          "detail": "Cloud/Web track: spec-to-code, multi-file edits, PR creation. Already approved & active at UPM.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "cloud",
+            "tool": "GitHub Copilot Agent Mode"
+          }
+        },
+        {
+          "id": "coderabbit",
+          "name": "☁️ CodeRabbit PR Review",
+          "approach": "CodeRabbit · SaaS",
+          "type": "saas-config",
+          "track": "cloud",
+          "start": "S1",
+          "end": "S1",
+          "detail": "Cloud/Web track: AI-powered code review on every PR. Configure rulesets for UPM standards.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "cloud",
+            "tool": "CodeRabbit"
+          }
+        },
+        {
+          "id": "semgrep",
+          "name": "☁️ Semgrep OSS Scanning",
+          "approach": "Semgrep OSS (interim)",
+          "type": "saas-config",
+          "track": "cloud",
+          "start": "S2",
+          "end": "S3",
+          "detail": "Cloud/Web track: OSS license compliance, vulnerability scanning. Black Duck procurement TBD Q4 2026.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "cloud",
+            "tool": "Semgrep OSS"
+          }
+        },
+        {
+          "id": "sap-joule-build",
+          "name": "🔶 SAP Joule + Build Code",
+          "approach": "SAP Joule · SaaS",
+          "type": "sap-native",
+          "track": "sap",
+          "start": "S3",
+          "end": "S5",
+          "detail": "SAP track: ABAP Cloud generation from specs. RAP business objects, CDS views, Fiori Elements. Joule Studio GA Q1 2026.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sap",
+            "tool": "SAP Joule + Build Code"
+          }
+        },
+        {
+          "id": "sf-einstein",
+          "name": "🔷 Einstein for Developers",
+          "approach": "Salesforce · SaaS",
+          "type": "sf-native",
+          "track": "sf",
+          "start": "S4",
+          "end": "S6",
+          "detail": "SF track: Apex class generation, Lightning Web Components, Flow definitions, SOQL queries.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sf",
+            "tool": "Einstein for Developers"
+          }
+        },
+        {
+          "id": "sap-code-review",
+          "name": "🔶 SAP Code Review (Joule Studio)",
+          "approach": "SAP Joule · SaaS",
+          "type": "sap-native",
+          "track": "sap",
+          "start": "S4",
+          "end": "S5",
+          "detail": "Joule Studio custom skills configured with UPM ABAP coding standards, naming conventions, and performance patterns. Reviews CDS views, RAP business objects, Fiori extensions. SAP equivalent of Cloud track's CodeRabbit.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sap",
+            "tool": "Joule Studio"
+          }
+        },
+        {
+          "id": "sap-compliance-scan",
+          "name": "🔶 SAP ABAP Compliance Scan",
+          "approach": "SAP Build Code + ATC",
+          "type": "sap-native",
+          "track": "sap",
+          "start": "S4",
+          "end": "S6",
+          "detail": "ABAP Test Cockpit (ATC) with AI-enhanced rules for clean core compliance, custom code migration readiness, and deprecated API detection. Joule flags legacy patterns during code generation. SAP equivalent of Cloud track's Semgrep.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sap",
+            "tool": "SAP Build Code"
+          }
+        },
+        {
+          "id": "sf-code-review",
+          "name": "🔷 SF ApexGuru Code Review",
+          "approach": "Salesforce · SaaS",
+          "type": "sf-native",
+          "track": "sf",
+          "start": "S4",
+          "end": "S6",
+          "detail": "AI-powered Apex performance analysis, anti-pattern detection, and governor limit risk assessment. Configured with UPM's Salesforce org-specific patterns and custom object conventions. SF equivalent of Cloud track's CodeRabbit.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sf",
+            "tool": "Agentforce"
+          }
+        },
+        {
+          "id": "sf-devops-pipeline",
+          "name": "🔷 SF DevOps Center Pipeline",
+          "approach": "SF DevOps Center · SaaS",
+          "type": "sf-native",
+          "track": "sf",
+          "start": "S5",
+          "end": "S7",
+          "detail": "Salesforce DevOps Center with GitHub integration, change tracking, and release management. SF CLI automation for org provisioning, deployment, and test execution. Connects SF track CI/CD to Factory quality gates.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sf",
+            "tool": "SF Metadata API"
+          }
+        },
+        {
+          "id": "builder-quality-gates",
+          "name": "Quality Gates Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S4",
+          "end": "S6",
+          "detail": "Automated gate checks before merge: test pass, coverage, SAST/DAST. Same gates apply to all 3 tracks.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "Gate Approvals (G1–G4)"
+          }
+        },
+        {
+          "id": "builder-orchestrator",
+          "name": "Builder Orchestration Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S5",
+          "end": "S7",
+          "detail": "Routes specs to the right track's code gen tool. Coordinates review, quality gates, and spec-to-code traceability across tracks.",
+          "architectureRef": {
+            "layer": "orchestration",
+            "component": "Coordinator Agent"
+          },
+          "expandable": true,
+          "capabilityRef": "builder",
+          "subComponents": [
+            {
+              "id": "bu-orchestrator",
+              "name": "Build Orchestrator Agent",
+              "kind": "orchestrator",
+              "type": "orchestrator",
+              "start": "S5",
+              "end": "S5",
+              "detail": "Decompose spec into atomic tasks, dispatch sub-agents (parallel where possible), enforce quality gate at each step, HITL review checkpoints before merge.",
+              "useCaseRef": [
+                "5.1"
+              ]
+            },
+            {
+              "id": "bu-code-implementor",
+              "name": "Code Implementor",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S5",
+              "end": "S6",
+              "detail": "Generate, iterate, and self-review per task. Delegates to track-specific code gen tools (Copilot / Joule / Einstein). Maps to UPM use case 5.1.",
+              "useCaseRef": [
+                "5.1"
+              ]
+            },
+            {
+              "id": "bu-quality-gate",
+              "name": "Quality Gate Agent",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S5",
+              "end": "S6",
+              "detail": "Enforce pass criteria before task closes. Test pass, coverage, SAST/DAST, traceability matrix verification. Maps to UPM use cases 5.2, 5.3.",
+              "useCaseRef": [
+                "5.2",
+                "5.3"
+              ]
+            },
+            {
+              "id": "bu-tdd",
+              "name": "Test-Driven Development",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S5",
+              "end": "S7",
+              "detail": "Load TDD contract first, then Red → Green → Refactor cycle. Contracts produced by Cap 06 Quality Spec Agent.",
+              "sharedWith": [
+                "Cap 06 Quality"
+              ],
+              "useCaseRef": [
+                "5.2"
+              ]
+            },
+            {
+              "id": "bu-code-review",
+              "name": "Code Review Agent",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S6",
+              "end": "S7",
+              "detail": "Pattern conformance, coverage gaps, PR readiness. Ensures code meets standards before human review.",
+              "useCaseRef": [
+                "5.2"
+              ]
+            },
+            {
+              "id": "bu-complexity-risk",
+              "name": "Complexity & Risk Assessment",
+              "kind": "sub-agent",
+              "type": "sub-agent",
+              "start": "S6",
+              "end": "S7",
+              "detail": "Surface hidden complexity drivers — integration, data, cross-domain impact. Shared instance with Cap 04 Sparring.",
+              "sharedWith": [
+                "Cap 04 Sparring"
+              ],
+              "useCaseRef": [
+                "5.3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pilot-cloud-1",
+          "name": "Cloud Pilot #1 — Net-new Feature",
+          "approach": "Full Factory Flow",
+          "type": "adoption",
+          "track": "cloud",
+          "start": "P2-1",
+          "end": "P2-3",
+          "detail": "First real project through the Factory. Full IDEA→DEPLOY pipeline on a net-new Cloud feature. Measures cycle time vs. pre-Factory baseline."
+        },
+        {
+          "id": "pilot-cloud-2",
+          "name": "Cloud Pilot #2 — Maintenance/Bug Fix",
+          "approach": "Full Factory Flow",
+          "type": "adoption",
+          "track": "cloud",
+          "start": "P2-2",
+          "end": "P2-4",
+          "detail": "Maintenance scenario: bug triage, root cause via Knowledge Hub, AI-assisted fix, regression test gen. Measures mean-time-to-resolution improvement."
+        },
+        {
+          "id": "pilot-sap",
+          "name": "SAP Pilot — Fiori Extension",
+          "approach": "Joule + Factory",
+          "type": "sap-native",
+          "track": "sap",
+          "start": "P2-2",
+          "end": "P2-5",
+          "detail": "SAP Fiori extension through Factory pipeline. Joule code generation → A2A governance bridge → Factory quality gates → Playwright E2E on Fiori. Validates SAP track end-to-end."
+        },
+        {
+          "id": "pilot-sf",
+          "name": "SF Pilot — Lightning Component",
+          "approach": "Agentforce + Factory",
+          "type": "sf-native",
+          "track": "sf",
+          "start": "P2-3",
+          "end": "P2-6",
+          "detail": "Salesforce Lightning component through Factory pipeline. Agentforce code gen → A2A governance bridge → Factory quality gates → Playwright E2E on Lightning. Validates SF track end-to-end."
+        },
+        {
+          "id": "scale-cloud",
+          "name": "Cloud Track — Full Team Rollout",
+          "approach": "All Cloud Teams",
+          "type": "adoption",
+          "track": "cloud",
+          "start": "P3-1",
+          "end": "P3-2",
+          "detail": "Expand from pilot team to all Cloud/Web development teams. Onboard all developers to Factory tools, connect all repos to quality gates."
+        },
+        {
+          "id": "scale-sap",
+          "name": "SAP Track — Full Team Rollout",
+          "approach": "All SAP Teams",
+          "type": "sap-native",
+          "track": "sap",
+          "start": "P3-1",
+          "end": "P3-3",
+          "detail": "Expand SAP Factory usage to all SAP teams. Integrate remaining SAP modules, scale Joule governance to all workstreams."
+        },
+        {
+          "id": "scale-sf",
+          "name": "SF Track — Full Team Rollout",
+          "approach": "All SF Teams",
+          "type": "sf-native",
+          "track": "sf",
+          "start": "P3-2",
+          "end": "P3-3",
+          "detail": "Expand SF Factory usage to all Salesforce teams. Scale Agentforce governance, onboard all orgs to Factory pipeline."
+        }
+      ]
+    },
+    {
+      "id": "test-stage",
+      "name": "TEST — Quality Assurance (Playwright Backbone)",
+      "icon": "✅",
+      "savings": "13.9%",
+      "approach": "Playwright + AI Test Gen",
+      "components": [
+        {
+          "id": "playwright-framework",
+          "name": "Playwright E2E Framework",
+          "approach": "Playwright · OSS",
+          "type": "integration",
+          "track": "all",
+          "start": "S2",
+          "end": "S4",
+          "reusableBy": [
+            "all tracks"
+          ],
+          "detail": "Universal test backbone. SAP Fiori = web, SF Lightning = web, Cloud apps = web. One framework tests all 3 tracks.",
+          "architectureRef": {
+            "layer": "test-backbone",
+            "component": "Playwright E2E Framework"
+          }
+        },
+        {
+          "id": "copilot-test",
+          "name": "☁️ Copilot Unit Test Gen",
+          "approach": "GitHub Copilot · SaaS",
+          "type": "saas-config",
+          "track": "cloud",
+          "start": "S1",
+          "end": "S1",
+          "detail": "Cloud/Web track: IDE-based unit test generation from code context. Jest/Vitest/pytest.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "cloud",
+            "tool": "GitHub Copilot Agent Mode"
+          }
+        },
+        {
+          "id": "sap-joule-test",
+          "name": "🔶 SAP Joule Test Gen",
+          "approach": "SAP Joule · SaaS",
+          "type": "sap-native",
+          "track": "sap",
+          "start": "S3",
+          "end": "S5",
+          "detail": "SAP track: ABAP Unit test class generation. Orchestrated by Factory quality agent, not replaced.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sap",
+            "tool": "SAP ABAP Unit"
+          }
+        },
+        {
+          "id": "sap-fiori-test-config",
+          "name": "🔶 SAP Fiori · Playwright Config",
+          "approach": "Playwright + OPA5",
+          "type": "integration",
+          "track": "sap",
+          "start": "S4",
+          "end": "S6",
+          "reusableBy": [
+            "TEST (SAP)"
+          ],
+          "detail": "Playwright page object models and selectors for SAP Fiori Elements and freestyle Fiori apps. Custom test helpers for OData service mocking, Fiori Launchpad navigation, and UI5 control interaction. Makes 'Playwright tests all 3 tracks' deliverable for SAP.",
+          "architectureRef": {
+            "layer": "test-backbone",
+            "component": "Playwright E2E Framework"
+          }
+        },
+        {
+          "id": "sf-test-config",
+          "name": "🔷 SF Apex + LWC Test Config",
+          "approach": "SF CLI + Jest + Playwright",
+          "type": "integration",
+          "track": "sf",
+          "start": "S5",
+          "end": "S7",
+          "reusableBy": [
+            "TEST (SF)"
+          ],
+          "detail": "Apex unit test templates (75% coverage enforcement), LWC Jest test framework, and Playwright page objects for Lightning Experience. Custom test helpers for Salesforce-specific patterns: mock org data, custom object CRUD, Flow test scenarios.",
+          "architectureRef": {
+            "layer": "test-backbone",
+            "component": "Playwright E2E Framework"
+          }
+        },
+        {
+          "id": "ai-test-gen",
+          "name": "AI Test Generation Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S4",
+          "end": "S6",
+          "detail": "Reads acceptance criteria from specs → generates Playwright E2E scripts. Works for all 3 tracks (all UIs are web-based). Phase 2 of Quality Orchestrator.",
+          "architectureRef": {
+            "layer": "test-backbone",
+            "component": "AI Test Generation Agent"
+          },
+          "expandable": true,
+          "capabilityRef": "quality",
+          "subComponents": [
+            {
+              "id": "qa-test-script-gen",
+              "name": "Test Script Generator",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S5",
+              "detail": "TDD contract stubs (unit), integration & E2E scripts. Also called by Builder Agent. Maps to UPM use case 6.3.",
+              "sharedWith": [
+                "Cap 05 Builder"
+              ],
+              "useCaseRef": [
+                "6.3"
+              ]
+            },
+            {
+              "id": "qa-auto-test-maintenance",
+              "name": "Automated Test Maintenance",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S5",
+              "end": "S6",
+              "detail": "Generate + maintain test suite — keep aligned with codebase changes. Maps to UPM use case 6.4.",
+              "useCaseRef": [
+                "6.4"
+              ]
+            },
+            {
+              "id": "qa-defect-detection",
+              "name": "Defect Detection",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S5",
+              "end": "S6",
+              "detail": "Surface functional + non-functional defects during build phase. Maps to UPM use case 6.5.",
+              "useCaseRef": [
+                "6.5"
+              ]
+            },
+            {
+              "id": "qa-test-report-gen",
+              "name": "Test Report Generator",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S5",
+              "end": "S6",
+              "detail": "Coverage dashboard, defect reports, living quality baseline. Maps to UPM use case 6.6.",
+              "useCaseRef": [
+                "6.6"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "quality-spec-agent",
+          "name": "Quality Spec Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S4",
+          "end": "S6",
+          "detail": "Automated TDD contract generation from approved specs. Dual-phase: spec quality validation + test automation. Phase 1 of Quality Orchestrator.",
+          "architectureRef": {
+            "layer": "test-backbone",
+            "component": "Quality Spec Agent"
+          },
+          "expandable": true,
+          "capabilityRef": "quality",
+          "subComponents": [
+            {
+              "id": "qa-orchestrator",
+              "name": "Quality Orchestrator Agent",
+              "kind": "orchestrator",
+              "type": "orchestrator",
+              "start": "S4",
+              "end": "S4",
+              "detail": "Phase management: spec → contracts → automation. Sub-agent/skill dispatch. HITL checkpoints before build + before deploy.",
+              "useCaseRef": []
+            },
+            {
+              "id": "qa-quality-strategy",
+              "name": "Quality Strategy",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Testing approach per domain — coverage targets, risk tiers, QA guidelines. Maps to UPM use case 6.1.",
+              "sharedWith": [
+                "Cap 04 Sparring"
+              ],
+              "useCaseRef": [
+                "6.1"
+              ]
+            },
+            {
+              "id": "qa-spec-to-ac",
+              "name": "Spec → Acceptance Criteria",
+              "kind": "skill-shared",
+              "type": "skill-shared",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Convert requirements to testable acceptance criteria. HITL-validated before coding. Cross-shared with Biz Intent + Sparring. Maps to UPM use case 6.2.",
+              "sharedWith": [
+                "Cap 03 Biz Intent",
+                "Cap 04 Sparring"
+              ],
+              "useCaseRef": [
+                "6.2"
+              ]
+            },
+            {
+              "id": "qa-test-plan-gen",
+              "name": "Test Plan Generator",
+              "kind": "skill",
+              "type": "skill",
+              "start": "S4",
+              "end": "S5",
+              "detail": "Structured test plan — functional + NFR coverage, defect surfacing strategy. Maps to UPM use case 6.2.",
+              "useCaseRef": [
+                "6.2"
+              ]
+            },
+            {
+              "id": "qa-tdd-contract",
+              "name": "TDD Contract",
+              "kind": "template",
+              "type": "template",
+              "start": "S5",
+              "end": "S5",
+              "detail": "Template artifact produced here, consumed by Builder Agent. Defines Red→Green→Refactor gate for each spec.",
+              "useCaseRef": [
+                "6.3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "test-report-agent",
+          "name": "Test Report & Dashboard Agent",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S6",
+          "end": "S8",
+          "detail": "Coverage dashboards, defect severity analysis, release readiness. Aggregates across all 3 tracks.",
+          "architectureRef": {
+            "layer": "test-backbone",
+            "component": "Test Report & Dashboards"
+          }
+        },
+        {
+          "id": "security-automation",
+          "name": "Security Posture Automation",
+          "approach": "SAST/DAST Pipeline",
+          "type": "integration",
+          "track": "all",
+          "start": "P3-2",
+          "end": "P3-3",
+          "detail": "Expand SAST/DAST across all tracks. AI-assisted vulnerability triage, automated fix suggestions, compliance drift detection."
+        }
+      ]
+    },
+    {
+      "id": "deploy-stage",
+      "name": "DEPLOY — Gates & CI/CD",
+      "icon": "🚀",
+      "approach": "AI CoE Governance",
+      "components": [
+        {
+          "id": "gate-1",
+          "name": "G1: Study → Design",
+          "approach": "AI CoE Gate",
+          "type": "governance",
+          "track": "all",
+          "start": "S2",
+          "end": "S2",
+          "detail": "AI impact analysis completed. Demand compared to backlog. Same gate for Cloud, SAP, and SF tracks.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "Gate Approvals (G1–G4)"
+          }
+        },
+        {
+          "id": "gate-2",
+          "name": "G2: Design → Realise",
+          "approach": "AI CoE Gate",
+          "type": "governance",
+          "track": "all",
+          "start": "S3",
+          "end": "S3",
+          "detail": "Structured spec approved. Acceptance criteria defined. Track-specific tech impact mapped.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "Gate Approvals (G1–G4)"
+          }
+        },
+        {
+          "id": "gate-3",
+          "name": "G3: Realise → Deploy",
+          "approach": "AI CoE Gate",
+          "type": "governance",
+          "track": "all",
+          "start": "S7",
+          "end": "S7",
+          "detail": "Architecture sparring completed. ADR stored. Cross-track dependency map approved.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "Gate Approvals (G1–G4)"
+          }
+        },
+        {
+          "id": "gate-4",
+          "name": "G4: Deploy → Run",
+          "approach": "AI CoE Gate",
+          "type": "governance",
+          "track": "all",
+          "start": "S8",
+          "end": "S8",
+          "detail": "All test suites pass (Playwright E2E + track-specific unit tests). AMS knowledge base updated.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "Gate Approvals (G1–G4)"
+          }
+        },
+        {
+          "id": "adoption-dashboard",
+          "name": "Adoption & ROI Dashboard",
+          "approach": "Factory Observability",
+          "type": "infra",
+          "track": "all",
+          "start": "P2-1",
+          "end": "P2-2",
+          "detail": "Real-time dashboard: agent utilization, cost attribution, quality gate pass rates, developer satisfaction. Feeds the Phase 2 report."
+        },
+        {
+          "id": "cost-optimization",
+          "name": "Cost Optimization & Reporting",
+          "approach": "FinOps Integration",
+          "type": "governance",
+          "track": "all",
+          "start": "P3-2",
+          "end": "P3-4",
+          "detail": "AI cost attribution per team, per track. Token usage optimization, model routing (cheaper models for simple tasks). Quarterly savings reports toward 50% target."
+        }
+      ]
+    },
+    {
+      "id": "learn-stage",
+      "name": "LEARN — Feedback Loop",
+      "icon": "🧠",
+      "approach": "Self-Improving Factory",
+      "components": [
+        {
+          "id": "efficiency-data",
+          "name": "Efficiency Gain Data Collection",
+          "approach": "Vendor Reporting",
+          "type": "governance",
+          "track": "all",
+          "start": "S6",
+          "end": "S7",
+          "detail": "Collect AI efficiency data from all 3 tracks. Hours saved per stage. Negotiate gain sharing.",
+          "architectureRef": {
+            "layer": "observability",
+            "component": "Factory Dashboards"
+          }
+        },
+        {
+          "id": "knowledge-feedback",
+          "name": "Knowledge Base Auto-Update",
+          "approach": "Azure AI Foundry",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "S6",
+          "end": "S8",
+          "detail": "Deployed solutions auto-update Knowledge Hub. Lessons learned, patterns, failures feed back into IDEA stage.",
+          "architectureRef": {
+            "layer": "knowledge",
+            "component": "Knowledge Curator"
+          }
+        },
+        {
+          "id": "community-of-practice",
+          "name": "Community of Practice",
+          "approach": "Self-sustaining",
+          "type": "adoption",
+          "track": "all",
+          "start": "S6",
+          "end": "S7",
+          "detail": "Cross-track champion network. Monthly KPI review. Best practice sharing between Cloud, SAP, and SF teams.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "learn"
+          }
+        },
+        {
+          "id": "rfx-criteria",
+          "name": "RFx Criteria Update with AI KPIs",
+          "approach": "Sourcing",
+          "type": "governance",
+          "track": "all",
+          "start": "S7",
+          "end": "S8",
+          "detail": "Future RFx includes: vendor AI adoption score, demonstrated efficiency gains. AI weighted at 20% of scoring.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "learn"
+          }
+        },
+        {
+          "id": "prompt-tuning",
+          "name": "Agent Prompt Tuning (All Tracks)",
+          "approach": "Iterative Improvement",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "P2-2",
+          "end": "P2-4",
+          "detail": "Refine agent prompts based on pilot results. Tune Knowledge Hub relevance, code review accuracy, test generation coverage. Data-driven prompt versioning."
+        },
+        {
+          "id": "advanced-analytics",
+          "name": "Advanced Analytics Agent",
+          "approach": "Custom Agent",
+          "type": "custom-agent",
+          "track": "all",
+          "start": "P3-1",
+          "end": "P3-2",
+          "detail": "Predictive analytics: sprint velocity trends, defect prediction, capacity planning based on Factory data. Feeds management reporting."
+        }
+      ]
+    },
+    {
+      "id": "change-mgmt",
+      "name": "Change Management & Training",
+      "icon": "📢",
+      "components": [
+        {
+          "id": "exec-briefing",
+          "name": "Executive Briefing & Awareness",
+          "approach": "Workshops",
+          "type": "adoption",
+          "track": "all",
+          "start": "S0",
+          "end": "S0",
+          "detail": "C-level briefing. Factory vision, 3-track model, KPI framework socialisation."
+        },
+        {
+          "id": "champion-enablement",
+          "name": "AI Champion Enablement (per track)",
+          "approach": "2-day Workshop",
+          "type": "adoption",
+          "track": "all",
+          "start": "S0",
+          "end": "S1",
+          "detail": "One champion per track (Cloud, SAP, SF). 2-day enablement with track-specific tool demos."
+        },
+        {
+          "id": "wave1-training",
+          "name": "Wave 1: PMs, BAs & Architects",
+          "approach": "4hr Workshops",
+          "type": "adoption",
+          "track": "all",
+          "start": "S2",
+          "end": "S3",
+          "detail": "IDEA + STRUCTURE + REVIEW stages. Hands-on with Knowledge Hub, spec agents, sparring. Same for all tracks.",
+          "architectureRef": {
+            "layer": "workflow",
+            "stage": "idea"
+          }
+        },
+        {
+          "id": "wave2-cloud",
+          "name": "Wave 2a: ☁️ Cloud/Web Developers",
+          "approach": "Full-day Workshop",
+          "type": "adoption",
+          "track": "cloud",
+          "start": "S3",
+          "end": "S4",
+          "detail": "Copilot Agent Mode, CodeRabbit, Playwright, TDD contracts. Cloud-track specific BUILD + TEST training.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "cloud"
+          }
+        },
+        {
+          "id": "wave2-sap",
+          "name": "Wave 2b: 🔶 SAP Developers",
+          "approach": "Full-day Workshop",
+          "type": "adoption",
+          "track": "sap",
+          "start": "S4",
+          "end": "S5",
+          "detail": "Joule + Build Code, ABAP Unit with AI, Playwright for Fiori. SAP-track specific BUILD + TEST training.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sap"
+          }
+        },
+        {
+          "id": "wave2-sf",
+          "name": "Wave 2c: 🔷 SF Developers",
+          "approach": "Full-day Workshop",
+          "type": "adoption",
+          "track": "sf",
+          "start": "S5",
+          "end": "S6",
+          "detail": "Einstein for Devs, Agentforce, Playwright for Lightning. SF-track specific BUILD + TEST training.",
+          "architectureRef": {
+            "layer": "build-tracks",
+            "track": "sf"
+          }
+        },
+        {
+          "id": "embedded-coaching",
+          "name": "Embedded Coaching & Office Hours",
+          "approach": "Pair-working",
+          "type": "adoption",
+          "track": "all",
+          "start": "S4",
+          "end": "S6",
+          "detail": "Weekly Factory office hours per track. Champion-led peer coaching. Prompt library building."
+        }
+      ]
+    },
+    {
+      "id": "ams-transition",
+      "name": "AMS Transition & Vendor Enablement",
+      "icon": "🎓",
+      "components": [
+        {
+          "id": "vendor-sow",
+          "name": "Vendor SOW Addendum Templates",
+          "approach": "Legal/Sourcing",
+          "type": "governance",
+          "track": "all",
+          "start": "S1",
+          "end": "S2",
+          "detail": "All SOWs require: Factory tool usage, AI output logs per sprint. Track-specific tool requirements.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "Responsible AI Policies"
+          }
+        },
+        {
+          "id": "vendor-forum",
+          "name": "Vendor AI Governance Forum",
+          "approach": "Bi-weekly Review",
+          "type": "governance",
+          "track": "all",
+          "start": "S3",
+          "end": "S7",
+          "detail": "AI usage review with vendor leads across all 3 tracks. Non-compliance escalated to sourcing.",
+          "architectureRef": {
+            "layer": "control-plane",
+            "component": "Agent Registry"
+          }
+        },
+        {
+          "id": "runbooks",
+          "name": "AMS Runbooks & Dashboards",
+          "approach": "Documentation",
+          "type": "governance",
+          "track": "all",
+          "start": "S7",
+          "end": "S9",
+          "detail": "Per-stage Factory runbooks. Track-specific agent guides. Observability dashboards live before handover.",
+          "architectureRef": {
+            "layer": "observability",
+            "component": "Factory Dashboards"
+          }
+        },
+        {
+          "id": "ams-shadow",
+          "name": "AMS Shadow Team (4 weeks)",
+          "approach": "Knowledge Transfer",
+          "type": "adoption",
+          "track": "all",
+          "start": "S8",
+          "end": "S9",
+          "detail": "AMS team shadows Factory operations across all 3 tracks. Incident co-handling, handover sign-off."
+        },
+        {
+          "id": "efficiency-baseline",
+          "name": "Efficiency Baseline Measurement",
+          "approach": "Before/After Metrics",
+          "type": "governance",
+          "track": "all",
+          "start": "P2-1",
+          "end": "P2-3",
+          "detail": "Capture pre-Factory baselines: cycle time, defect density, cost-per-feature, test coverage. Critical for proving Year 1 target of 12–24% improvement."
+        },
+        {
+          "id": "phase2-report",
+          "name": "Phase 2 Savings Report",
+          "approach": "Executive Summary",
+          "type": "governance",
+          "track": "all",
+          "start": "P2-5",
+          "end": "P2-6",
+          "detail": "Formal report: measured efficiency gains per track, cost savings, quality improvements, developer adoption rates. Go/no-go for Phase 3 scale-up."
+        }
+      ]
+    }
+  ],
+  "crossDomain": {
+    "headline": "Factory Reusability — Build Once, All Tracks Benefit",
+    "subtext": "Every Factory component serves all 3 development tracks. Track-specific tools (Joule, Einstein, Copilot) are plug-in code generators — the workflow around them is shared.",
+    "items": [
+      {
+        "component": "Knowledge Hub",
+        "usedBy": [
+          "All stages",
+          "All 3 tracks",
+          "Future caps 7–11"
+        ],
+        "expandsTo": "Single source of truth for docs, patterns, history across Cloud + SAP + SF"
+      },
+      {
+        "component": "Playwright E2E",
+        "usedBy": [
+          "Cloud apps",
+          "SAP Fiori",
+          "SF Lightning"
+        ],
+        "expandsTo": "Universal test backbone — all 3 tracks are web-based"
+      },
+      {
+        "component": "MCP Connectors",
+        "usedBy": [
+          "Confluence → IDEA/REVIEW",
+          "ADO → BUILD/TEST",
+          "Jira → STRUCTURE"
+        ],
+        "expandsTo": "New tracks onboard in days via existing connectors"
+      },
+      {
+        "component": "Quality Gates",
+        "usedBy": [
+          "G1–G4 for all tracks"
+        ],
+        "expandsTo": "Same gates, same quality bar — different code gen tools per track"
+      },
+      {
+        "component": "AI Test Gen Agent",
+        "usedBy": [
+          "Spec → Playwright scripts"
+        ],
+        "expandsTo": "Works for any web-based UI (Cloud, Fiori, Lightning)"
+      },
+      {
+        "component": "Agent Runtime",
+        "usedBy": [
+          "All custom Factory agents"
+        ],
+        "expandsTo": "All future agents share same runtime + deployment model"
+      }
+    ]
+  },
+  "typeLabels": {
+    "saas-config": "SaaS Config",
+    "custom-agent": "Custom Agent",
+    "integration": "Integration",
+    "infra": "Infrastructure",
+    "connector": "MCP Connector",
+    "governance": "Governance",
+    "adoption": "Adoption",
+    "sap-native": "SAP Native",
+    "sf-native": "SF Native"
+  },
+  "typeColors": {
+    "saas-config": "teal",
+    "custom-agent": "navy",
+    "integration": "blue",
+    "infra": "grey",
+    "connector": "purple",
+    "governance": "amber",
+    "adoption": "green",
+    "sap-native": "orange",
+    "sf-native": "cyan"
+  },
+  "subComponentTypeLabels": {
+    "orchestrator": "Orchestrator",
+    "skill": "Skill",
+    "skill-shared": "Shared Skill",
+    "sub-agent": "Sub-Agent",
+    "template": "Template"
+  },
+  "subComponentTypeColors": {
+    "orchestrator": "indigo",
+    "skill": "mint",
+    "skill-shared": "violet",
+    "sub-agent": "slate",
+    "template": "gold"
+  },
+  "pageNum": "F1 / F2"
+}

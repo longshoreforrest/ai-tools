@@ -1,0 +1,163 @@
+/* ================================================================
+   factory-architecture.css — Additions for Factory Architecture view
+   (workflow stage flow + 3-track BUILD layout)
+   Imports architecture.css base styles.
+   ================================================================ */
+
+@import url('architecture.css');
+
+/* ── WORKFLOW STAGE FLOW ── */
+.fa-workflow-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 10px 14px;
+  overflow-x: auto;
+}
+
+.fa-stage {
+  flex: 1;
+  min-width: 110px;
+  background: #fff;
+  border: 1.5px solid rgba(46, 125, 50, 0.25);
+  border-radius: 6px;
+  padding: 8px 8px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fa-stage:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fa-stage-highlight {
+  border-color: var(--amberbd);
+  background: rgba(232, 168, 58, 0.06);
+  box-shadow: 0 0 0 2px rgba(232, 168, 58, 0.15);
+}
+
+.fa-stage-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.fa-stage-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.fa-stage-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
+  padding: 1px 5px;
+}
+
+.fa-stage-badge.shared {
+  background: rgba(43, 127, 110, 0.12);
+  color: var(--teal);
+  border: 1px solid rgba(43, 127, 110, 0.25);
+}
+
+.fa-stage-badge.split {
+  background: rgba(232, 168, 58, 0.12);
+  color: var(--amber);
+  border: 1px solid rgba(232, 168, 58, 0.25);
+}
+
+.fa-stage-agents {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.fa-stage-agent {
+  font-size: 7px;
+  color: var(--text2);
+  line-height: 1.3;
+  text-align: center;
+  padding: 1px 2px;
+  background: rgba(0,0,0,0.03);
+  border-radius: 2px;
+}
+
+.fa-stage-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: rgba(46, 125, 50, 0.4);
+  padding: 0 3px;
+  flex-shrink: 0;
+}
+
+/* ── 3-TRACK BUILD LAYOUT ── */
+.fa-tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 10px 14px;
+}
+
+.fa-track {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid var(--track-color);
+  background: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fa-track:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.fa-track-hdr {
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fa-track-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.fa-track-tools {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fa-track-tool {
+  padding: 5px 8px;
+  background: rgba(0,0,0,0.02);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 4px;
+}
+
+.fa-track-tool-name {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1px;
+}
+
+.fa-track-tool-detail {
+  font-size: 7.5px;
+  color: var(--text2);
+  line-height: 1.3;
+}

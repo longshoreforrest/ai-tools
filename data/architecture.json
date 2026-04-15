@@ -1,0 +1,270 @@
+{
+  "title": "Platform Architecture \u2014 UPM Agentic SDLC Factory",
+  "subtitle": "Hybrid A+C approach \u00b7 Microsoft-native SaaS for quick wins + Custom Azure AI Foundry agents for complex capabilities",
+  "strategyNote": "Phase 1 (H2 2026): Deploy 6 capabilities via SaaS + custom agents. Phase 2 (H1 2027): Consolidate to unified platform, add capabilities 7\u201311.",
+
+  "layers": [
+    {
+      "id": "control-plane",
+      "name": "UPM AI CoE Control Plane",
+      "color": "indigo",
+      "description": "Centralized governance, routing, and policy enforcement",
+      "components": [
+        {
+          "name": "AI Gateway",
+          "detail": "Azure API Management \u2014 centralized LLM routing, rate limiting, cost attribution",
+          "icon": "\uD83D\uDD12",
+          "highlight": true
+        },
+        {
+          "name": "Responsible AI Policies",
+          "detail": "Content safety filters, PII detection, output audit logging",
+          "icon": "\uD83D\uDEE1\uFE0F"
+        },
+        {
+          "name": "Agent Registry",
+          "detail": "A2A agent cards \u2014 discovery, versioning, capability metadata",
+          "icon": "\uD83D\uDCCB"
+        },
+        {
+          "name": "Gate Approvals (G1\u2013G4)",
+          "detail": "Human-in-the-loop sign-off gates for sensitive actions",
+          "icon": "\u2705"
+        }
+      ]
+    },
+    {
+      "id": "orchestration",
+      "name": "Orchestration Layer",
+      "color": "blue",
+      "description": "MS Agent Framework coordinates agent workflows and long-running tasks",
+      "components": [
+        {
+          "name": "Coordinator Agent",
+          "detail": "Routes requests to capability agents, manages multi-step workflows",
+          "icon": "\uD83C\uDFAF",
+          "highlight": true
+        },
+        {
+          "name": "MS Agent Framework",
+          "detail": "Agent lifecycle, communication protocol (A2A), state management",
+          "icon": "\u2699\uFE0F"
+        },
+        {
+          "name": "Azure Service Bus",
+          "detail": "Async event routing between agents, dead-letter handling",
+          "icon": "\uD83D\uDCE8"
+        },
+        {
+          "name": "Durable Functions",
+          "detail": "Long-wait orchestrations (HITL gates, batch processing)",
+          "icon": "\u23F3"
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "name": "Capability Agents",
+      "color": "green",
+      "description": "6 AI capabilities \u2014 SaaS-accelerated (fast) or Custom-built (deep)",
+      "splitLayout": true,
+      "groups": [
+        {
+          "label": "SaaS-Accelerated (Phase 1 \u2014 Sprints 1\u20132)",
+          "sublabel": "Pre-built tools, fast deployment, familiar UX",
+          "agents": [
+            {
+              "cap": "05",
+              "name": "Builder / Coding",
+              "tools": ["GitHub Copilot Agent Mode", "CodeRabbit", "Black Duck"],
+              "runtime": "GitHub + SaaS",
+              "savings": "15.9%"
+            },
+            {
+              "cap": "06",
+              "name": "Test & Quality",
+              "tools": ["GitHub Copilot", "Playwright/Cypress", "SAP Joule"],
+              "runtime": "GitHub + OSS + SaaS",
+              "savings": "13.9%"
+            },
+            {
+              "cap": "01",
+              "name": "Knowledge Intelligence",
+              "tools": ["M365 Copilot", "Copilot Studio"],
+              "runtime": "Copilot Studio + RAG",
+              "savings": "9.0%"
+            },
+            {
+              "cap": "03",
+              "name": "Business Intent",
+              "tools": ["Teams Copilot", "Word Copilot", "Copilot Studio"],
+              "runtime": "Copilot Studio",
+              "savings": "10.2%"
+            }
+          ]
+        },
+        {
+          "label": "Custom-Built (Phase 1 \u2014 Sprints 3\u20137)",
+          "sublabel": "No SaaS fit \u2014 Azure AI Foundry + Semantic Kernel",
+          "agents": [
+            {
+              "cap": "02",
+              "name": "Feature Requirement",
+              "tools": ["Azure AI Foundry", "Semantic Kernel"],
+              "runtime": "Container Apps (Python)",
+              "savings": "6.0%"
+            },
+            {
+              "cap": "04",
+              "name": "Tech-Spec Sparring",
+              "tools": ["Azure AI Foundry", "Semantic Kernel"],
+              "runtime": "Container Apps (Python)",
+              "savings": "9.1%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "name": "Knowledge Service",
+      "color": "orange",
+      "description": "Shared RAG backbone \u2014 write once, read by all agents",
+      "components": [
+        {
+          "name": "Azure AI Search",
+          "detail": "Vector store \u2014 Confluence, SharePoint, architecture catalog, project history",
+          "icon": "\uD83D\uDD0D",
+          "highlight": true
+        },
+        {
+          "name": "Redis Cache",
+          "detail": "Hot-path caching \u2014 30\u201350% hit rate for repeated queries",
+          "icon": "\u26A1"
+        },
+        {
+          "name": "Blob Storage",
+          "detail": "Source documents, embeddings, versioned snapshots",
+          "icon": "\uD83D\uDCC1"
+        },
+        {
+          "name": "Knowledge Curator",
+          "detail": "Freshness scoring, gap detection, update recommendations",
+          "icon": "\uD83E\uDDE0"
+        }
+      ],
+      "dataFlow": "Agents READ \u2192 Cache \u2192 miss \u2192 AI Search \u2192 Agents WRITE \u2192 Service Bus \u2192 Ingest"
+    },
+    {
+      "id": "integration",
+      "name": "Integration Layer",
+      "color": "purple",
+      "description": "Shared MCP connector library (built once, reused across all capabilities) \u2014 MCP-first, REST fallback, A2A bridges",
+      "tiers": [
+        {
+          "tier": 1,
+          "protocol": "MCP",
+          "label": "MCP Connectors (real-time, bidirectional)",
+          "systems": [
+            { "name": "Confluence", "usedBy": "Caps 1, 3, 4" },
+            { "name": "Jira", "usedBy": "Caps 2, 5, 6" },
+            { "name": "ServiceNow", "usedBy": "Caps 2, 3" },
+            { "name": "GitHub", "usedBy": "Caps 5, 6" },
+            { "name": "Azure DevOps", "usedBy": "Caps 2, 5, 6" }
+          ]
+        },
+        {
+          "tier": 2,
+          "protocol": "REST",
+          "label": "REST APIs (standard integration)",
+          "systems": [
+            { "name": "SharePoint", "usedBy": "Caps 1, 3" },
+            { "name": "MS Teams", "usedBy": "Cap 3" },
+            { "name": "SonarQube", "usedBy": "Cap 5" },
+            { "name": "CodeRabbit", "usedBy": "Cap 5" },
+            { "name": "Black Duck", "usedBy": "Cap 5" }
+          ]
+        },
+        {
+          "tier": 3,
+          "protocol": "A2A Bridge",
+          "label": "Platform Bridges (adapter pattern)",
+          "systems": [
+            { "name": "SAP Joule", "usedBy": "Cap 6" },
+            { "name": "Salesforce Agentforce", "usedBy": "TBD" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "observability",
+      "name": "Observability & Audit",
+      "color": "red",
+      "description": "Full OpenTelemetry trace pipeline \u2014 cost attribution, compliance audit",
+      "components": [
+        {
+          "name": "OpenTelemetry SDK",
+          "detail": "Structured traces from every agent invocation",
+          "icon": "\uD83D\uDCCA"
+        },
+        {
+          "name": "Azure Monitor",
+          "detail": "Centralized log aggregation, alerting, dashboards",
+          "icon": "\uD83D\uDCDF"
+        },
+        {
+          "name": "Application Insights",
+          "detail": "Performance tracking, dependency mapping, anomaly detection",
+          "icon": "\uD83D\uDD2C"
+        },
+        {
+          "name": "AI CoE Dashboards",
+          "detail": "Cost per agent, token usage, quality scores, SLA compliance",
+          "icon": "\uD83D\uDCC8"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure (Azure)",
+      "color": "grey",
+      "description": "Terraform IaC \u2014 repeatable, auditable, Azure DevOps CI/CD",
+      "components": [
+        {
+          "name": "Terraform IaC",
+          "detail": "All infra as code \u2014 Container Apps, AI Search, Functions, Service Bus",
+          "icon": "\uD83C\uDFD7\uFE0F"
+        },
+        {
+          "name": "Key Vault",
+          "detail": "Secrets, certificates, API keys \u2014 Managed Identity access only",
+          "icon": "\uD83D\uDD11"
+        },
+        {
+          "name": "Entra ID",
+          "detail": "Role-based access, Managed Identity for service-to-service auth",
+          "icon": "\uD83D\uDC64"
+        },
+        {
+          "name": "VNet + Private Endpoints",
+          "detail": "Network isolation, no public endpoints for backend services",
+          "icon": "\uD83D\uDD10"
+        }
+      ]
+    }
+  ],
+
+  "guardrails": [
+    "No human sign-off = no publish / merge / deploy",
+    "All AI output logged and auditable via OpenTelemetry",
+    "Role-based data access via Entra ID",
+    "LLM access only through AI Gateway (no direct calls)",
+    "Python + Terraform for all custom code",
+    "Azure-native services only",
+    "New agents require AI CoE Architecture Review before production",
+    "Semgrep OSS licence scanning in all CI/CD pipelines (Black Duck TBD Q4 2026)",
+    "Responsible AI review (bias, fairness, privacy, explainability) per agent at Architecture Review"
+  ],
+
+  "pageNum": "12 / 12"
+}

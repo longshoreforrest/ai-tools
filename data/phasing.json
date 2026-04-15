@@ -1,0 +1,453 @@
+{
+  "goal": {
+    "headline": "Your target is 50\u2009% faster, 50\u2009% cheaper.",
+    "subtext": "Rather than waiting months for a fully designed system, we deploy lightweight accelerators immediately and evolve them into governed platform agents. Each capability follows three stages \u2014 nothing is thrown away between them. Every skill, prompt, MCP connection, and knowledge structure built in month one compounds into the final solution. No reset, no rebuild \u2014 just a measurable curve from day one toward the 50\u2009% target.",
+    "metrics": [
+      { "value": "50%", "label": "Faster delivery", "icon": "speed" },
+      { "value": "50%", "label": "Cost reduction", "icon": "cost" }
+    ]
+  },
+
+  "stages": [
+    {
+      "id": "stage-1",
+      "number": 1,
+      "name": "IDE & App-Native Assistant",
+      "subtitle": "Quick start with existing tools",
+      "timeline": "Months 1\u20132",
+      "color": "teal",
+      "description": "Deploy commercial AI tools into developer and business workflows. Immediate productivity gains with zero custom infrastructure. Builds the asset foundation.",
+      "keyAssets": ["Prompt libraries & instruction files", "IDE configurations & coding standards", "Knowledge taxonomies & templates"],
+      "contribution": "~15% toward target"
+    },
+    {
+      "id": "stage-2",
+      "number": 2,
+      "name": "Hybrid Orchestrated Agent",
+      "subtitle": "Custom agents + human-in-the-loop",
+      "timeline": "Months 3\u20135",
+      "color": "navy",
+      "description": "Build purpose-built agents with MCP connections, structured orchestration, and HITL checkpoints. Leverages AI Gateway and MS Agent Framework.",
+      "keyAssets": ["MCP server connections", "Agent orchestration skills", "Domain-specific RAG pipelines"],
+      "contribution": "~35% cumulative"
+    },
+    {
+      "id": "stage-3",
+      "number": 3,
+      "name": "Autonomous Governed Agent",
+      "subtitle": "Enterprise-grade, fully governed",
+      "timeline": "Months 6\u20139",
+      "color": "amber",
+      "description": "Fully autonomous agents with AI Gateway routing, OpenTelemetry observability, G1\u2013G4 governance gates, and continuous self-improvement.",
+      "keyAssets": ["AI Gateway policies & routing", "OpenTelemetry trace pipelines", "G1\u2013G4 governance gate configs"],
+      "contribution": "50% target achieved"
+    },
+    {
+      "id": "stage-4",
+      "number": 4,
+      "name": "Unified Platform & Expansion",
+      "subtitle": "2027 \u2014 New capabilities + platform consolidation",
+      "timeline": "H1 2027",
+      "color": "purple",
+      "description": "Migrate Copilot Studio flows to Azure AI Foundry. Multi-model LLM routing (Claude, Gemini). Shared MCP connector library. Deploy capabilities 7\u201311. Unified governance model.",
+      "keyAssets": ["Unified Azure AI Foundry runtime", "Multi-model AI Gateway routing", "Shared MCP connector library", "Capabilities 7\u201311 live"],
+      "contribution": "11 capabilities live"
+    }
+  ],
+
+  "capabilities": [
+    {
+      "id": "knowledge-gen",
+      "number": "01",
+      "name": "Knowledge Intelligence & Maintenance",
+      "shortName": "Knowledge",
+      "roleCategory": "biz",
+      "stages": {
+        "stage-1": {
+          "summary": "AI-assisted doc search & drafting",
+          "tools": ["MS Copilot", "Claude"],
+          "details": [
+            "Conversational search over existing documentation",
+            "Draft knowledge articles from support tickets & incident logs",
+            "Template-based doc generation in Word / Confluence / SharePoint"
+          ],
+          "assetBuilt": "Knowledge taxonomy & prompt library",
+          "siiliReady": "build"
+        },
+        "stage-2": {
+          "summary": "Orchestrated knowledge pipeline",
+          "tools": ["Custom Agent", "MCP", "Azure AI Search"],
+          "details": [
+            "RAG pipeline over documentation library",
+            "Automated doc quality assessment & cleanup agent",
+            "HITL review before knowledge-base publish",
+            "MCP connections to SharePoint, Confluence, ADO Wiki"
+          ],
+          "assetBuilt": "RAG index, review workflows, MCP connectors",
+          "siiliReady": "build"
+        },
+        "stage-3": {
+          "summary": "Autonomous knowledge governance",
+          "tools": ["Enterprise Agent", "AI Gateway"],
+          "details": [
+            "Continuous doc freshness monitoring & auto-updates",
+            "Incident-triggered knowledge refresh",
+            "Compliance checking against corporate guidelines",
+            "Full audit trail via OpenTelemetry"
+          ],
+          "assetBuilt": "Self-maintaining knowledge base with governance",
+          "siiliReady": "build"
+        }
+      }
+    },
+    {
+      "id": "demand",
+      "number": "02",
+      "name": "Feature Requirement (Demand)",
+      "shortName": "Demand",
+      "roleCategory": "biz",
+      "stages": {
+        "stage-1": {
+          "summary": "AI-assisted demand intake & estimation",
+          "tools": ["MS Copilot", "Claude"],
+          "details": [
+            "Structured templates for feature requests",
+            "AI-assisted impact & effort estimation",
+            "Duplicate and overlap detection across backlog"
+          ],
+          "assetBuilt": "Demand intake templates & scoring prompts",
+          "siiliReady": "build"
+        },
+        "stage-2": {
+          "summary": "Demand analysis & prioritization agent",
+          "tools": ["Custom Agent", "MCP", "ADO"],
+          "details": [
+            "Automated portfolio-level impact analysis",
+            "Cross-capability dependency mapping",
+            "MCP connection to Jira / ADO backlog",
+            "HITL approval for priority recommendations"
+          ],
+          "assetBuilt": "Priority scoring model, backlog MCP server",
+          "siiliReady": "build"
+        },
+        "stage-3": {
+          "summary": "Autonomous demand orchestration",
+          "tools": ["Enterprise Agent", "AI Gateway"],
+          "details": [
+            "Continuous backlog health monitoring",
+            "Auto-routing demands to correct capability teams",
+            "Predictive delivery timeline estimation",
+            "Governance gate: demand quality threshold (G1)"
+          ],
+          "assetBuilt": "Self-optimizing demand pipeline",
+          "siiliReady": "build"
+        }
+      }
+    },
+    {
+      "id": "biz-intent",
+      "number": "03",
+      "name": "Business Intent to Requirements",
+      "shortName": "Biz Intent",
+      "roleCategory": "biz",
+      "stages": {
+        "stage-1": {
+          "summary": "Conversational requirements drafting",
+          "tools": ["Claude", "MS Copilot", "Teams"],
+          "details": [
+            "Natural language to structured requirement translation",
+            "Acceptance criteria generation from business descriptions",
+            "Meeting transcript \u2192 action items via Teams Copilot"
+          ],
+          "assetBuilt": "Requirement prompt templates & examples",
+          "siiliReady": "build"
+        },
+        "stage-2": {
+          "summary": "Context-aware translation agent",
+          "tools": ["Custom Agent", "MCP", "A2A"],
+          "details": [
+            "Domain-model-aware requirement generation",
+            "Cross-reference with architecture constraints & existing specs",
+            "MCP connection to requirement repositories",
+            "A2A card for inter-agent spec handoff"
+          ],
+          "assetBuilt": "Domain model, requirement patterns, MCP links",
+          "siiliReady": "build"
+        },
+        "stage-3": {
+          "summary": "Autonomous requirement governance",
+          "tools": ["Enterprise Agent", "AI Gateway"],
+          "details": [
+            "End-to-end traceability: intent \u2192 spec \u2192 test",
+            "Automated conflict & gap detection",
+            "Regulatory compliance pre-check",
+            "Governance gate: requirement quality threshold (G1)"
+          ],
+          "assetBuilt": "Full traceability chain with governance",
+          "siiliReady": "build"
+        }
+      }
+    },
+    {
+      "id": "tech-spec",
+      "number": "04",
+      "name": "Tech-Spec Sparring",
+      "shortName": "Sparring",
+      "roleCategory": "tech",
+      "stages": {
+        "stage-1": {
+          "summary": "AI-assisted architecture review",
+          "tools": ["Claude Code", "GitHub Copilot"],
+          "details": [
+            "Interactive spec review & challenge in IDE / terminal",
+            "Pattern and anti-pattern detection in proposals",
+            "Architecture Decision Record (ADR) drafting"
+          ],
+          "assetBuilt": "ADR templates & review checklists",
+          "siiliReady": "build"
+        },
+        "stage-2": {
+          "summary": "Codebase-aware sparring agent",
+          "tools": ["Custom Agent", "MCP", "Azure AI Search"],
+          "details": [
+            "RAG over existing architecture docs & codebase",
+            "Multi-perspective risk assessment (security, perf, cost)",
+            "MCP connection to architecture repository",
+            "HITL checkpoint: architect approval before close"
+          ],
+          "assetBuilt": "Architecture knowledge base, risk models",
+          "siiliReady": "build"
+        },
+        "stage-3": {
+          "summary": "Autonomous architecture guardian",
+          "tools": ["Enterprise Agent", "AI Gateway"],
+          "details": [
+            "Continuous architecture drift detection",
+            "Automated NFR validation against standards",
+            "Cross-system impact analysis",
+            "Governance gate: architecture conformance (G2)"
+          ],
+          "assetBuilt": "Living architecture model with drift alerts",
+          "siiliReady": "build"
+        }
+      }
+    },
+    {
+      "id": "builder",
+      "number": "05",
+      "name": "Builder / Coding",
+      "shortName": "Builder",
+      "roleCategory": "tech",
+      "stages": {
+        "stage-1": {
+          "summary": "AI-augmented development",
+          "tools": ["Claude Code", "GitHub Copilot", "Cursor"],
+          "details": [
+            "Code completion & generation in IDE",
+            "TDD-first with AI-generated test stubs",
+            "PR description generation & review assistance"
+          ],
+          "assetBuilt": "CLAUDE.md, coding standards, prompt patterns",
+          "siiliReady": "build"
+        },
+        "stage-2": {
+          "summary": "Orchestrated build agents",
+          "tools": ["Custom Agent", "MCP", "ADO Pipelines"],
+          "details": [
+            "Spec-to-code task decomposition agent",
+            "Parallel sub-agent execution (multi-file changes)",
+            "MCP connections to Git, CI/CD, issue tracker",
+            "HITL review gate before merge"
+          ],
+          "assetBuilt": "Build orchestration, CI/CD MCP, skills library",
+          "siiliReady": "build"
+        },
+        "stage-3": {
+          "summary": "Autonomous coding with governance",
+          "tools": ["Enterprise Agent", "AI Gateway", "SAST/DAST"],
+          "details": [
+            "Autonomous task pickup from approved specs",
+            "Self-healing pipeline (detect & fix broken builds)",
+            "Integrated SAST/DAST security scanning",
+            "Governance gate: code quality & security (G3)"
+          ],
+          "assetBuilt": "Self-governing development pipeline",
+          "siiliReady": "build"
+        }
+      }
+    },
+    {
+      "id": "quality",
+      "number": "06",
+      "name": "Test & Quality Assurance",
+      "shortName": "Quality",
+      "roleCategory": "tech",
+      "stages": {
+        "stage-1": {
+          "summary": "AI-generated test cases & coverage",
+          "tools": ["Claude Code", "GitHub Copilot"],
+          "details": [
+            "Test case generation from requirements / specs",
+            "Test coverage gap analysis",
+            "Mutation testing suggestions & edge-case identification"
+          ],
+          "assetBuilt": "Test templates & coverage baselines",
+          "siiliReady": "build"
+        },
+        "stage-2": {
+          "summary": "Quality orchestration agent",
+          "tools": ["Custom Agent", "MCP", "Test Frameworks"],
+          "details": [
+            "Automated TDD contract generation from specs",
+            "Dual-phase testing: specification + automation",
+            "MCP connection to test frameworks & coverage tools",
+            "HITL checkpoint: QA lead sign-off"
+          ],
+          "assetBuilt": "Test contracts, quality gate definitions",
+          "siiliReady": "build"
+        },
+        "stage-3": {
+          "summary": "Autonomous quality governance",
+          "tools": ["Enterprise Agent", "AI Gateway"],
+          "details": [
+            "Continuous quality monitoring dashboard",
+            "Automated regression suite maintenance",
+            "Cross-capability test impact analysis",
+            "Governance gate: release quality threshold (G4)"
+          ],
+          "assetBuilt": "Self-maintaining quality pipeline",
+          "siiliReady": "build"
+        }
+      }
+    },
+    {
+      "id": "gap-analysis",
+      "number": "07",
+      "name": "Gap Analysis (Doc vs. System)",
+      "shortName": "Gap Analysis",
+      "roleCategory": "tech",
+      "stages": {
+        "stage-4": {
+          "summary": "Automated documentation-system alignment",
+          "tools": ["Enterprise Agent", "AI Gateway", "MCP"],
+          "details": [
+            "On-demand detection of doc-system mismatches",
+            "Triggered by deployment events or scheduled scans",
+            "Cross-references knowledge base against live system state",
+            "Automated gap reports with remediation suggestions"
+          ],
+          "assetBuilt": "Continuous alignment monitoring",
+          "siiliReady": "build",
+          "dependsOn": "Cap 1 (knowledge layer) + CI/CD integration"
+        }
+      }
+    },
+    {
+      "id": "spec-reuse",
+      "number": "08",
+      "name": "Specification Reuse",
+      "shortName": "Spec Reuse",
+      "roleCategory": "biz",
+      "stages": {
+        "stage-4": {
+          "summary": "Proactive reuse surfacing across projects",
+          "tools": ["Enterprise Agent", "AI Gateway", "Azure AI Search"],
+          "details": [
+            "Surface reusable specs, components, and patterns before Gate 1",
+            "Cross-project search across all UPM repositories",
+            "Architecture pattern matching and recommendation",
+            "Reduce duplicate specification effort across teams"
+          ],
+          "assetBuilt": "Enterprise specification reuse engine",
+          "siiliReady": "build",
+          "dependsOn": "Cap 1 + Cap 2 vector stores"
+        }
+      }
+    },
+    {
+      "id": "progress-visibility",
+      "number": "09",
+      "name": "Project Progress Visibility",
+      "shortName": "Progress",
+      "roleCategory": "biz",
+      "stages": {
+        "stage-4": {
+          "summary": "Real-time delivery intelligence dashboard",
+          "tools": ["Enterprise Agent", "AI Gateway", "MCP"],
+          "details": [
+            "Aggregated delivery dashboard: quality risk, velocity, release readiness",
+            "Data feeds from Jira, ADO, GitHub, ServiceNow",
+            "Predictive delivery risk scoring",
+            "Cross-capability dependency impact analysis"
+          ],
+          "assetBuilt": "Unified delivery intelligence platform",
+          "siiliReady": "build",
+          "dependsOn": "Caps 2, 5, 6 data feeds; MCP connector library"
+        }
+      }
+    },
+    {
+      "id": "training-coach",
+      "number": "10",
+      "name": "Training & Adoption Coach",
+      "shortName": "Training Coach",
+      "roleCategory": "biz",
+      "stages": {
+        "stage-4": {
+          "summary": "AI-powered onboarding and process guidance",
+          "tools": ["Enterprise Agent", "AI Gateway", "Knowledge Service"],
+          "details": [
+            "Conversational onboarding assistant for new starters and vendors",
+            "Answers questions about UPM SDLC processes, tools, and guidelines",
+            "Reduces onboarding time and context-switching overhead",
+            "Proactive training recommendations based on role and usage patterns"
+          ],
+          "assetBuilt": "Self-service AI adoption coach",
+          "siiliReady": "build",
+          "dependsOn": "Cap 1 knowledge layer"
+        }
+      }
+    },
+    {
+      "id": "defect-agent",
+      "number": "11",
+      "name": "Defect & Service Agent",
+      "shortName": "Defect Agent",
+      "roleCategory": "tech",
+      "stages": {
+        "stage-4": {
+          "summary": "Conversational incident triage and resolution",
+          "tools": ["Enterprise Agent", "AI Gateway", "ServiceNow MCP"],
+          "details": [
+            "Conversational triage of production incidents",
+            "AI-drafted resolution steps from knowledge base",
+            "Auto-linking to known issues and historical resolutions",
+            "Escalation path with full context handoff to human engineers"
+          ],
+          "assetBuilt": "Intelligent incident management agent",
+          "siiliReady": "build",
+          "dependsOn": "Cap 1; ServiceNow integration"
+        }
+      }
+    }
+  ],
+
+  "portability": {
+    "headline": "Assets Are Portable \u2014 Nothing Is Thrown Away",
+    "subtext": "Every asset built in Stage 1 compounds into the final solution. No reset, no rebuild.",
+    "assets": [
+      { "icon": "prompt", "label": "Prompts & Skills", "detail": "Instructions refined in IDE become orchestrated agent skills" },
+      { "icon": "mcp", "label": "MCP Connections", "detail": "Server integrations carry into orchestrated and autonomous agents" },
+      { "icon": "knowledge", "label": "Knowledge Structures", "detail": "Taxonomies and RAG indices grow richer with each stage" },
+      { "icon": "governance", "label": "Governance Patterns", "detail": "HITL checkpoints evolve into automated G1\u2013G4 gates" }
+    ]
+  },
+
+  "siiliLegend": {
+    "ready": "Siili has reusable asset",
+    "partial": "Exists \u2014 needs adaptation",
+    "build": "To be built"
+  },
+
+  "pageNum": "10 / 10"
+}

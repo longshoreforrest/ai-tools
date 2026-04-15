@@ -1,0 +1,560 @@
+/* ================================================================
+   detailed-phasing.css — Gantt-style detailed implementation timeline
+   ================================================================ */
+
+.dp-slide {
+  width: 1520px;
+  background: var(--sand);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 56px rgba(0,0,0,0.26);
+  position: relative;
+  font-family: 'Sora', sans-serif;
+}
+
+.dp-slide::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--teal2) 0%, var(--navy) 50%, var(--amberbd) 100%);
+  z-index: 10;
+}
+
+/* ── HEADER ── */
+.dp-header {
+  background: var(--navy);
+  padding: 16px 24px 14px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dp-header::after {
+  content: '';
+  position: absolute; top: -50px; right: -30px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(56,152,128,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.dp-header-text { flex: 1; }
+
+.dp-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.3px;
+  margin-bottom: 3px;
+}
+
+.dp-subtitle {
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+}
+
+.dp-goal-reminder {
+  font-size: 9px;
+  color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 5px;
+  padding: 8px 14px;
+  max-width: 340px;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+/* ── TYPE LEGEND ── */
+.dp-legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px 4px;
+  flex-wrap: wrap;
+}
+
+.dp-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dp-legend-bar {
+  width: 20px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.dp-legend-bar.teal   { background: var(--teal2); }
+.dp-legend-bar.navy   { background: var(--navy); }
+.dp-legend-bar.blue   { background: #4A7AB5; }
+.dp-legend-bar.grey   { background: #8A9AAA; }
+.dp-legend-bar.purple { background: #7B6DAF; }
+.dp-legend-bar.amber  { background: var(--amberbd); }
+.dp-legend-bar.green  { background: #5A9B5A; }
+
+.dp-legend-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  color: var(--text2);
+}
+
+/* ── GANTT BODY ── */
+.dp-body {
+  padding: 6px 24px 10px;
+}
+
+/* ── TIMELINE HEADER ROW ── */
+.dp-timeline-hdr {
+  display: grid;
+  grid-template-columns: var(--label-width, 220px) repeat(var(--sprint-count, 10), 1fr);
+  gap: 0;
+  margin-bottom: 2px;
+}
+
+.dp-sprint-hdr {
+  text-align: center;
+  padding: 5px 2px;
+  border-left: 1px solid rgba(221,212,198,0.4);
+  position: relative;
+}
+
+.dp-sprint-hdr:first-of-type { border-left: none; }
+
+.dp-sprint-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.dp-sprint-title {
+  font-size: 8px;
+  color: var(--text2);
+  margin-top: 1px;
+}
+
+.dp-sprint-weeks {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px;
+  color: rgba(0,0,0,0.4);
+  letter-spacing: 0.5px;
+}
+
+/* Phase color bands on sprint headers */
+.dp-sprint-hdr[data-phase="foundation"]  { background: rgba(138,154,170,0.08); }
+.dp-sprint-hdr[data-phase="quick-wins"]  { background: rgba(56,152,128,0.06); }
+.dp-sprint-hdr[data-phase="core-build"]  { background: rgba(28,43,58,0.04); }
+.dp-sprint-hdr[data-phase="advanced"]    { background: rgba(232,168,58,0.05); }
+.dp-sprint-hdr[data-phase="harden"]      { background: rgba(28,43,58,0.04); }
+.dp-sprint-hdr[data-phase="ams"]         { background: rgba(138,154,170,0.08); }
+.dp-sprint-hdr[data-phase="pilot"]       { background: rgba(56,152,128,0.08); }
+.dp-sprint-hdr[data-phase="scale"]       { background: rgba(232,168,58,0.07); }
+
+.dp-timeline-spacer {
+  /* Empty first column label area */
+}
+
+/* ── GROUP ── */
+.dp-group {
+  margin-bottom: 4px;
+}
+
+.dp-group-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--navy);
+  border-radius: 5px 5px 0 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.dp-group-label {
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dp-group-icon {
+  font-size: 11px;
+}
+
+.dp-group-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.dp-group-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  justify-content: flex-end;
+}
+
+.dp-group-savings {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--teallt);
+  background: rgba(56,152,128,0.2);
+  border: 1px solid rgba(56,152,128,0.35);
+  border-radius: 3px;
+  padding: 3px 9px;
+}
+
+.dp-group-approach {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.5px;
+}
+
+.dp-group.reusable .dp-group-hdr {
+  background: linear-gradient(135deg, #2C5F54 0%, #1C4A40 100%);
+}
+
+/* ── COMPONENT ROW ── */
+.dp-row {
+  display: grid;
+  grid-template-columns: var(--label-width, 220px) repeat(var(--sprint-count, 10), 1fr);
+  gap: 0;
+  min-height: 28px;
+  border-bottom: 1px solid rgba(221,212,198,0.3);
+  position: relative;
+}
+
+.dp-row:last-child {
+  border-bottom: none;
+}
+
+.dp-row:nth-child(even) {
+  background: rgba(244,241,234,0.4);
+}
+
+.dp-row:hover {
+  background: rgba(43,127,110,0.04);
+}
+
+/* Component label cell */
+.dp-comp-label {
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  border-right: 1px solid rgba(221,212,198,0.4);
+  min-width: var(--label-width, 220px);
+  box-sizing: border-box;
+}
+
+.dp-comp-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.dp-comp-approach {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: var(--grey);
+  letter-spacing: 0.3px;
+}
+
+/* Siili ready indicator on component label */
+.dp-comp-siili {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 1px;
+}
+
+.dp-comp-siili-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5px;
+  font-weight: 800;
+}
+
+.dp-comp-siili-dot.ready   { background: rgba(43,127,110,0.15); color: var(--teal); border: 1px solid rgba(43,127,110,0.3); }
+.dp-comp-siili-dot.partial { background: rgba(232,168,58,0.12); color: var(--amber); border: 1px solid rgba(232,168,58,0.25); }
+
+.dp-comp-siili-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5px;
+  color: var(--teal);
+  letter-spacing: 0.3px;
+}
+
+/* Sprint cells (Gantt lane) */
+.dp-cell {
+  position: relative;
+  border-left: 1px solid rgba(221,212,198,0.2);
+  min-height: 28px;
+}
+
+/* ── GANTT BAR ── */
+.dp-bar {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 3px;
+  right: 3px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: default;
+}
+
+.dp-bar:hover {
+  transform: scaleY(1.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+
+/* Bar starts (left edge rounded more) */
+.dp-bar.bar-start {
+  border-radius: 3px 0 0 3px;
+  left: 3px;
+  right: 0;
+}
+
+/* Bar middle (no rounding) */
+.dp-bar.bar-mid {
+  border-radius: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Bar end (right edge rounded) */
+.dp-bar.bar-end {
+  border-radius: 0 3px 3px 0;
+  left: 0;
+  right: 3px;
+}
+
+/* Single sprint bar (full rounding) */
+.dp-bar.bar-single {
+  border-radius: 3px;
+}
+
+/* Bar colors by type */
+.dp-bar.teal   { background: var(--teal2); }
+.dp-bar.navy   { background: var(--navy); }
+.dp-bar.blue   { background: #4A7AB5; }
+.dp-bar.grey   { background: #8A9AAA; }
+.dp-bar.purple { background: #7B6DAF; }
+.dp-bar.amber  { background: var(--amberbd); }
+.dp-bar.green  { background: #5A9B5A; }
+
+/* Bar label (only on bars spanning 2+ sprints) */
+.dp-bar-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 4px;
+}
+
+/* Reusable indicator on bar */
+.dp-bar-reuse {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: 7px;
+  opacity: 0.6;
+}
+
+/* ── TOOLTIP (hover preview + click-to-pin) ── */
+.dp-row:hover .dp-tooltip {
+  display: block;
+}
+
+.dp-row.pinned .dp-tooltip {
+  display: block;
+  border: 1px solid var(--teal2);
+  box-shadow: 0 4px 20px rgba(56,152,128,0.25), 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.dp-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 240px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px 12px 14px;
+  font-size: 7.5px;
+  line-height: 1.5;
+  max-width: 400px;
+  min-width: 200px;
+  z-index: 20;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  pointer-events: auto;
+  margin-bottom: -6px;
+  /* Invisible bridge area below tooltip to maintain hover */
+}
+.dp-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.dp-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: var(--navy);
+}
+
+/* Pinned row highlight */
+.dp-row.pinned {
+  background: rgba(43,127,110,0.07);
+}
+
+/* ── "Show in Architecture" button inside tooltip ── */
+.dp-show-arch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 3px 8px;
+  background: rgba(56,152,128,0.2);
+  border: 1px solid rgba(56,152,128,0.35);
+  border-radius: 3px;
+  color: var(--teallt);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.dp-show-arch:hover {
+  background: rgba(56,152,128,0.35);
+  border-color: rgba(56,152,128,0.5);
+  color: #fff;
+}
+
+.dp-tooltip-title {
+  font-weight: 700;
+  font-size: 8px;
+  margin-bottom: 3px;
+}
+
+.dp-tooltip-detail {
+  color: rgba(255,255,255,0.8);
+}
+
+.dp-tooltip-reuse {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--teallt);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px;
+}
+
+/* ── CROSS-DOMAIN SECTION ── */
+.dp-crossdomain {
+  margin: 8px 24px 0;
+  background: #2C5F54;
+  border-radius: 7px;
+  padding: 12px 18px;
+}
+
+.dp-cd-top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.dp-cd-headline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teallt);
+  white-space: nowrap;
+}
+
+.dp-cd-subtext {
+  font-size: 9px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+}
+
+.dp-cd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.dp-cd-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+.dp-cd-card-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.dp-cd-card-used {
+  font-size: 9px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.dp-cd-card-expands {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: var(--amberbd);
+  letter-spacing: 0.3px;
+}
+
+/* ── FOOTER ── */
+.dp-footer {
+  padding: 6px 24px 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dp-pagenum {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: rgba(0,0,0,0.15);
+}

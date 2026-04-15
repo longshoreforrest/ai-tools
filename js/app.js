@@ -7,6 +7,12 @@ import { renderFunctionalityMatrix } from './views/functionalityMatrix.js';
 import { renderAgentArchitecture } from './views/agentArchitecture.js';
 import { renderRadarChart, buildComparisonScores, computeFunctionalityScores, wireRadarInteractions, wireRadarDimensionToggle } from './views/radarChart.js';
 import { renderComplianceCosts } from './views/complianceCosts.js';
+import { renderPhasingRoadmap } from './views/phasingRoadmap.js';
+import { renderDetailedPhasing } from './views/detailedPhasing.js';
+import { renderArchitectureOverview } from './views/architectureOverview.js';
+import { renderKpiFramework } from './views/kpiFramework.js';
+import { renderFactoryGantt } from './views/factoryGantt.js';
+import { renderFactoryArchitecture } from './views/factoryArchitecture.js';
 import { exportSlideToPptx } from './utils/exportPptx.js';
 import { exportToolComparisonToExcel, exportFunctionalityMatrixToExcel, exportComplianceCostsToExcel } from './utils/exportExcel.js';
 
@@ -20,6 +26,12 @@ const TABS = [
   { id: 'sparring-agent',       label: 'Sparring Agent',      cssFile: 'css/agent-slide.css',           hasToolFilter: false },
   { id: 'builder-agent',        label: 'Builder Agent',       cssFile: 'css/agent-slide.css',           hasToolFilter: false },
   { id: 'quality-agent',        label: 'Quality Agent',       cssFile: 'css/agent-slide.css',           hasToolFilter: false },
+  { id: 'architecture',          label: 'Architecture',        cssFile: 'css/architecture.css',          hasToolFilter: false },
+  { id: 'phasing',              label: 'Phasing',             cssFile: 'css/phasing.css',               hasToolFilter: false },
+  { id: 'detailed-phasing',    label: 'Detailed Plan',       cssFile: 'css/detailed-phasing.css',      hasToolFilter: false },
+  { id: 'kpi-framework',       label: 'KPIs',               cssFile: 'css/kpi-framework.css',         hasToolFilter: false },
+  { id: 'factory-gantt',       label: 'Factory Gantt',      cssFile: 'css/factory-gantt.css',         hasToolFilter: false },
+  { id: 'factory-arch',        label: 'Factory Arch',       cssFile: 'css/factory-architecture.css',  hasToolFilter: false },
 ];
 
 /** Simple fetch-and-cache store keyed by URL path. */
@@ -94,7 +106,7 @@ function switchCSS(cssFile) {
     link.rel = 'stylesheet';
     document.head.appendChild(link);
   }
-  link.href = cssFile;
+  link.href = cssFile + '?v=' + Date.now();
 }
 
 /* ────────────────────────────────────────────
@@ -357,6 +369,30 @@ async function renderCurrentView() {
       } else {
         app.innerHTML = renderComplianceCosts(tools, dimensions, compliance, links);
       }
+
+    } else if (activeTabId === 'architecture') {
+      const data = await loadJSON('data/architecture.json');
+      app.innerHTML = renderArchitectureOverview(data);
+
+    } else if (activeTabId === 'phasing') {
+      const data = await loadJSON('data/phasing.json');
+      app.innerHTML = renderPhasingRoadmap(data);
+
+    } else if (activeTabId === 'detailed-phasing') {
+      const data = await loadJSON('data/detailed-phasing.json');
+      app.innerHTML = renderDetailedPhasing(data);
+
+    } else if (activeTabId === 'kpi-framework') {
+      const data = await loadJSON('data/kpi-framework.json');
+      app.innerHTML = renderKpiFramework(data);
+
+    } else if (activeTabId === 'factory-gantt') {
+      const data = await loadJSON('data/factory-gantt.json');
+      app.innerHTML = renderFactoryGantt(data);
+
+    } else if (activeTabId === 'factory-arch') {
+      const data = await loadJSON('data/factory-architecture.json');
+      app.innerHTML = renderFactoryArchitecture(data);
 
     } else {
       const agentFile = activeTabId.replace('-agent', '');

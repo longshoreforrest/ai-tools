@@ -1,0 +1,338 @@
+{
+  "title": "AI-Powered SDLC Factory — Platform Architecture",
+  "subtitle": "3 development tracks (Cloud/Web, SAP, Salesforce) · Shared Factory workflow · Same gates, knowledge, and quality across all tracks",
+  "strategyNote": "Factory principle: stages IDEA through DEPLOY are shared. Only BUILD + unit TEST diverge per track. Everything routes through the AI Gateway and Knowledge Hub.",
+
+  "layers": [
+    {
+      "id": "control-plane",
+      "name": "UPM AI CoE Control Plane",
+      "color": "indigo",
+      "description": "Centralized governance, routing, and policy enforcement",
+      "components": [
+        {
+          "name": "AI Gateway",
+          "detail": "Azure API Management — centralized LLM routing, rate limiting, cost attribution per track",
+          "icon": "🔒",
+          "highlight": true
+        },
+        {
+          "name": "Responsible AI Policies",
+          "detail": "Content safety filters, PII detection, output audit logging",
+          "icon": "🛡️"
+        },
+        {
+          "name": "Agent Registry",
+          "detail": "A2A agent cards — discovery, versioning, capability metadata for all Factory agents",
+          "icon": "📋"
+        },
+        {
+          "name": "Gate Approvals (G1–G4)",
+          "detail": "Human-in-the-loop sign-off gates — same gates for all 3 tracks",
+          "icon": "✅"
+        }
+      ]
+    },
+    {
+      "id": "orchestration",
+      "name": "Factory Orchestration Layer",
+      "color": "blue",
+      "description": "MS Agent Framework coordinates Factory workflow stages and cross-track handoffs",
+      "components": [
+        {
+          "name": "Coordinator Agent",
+          "detail": "Routes requests through Factory stages, manages multi-step workflows across tracks",
+          "icon": "🎯",
+          "highlight": true
+        },
+        {
+          "name": "MS Agent Framework",
+          "detail": "Agent lifecycle, A2A communication protocol, state management",
+          "icon": "⚙️"
+        },
+        {
+          "name": "Azure Service Bus",
+          "detail": "Async event routing between Factory stages, dead-letter handling",
+          "icon": "📨"
+        },
+        {
+          "name": "Durable Functions",
+          "detail": "Long-wait orchestrations (HITL gates, batch processing, cross-track sync)",
+          "icon": "⏳"
+        }
+      ]
+    },
+    {
+      "id": "workflow",
+      "name": "Factory Workflow Stages",
+      "color": "green",
+      "description": "7 stages — shared across all tracks except BUILD code generation",
+      "workflowLayout": true,
+      "stages": [
+        {
+          "id": "idea",
+          "name": "IDEA",
+          "icon": "💡",
+          "agents": ["Knowledge Intelligence Agent", "Doc Curator Agent"],
+          "shared": true
+        },
+        {
+          "id": "structure",
+          "name": "STRUCTURE",
+          "icon": "📐",
+          "agents": ["Business-to-Tech Spec Agent", "Feature Requirement Agent", "Project Structure Agent"],
+          "shared": true
+        },
+        {
+          "id": "review",
+          "name": "REVIEW",
+          "icon": "⚔️",
+          "agents": ["Architecture Sparring Agent", "MS Arch Review Agent", "Risk Assessment Agent"],
+          "shared": true
+        },
+        {
+          "id": "build",
+          "name": "BUILD",
+          "icon": "🛠️",
+          "agents": ["Per-track code generation"],
+          "shared": false,
+          "highlight": true
+        },
+        {
+          "id": "test",
+          "name": "TEST",
+          "icon": "✅",
+          "agents": ["Playwright E2E (all tracks)", "AI Test Gen Agent", "Quality Spec Agent"],
+          "shared": true
+        },
+        {
+          "id": "deploy",
+          "name": "DEPLOY",
+          "icon": "🚀",
+          "agents": ["Quality Gates Agent", "G1–G4 Gate Checks"],
+          "shared": true
+        },
+        {
+          "id": "learn",
+          "name": "LEARN",
+          "icon": "🧠",
+          "agents": ["Knowledge Feedback Agent", "Efficiency Data Collection"],
+          "shared": true
+        }
+      ]
+    },
+    {
+      "id": "build-tracks",
+      "name": "BUILD Stage — 3 Development Tracks",
+      "color": "green",
+      "description": "Same Factory workflow, different code generation tools per track",
+      "tracksLayout": true,
+      "tracks": [
+        {
+          "id": "cloud",
+          "name": "☁️ Cloud / Web",
+          "color": "#389880",
+          "tools": [
+            { "name": "GitHub Copilot Agent Mode", "detail": "Spec-to-code, multi-file edits, PR creation" },
+            { "name": "CodeRabbit", "detail": "AI-powered PR review on every commit" },
+            { "name": "Semgrep OSS", "detail": "License compliance, vulnerability scanning" },
+            { "name": "Builder Orchestration Agent", "detail": "Coordinates Copilot, review, gates" }
+          ]
+        },
+        {
+          "id": "sap",
+          "name": "🔶 SAP",
+          "color": "#D4812A",
+          "tools": [
+            { "name": "SAP Joule + Build Code", "detail": "ABAP Cloud, RAP, CDS views, Fiori Elements" },
+            { "name": "Joule Studio Code Review", "detail": "Custom review skills with UPM ABAP standards" },
+            { "name": "ATC Compliance Scan", "detail": "Clean core, deprecated API detection, migration readiness" },
+            { "name": "SAP ABAP Unit", "detail": "Unit test generation via Joule" },
+            { "name": "Fiori Playwright Config", "detail": "Page objects + OData mocking for Fiori E2E" }
+          ]
+        },
+        {
+          "id": "sf",
+          "name": "🔷 Salesforce",
+          "color": "#3B8CB5",
+          "tools": [
+            { "name": "Einstein for Developers", "detail": "Apex, LWC, Flow, SOQL generation" },
+            { "name": "ApexGuru Code Review", "detail": "Performance analysis, anti-pattern detection, governor limits" },
+            { "name": "Agentforce", "detail": "Org-specific metadata awareness, MCP client" },
+            { "name": "DevOps Center", "detail": "Visual pipelines, GitHub integration, release management" },
+            { "name": "Apex + LWC Test Config", "detail": "75% coverage, Jest for LWC, Playwright for Lightning" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "name": "Knowledge Hub (Shared RAG Backbone)",
+      "color": "orange",
+      "description": "Central brain of the Factory — write once, read by all stages and tracks",
+      "components": [
+        {
+          "name": "Azure AI Search",
+          "detail": "Vector store — Confluence, SharePoint, Solman, architecture catalog, project history, SAP custom code catalog + SAP Notes, SF org metadata + Apex docs",
+          "icon": "🔍",
+          "highlight": true
+        },
+        {
+          "name": "Redis Cache",
+          "detail": "Hot-path caching — 30–50% hit rate for repeated queries across tracks",
+          "icon": "⚡"
+        },
+        {
+          "name": "Blob Storage",
+          "detail": "Source documents, embeddings, versioned snapshots, SAP/SF documentation",
+          "icon": "📁"
+        },
+        {
+          "name": "Knowledge Curator",
+          "detail": "Freshness scoring, gap detection, auto-update from LEARN stage feedback",
+          "icon": "🧠"
+        }
+      ],
+      "dataFlow": "All stages READ → Cache → miss → AI Search · LEARN stage WRITE → Service Bus → Ingest"
+    },
+    {
+      "id": "test-backbone",
+      "name": "Test Backbone (Playwright + AI)",
+      "color": "green",
+      "description": "Universal test execution — SAP Fiori, SF Lightning, and Cloud apps are all web-based",
+      "components": [
+        {
+          "name": "Playwright E2E Framework",
+          "detail": "Cross-browser, cross-track — one framework tests Fiori, Lightning, and Cloud UIs",
+          "icon": "🎭",
+          "highlight": true
+        },
+        {
+          "name": "AI Test Generation Agent",
+          "detail": "Reads acceptance criteria → generates Playwright scripts for any web UI",
+          "icon": "🤖"
+        },
+        {
+          "name": "Quality Spec Agent",
+          "detail": "TDD contract generation from approved specs, dual-phase validation",
+          "icon": "📝"
+        },
+        {
+          "name": "Test Report & Dashboards",
+          "detail": "Coverage, defect severity, release readiness — aggregated across all 3 tracks",
+          "icon": "📊"
+        }
+      ]
+    },
+    {
+      "id": "integration",
+      "name": "Integration Layer",
+      "color": "purple",
+      "description": "Shared MCP connector library — built once, used by all Factory stages and tracks",
+      "tiers": [
+        {
+          "tier": 1,
+          "protocol": "MCP",
+          "label": "MCP Connectors (real-time, bidirectional)",
+          "systems": [
+            { "name": "Confluence", "usedBy": "IDEA, STRUCTURE, REVIEW" },
+            { "name": "Jira", "usedBy": "STRUCTURE, BUILD, TEST" },
+            { "name": "ServiceNow", "usedBy": "STRUCTURE" },
+            { "name": "GitHub", "usedBy": "BUILD (Cloud), TEST" },
+            { "name": "Azure DevOps", "usedBy": "BUILD, TEST, DEPLOY" }
+          ]
+        },
+        {
+          "tier": 2,
+          "protocol": "REST",
+          "label": "REST APIs (standard integration)",
+          "systems": [
+            { "name": "SharePoint", "usedBy": "IDEA, STRUCTURE" },
+            { "name": "MS Teams", "usedBy": "STRUCTURE" },
+            { "name": "SonarQube", "usedBy": "BUILD (Cloud)" },
+            { "name": "CodeRabbit", "usedBy": "BUILD (Cloud)" },
+            { "name": "Semgrep", "usedBy": "BUILD (Cloud)" }
+          ]
+        },
+        {
+          "tier": 3,
+          "protocol": "A2A Bridge",
+          "label": "Platform Bridges (governed via A2A Governance Bridges)",
+          "systems": [
+            { "name": "SAP Joule", "usedBy": "BUILD (SAP), TEST (SAP) — via A2A Governance Bridge + Integration Suite MCP Gateway" },
+            { "name": "SF Agentforce", "usedBy": "BUILD (SF), TEST (SF) — via A2A Governance Bridge + Agentforce MCP Client" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "observability",
+      "name": "Observability & Audit",
+      "color": "red",
+      "description": "Full OpenTelemetry trace pipeline — cost attribution per track, compliance audit",
+      "components": [
+        {
+          "name": "OpenTelemetry SDK",
+          "detail": "Structured traces from every Factory agent invocation, tagged by track",
+          "icon": "📊"
+        },
+        {
+          "name": "Azure Monitor",
+          "detail": "Centralized log aggregation, alerting, per-track dashboards",
+          "icon": "📟"
+        },
+        {
+          "name": "Application Insights",
+          "detail": "Performance tracking, dependency mapping, anomaly detection",
+          "icon": "🔬"
+        },
+        {
+          "name": "Factory Dashboards",
+          "detail": "Cost per stage, token usage per track, quality scores, SLA compliance",
+          "icon": "📈"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure (Azure)",
+      "color": "grey",
+      "description": "Terraform IaC — repeatable, auditable, Azure DevOps CI/CD for all 3 tracks",
+      "components": [
+        {
+          "name": "Terraform IaC",
+          "detail": "All infra as code — Container Apps, AI Search, Functions, Service Bus",
+          "icon": "🏗️"
+        },
+        {
+          "name": "Key Vault",
+          "detail": "Secrets, certificates, API keys — Managed Identity access only",
+          "icon": "🔑"
+        },
+        {
+          "name": "Entra ID",
+          "detail": "Role-based access per track, Managed Identity for service-to-service auth",
+          "icon": "👤"
+        },
+        {
+          "name": "VNet + Private Endpoints",
+          "detail": "Network isolation, no public endpoints for backend services",
+          "icon": "🔐"
+        }
+      ]
+    }
+  ],
+
+  "guardrails": [
+    "No human sign-off = no publish / merge / deploy (any track)",
+    "All AI output logged via OpenTelemetry — tagged by track and stage",
+    "Same quality gates (G1–G4) for Cloud, SAP, and Salesforce",
+    "LLM access only through AI Gateway (no direct calls from any track)",
+    "Playwright E2E for all web UIs (Fiori, Lightning, Cloud apps)",
+    "SAP Joule and SF Agentforce via A2A Bridge — governed, not bypassed",
+    "New agents require AI CoE Architecture Review before production",
+    "Knowledge Hub is single source of truth — all tracks read and write"
+  ],
+
+  "pageNum": "F2 / F2"
+}

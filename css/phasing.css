@@ -1,0 +1,509 @@
+/* ================================================================
+   phasing.css — Implementation Phasing Roadmap slide styles
+   ================================================================ */
+
+/* ── SLIDE SHELL ── */
+.phasing-slide {
+  width: 1480px;
+  background: var(--sand);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 56px rgba(0,0,0,0.26);
+  position: relative;
+  font-family: 'Sora', sans-serif;
+}
+
+/* Top accent stripe (same as agent slides) */
+.phasing-slide::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--teal2) 0%, var(--navy) 50%, var(--amberbd) 100%);
+  z-index: 10;
+}
+
+/* ── GOAL BANNER ── */
+.goal-banner {
+  background: var(--navy);
+  padding: 22px 28px 18px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative glow */
+.goal-banner::after {
+  content: '';
+  position: absolute; top: -60px; right: -40px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(56,152,128,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.goal-text {
+  flex: 1;
+}
+
+.goal-headline {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.goal-subtext {
+  font-size: 8.5px;
+  color: rgba(255,255,255,0.40);
+  line-height: 1.65;
+  max-width: 720px;
+}
+
+.goal-metrics {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.metric-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 12px 20px;
+  text-align: center;
+  min-width: 110px;
+}
+
+.metric-card.speed {
+  border-color: rgba(56,152,128,0.3);
+}
+.metric-card.cost {
+  border-color: rgba(232,168,58,0.3);
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.metric-card.speed .metric-value { color: var(--teal2); }
+.metric-card.cost .metric-value { color: var(--amberbd); }
+
+.metric-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ── BODY ── */
+.phasing-body {
+  padding: 14px 20px 10px;
+}
+
+/* ── STAGE HEADERS ── */
+.stage-headers {
+  display: grid;
+  grid-template-columns: 160px repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.stage-hdr-spacer {
+  /* Empty first column to align with capability labels */
+}
+
+.stage-hdr {
+  border-radius: 7px;
+  padding: 10px 14px;
+  position: relative;
+}
+
+.stage-hdr.teal  { background: rgba(56,152,128,0.08); border: 1px solid rgba(56,152,128,0.18); }
+.stage-hdr.navy  { background: rgba(28,43,58,0.06);   border: 1px solid rgba(28,43,58,0.14); }
+.stage-hdr.amber { background: rgba(232,168,58,0.07); border: 1px solid rgba(232,168,58,0.18); }
+
+.stage-hdr-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.stage-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800;
+  flex-shrink: 0;
+}
+.stage-hdr.teal  .stage-num { background: var(--teal2); color: #fff; }
+.stage-hdr.navy  .stage-num { background: var(--navy);  color: #fff; }
+.stage-hdr.amber .stage-num { background: var(--amberbd); color: #fff; }
+
+.stage-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.stage-timeline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 2px 7px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.stage-hdr.teal  .stage-timeline { background: rgba(56,152,128,0.12); color: var(--teal); }
+.stage-hdr.navy  .stage-timeline { background: rgba(28,43,58,0.08);   color: var(--navy2); }
+.stage-hdr.amber .stage-timeline { background: rgba(232,168,58,0.12); color: var(--amber); }
+
+.stage-desc {
+  font-size: 7.5px;
+  color: var(--grey);
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.stage-contribution {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.stage-hdr.teal  .stage-contribution { color: var(--teal); }
+.stage-hdr.navy  .stage-contribution { color: var(--navy2); }
+.stage-hdr.amber .stage-contribution { color: var(--amber); }
+
+/* Flow arrows between stage headers */
+.stage-arrow {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 14px; height: 14px;
+}
+
+/* ── CAPABILITY MATRIX ── */
+.cap-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cap-row {
+  display: grid;
+  grid-template-columns: 160px repeat(3, 1fr);
+  gap: 6px;
+  min-height: 0;
+}
+
+.cap-row:nth-child(even) .stage-cell {
+  background: rgba(244,241,234,0.5);
+}
+
+/* ── CAPABILITY LABEL ── */
+.cap-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--navy);
+  position: relative;
+}
+
+.cap-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.20);
+  margin-bottom: 3px;
+}
+
+.cap-name {
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+.cap-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 2px 6px;
+  width: fit-content;
+}
+.cap-role.biz  { background: rgba(122,92,58,0.15); color: rgba(255,255,255,0.5); border: 1px solid rgba(122,92,58,0.25); }
+.cap-role.tech { background: rgba(42,74,106,0.15); color: rgba(255,255,255,0.5); border: 1px solid rgba(42,74,106,0.25); }
+
+/* ── STAGE CELL ── */
+.stage-cell {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 9px 11px;
+  position: relative;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.stage-cell:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+/* Left border by stage */
+.stage-cell.teal  { border-left: 3px solid var(--teal2); }
+.stage-cell.navy  { border-left: 3px solid var(--navy); }
+.stage-cell.amber { border-left: 3px solid var(--amberbd); }
+
+/* Summary */
+.cell-summary {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 5px;
+}
+
+/* Tool chips */
+.cell-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-bottom: 5px;
+}
+
+.cell-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 1.5px 6px;
+  white-space: nowrap;
+}
+.stage-cell.teal  .cell-chip { background: var(--skill-bg); color: var(--teal);  border: 1px solid var(--skill-bd); }
+.stage-cell.navy  .cell-chip { background: var(--navylt);   color: var(--navy);  border: 1px solid var(--agent-bd); }
+.stage-cell.amber .cell-chip { background: var(--tmpl-bg);  color: var(--amber); border: 1px solid var(--tmpl-bd); }
+
+/* Details (hover-expandable) */
+.cell-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.stage-cell:hover .cell-details {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.cell-detail {
+  font-size: 7.5px;
+  color: var(--text2);
+  line-height: 1.45;
+  padding-left: 9px;
+  position: relative;
+  margin-bottom: 2px;
+}
+.cell-detail::before {
+  content: '\00B7';
+  position: absolute; left: 0;
+  color: var(--teal2);
+  font-size: 13px; font-weight: 700;
+  line-height: 0.8; top: 2px;
+}
+
+/* Asset built tag */
+.cell-asset {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(221,212,198,0.5);
+}
+
+.asset-icon {
+  font-size: 8px;
+  flex-shrink: 0;
+}
+
+.asset-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px;
+  color: var(--grey);
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+/* ── SIILI READY BADGE ── */
+.siili-badge {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.siili-badge.ready   { background: rgba(43,127,110,0.15); color: var(--teal); border: 1px solid rgba(43,127,110,0.3); }
+.siili-badge.partial { background: rgba(232,168,58,0.12); color: var(--amber); border: 1px solid rgba(232,168,58,0.25); }
+.siili-badge.build   { background: rgba(221,212,198,0.35); color: var(--grey); border: 1px solid rgba(221,212,198,0.6); }
+
+/* ── SIILI LEGEND ── */
+.siili-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 0 2px;
+  justify-content: flex-end;
+}
+
+.siili-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.siili-legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6px;
+  font-weight: 800;
+}
+.siili-legend-dot.ready   { background: rgba(43,127,110,0.15); color: var(--teal); border: 1px solid rgba(43,127,110,0.3); }
+.siili-legend-dot.partial { background: rgba(232,168,58,0.12); color: var(--amber); border: 1px solid rgba(232,168,58,0.25); }
+.siili-legend-dot.build   { background: rgba(221,212,198,0.35); color: var(--grey); border: 1px solid rgba(221,212,198,0.6); }
+
+.siili-legend-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px;
+  letter-spacing: 0.5px;
+  color: var(--grey);
+}
+
+/* ── PORTABILITY STRIP ── */
+.portability-strip {
+  background: #2C5F54;
+  margin: 8px 20px 0;
+  border-radius: 7px;
+  padding: 12px 18px;
+}
+
+.port-top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.port-headline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teallt);
+  white-space: nowrap;
+}
+
+.port-subtext {
+  font-size: 8px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.4;
+}
+
+.port-assets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.port-asset {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 5px;
+  padding: 8px 10px;
+  position: relative;
+}
+
+/* Flow arrow between asset cards */
+.port-asset:not(:last-child)::after {
+  content: '\2192';
+  position: absolute;
+  right: -11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.2);
+  font-size: 12px;
+  z-index: 2;
+}
+
+.port-asset-icon {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.port-asset-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  color: var(--teallt);
+  margin-bottom: 3px;
+}
+
+.port-asset-detail {
+  font-size: 7px;
+  color: rgba(255,255,255,0.40);
+  line-height: 1.45;
+}
+
+/* ── FOOTER ── */
+.phasing-footer {
+  padding: 8px 20px 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.phasing-pagenum {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: rgba(0,0,0,0.15);
+}
+
+/* ── MATURITY ARROW (between stage headers) ── */
+.maturity-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.maturity-arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--tan2);
+  stroke-width: 1.5;
+}
